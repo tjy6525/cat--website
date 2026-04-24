@@ -110,13 +110,18 @@
             position: absolute;
             background: white;
             min-width: 200px;
+
+            max-height: 300px;   /* 🔥 控制高度 */
+            overflow-y: auto;    /* 🔥 允许滚动 */
+
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             border-radius: 6px;
-            overflow: hidden;
 
             top: 100%;   /* 🔥 关键！不要用 40px */
             left: 0;
-            z-index: 9999;
+            z-index: 99999;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
         }
 
         /* dropdown links */
