@@ -96,6 +96,9 @@
             margin: 15px;
             text-decoration: none;
             font-weight: bold;
+
+            padding: 5px 10px;   /* ✅ 固定 padding */
+            border-radius: 5px;
         }
 
         /* dropdown container */
@@ -117,19 +120,23 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             border-radius: 6px;
 
-            top: 100%;   /* 🔥 关键！不要用 40px */
+            top: calc(100% - 2px);   /* 🔥 核心：消除 hover 缝隙 */
             left: 0;
             z-index: 99999;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
+            padding: 5px 0;          /* ✅ 用 padding 不用 margin */
         }
 
         /* dropdown links */
         .dropdown-content a {
             color: #333;
-            padding: 12px;
+            padding: 10px 15px;
             display: block;
             text-align: left;
+
+            margin: 0;          /* 🔥 防止有间距 */
+            line-height: 1.4;   /* 🔥 紧密排列 */
         }
 
         .dropdown-content a:hover {
@@ -361,9 +368,6 @@
 
         nav a:hover {
             background: #5a6f82;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: 0.3s;
         }
         
         .highlight {
