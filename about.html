@@ -96,17 +96,20 @@
             margin: 15px;
             text-decoration: none;
             font-weight: bold;
+
+            padding: 5px 10px;   /* ✅ 固定 padding */
+            border-radius: 5px;
         }
 
         /* dropdown container */
         .dropdown {
             position: relative;
             display: inline-block;
+            padding-bottom: 5px;    /* 👈 增加 hover 区域 */
         }
 
         /* dropdown menu */
         .dropdown-content {
-            display: none;
             position: absolute;
             background: white;
             min-width: 200px;
@@ -114,27 +117,66 @@
             max-height: 300px;   /* 🔥 控制高度 */
             overflow-y: auto;    /* 🔥 允许滚动 */
 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            border-radius: 6px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+            border-radius: 8px;
 
-            top: 100%;   /* 🔥 关键！不要用 40px */
+            top: 100%;
+            margin-top: 0px;
             left: 0;
+
+            padding: 5px 0;
+
+            opacity: 0;
+            transform: translateY(6px) scale(0.98);
+            visibility: hidden;
+
+            transition: 
+            opacity 0.25s ease,
+            transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+
             z-index: 99999;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
         }
 
         /* dropdown links */
         .dropdown-content a {
             color: #333;
-            padding: 12px;
+            padding: 10px 15px;
             display: block;
             text-align: left;
+
+            margin: 0;          /* 🔥 防止有间距 */
+            line-height: 1.4;   /* 🔥 紧密排列 */
+
+            /* 🔥 动画基础 */
+            transition: 
+                transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+                background 0.2s ease,
+                padding-left 0.25s ease;
+
+            position: relative;
+        }
+
+        /* 📱 MOBILE：轻微 hover（舒服版） */
+        @media (max-width: 768px) {
+
+        .dropdown-content a {
+            transition: background 0.2s ease !important;
         }
 
         .dropdown-content a:hover {
-            background: rgba(255,255,255,0.08);
-            transition: background 0.2s ease;
+            background: rgba(255,255,255,0.08) !important; /* ⭐ 轻微亮 */
+            transform: none !important;
+            padding-left: 25px !important;
+        }
+        }
+
+        /* 💻 只给电脑用 */
+        @media (min-width: 769px) {
+        .dropdown-content a:hover {
+            background: #f2f4f7;
+            transform: translateY(-3px);
+            padding-left: 20px;
+            }
         }
 
         section {
@@ -312,28 +354,6 @@
             border-radius: 10px;
         }
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-
-            background: rgba(0,0,0,0.5);
-
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .card:hover .overlay {
-            opacity: 1;
-        }
-
         .card:hover img {
             transform: scale(1.03);
         }
@@ -355,11 +375,6 @@
             line-height: 1.6;
         }
 
-        .card p {
-            max-width: 700px;
-            margin: 10px auto;
-        }
-
         .list {
             max-width: 800px;
             margin: auto;
@@ -378,11 +393,11 @@
             border-radius: 5px;
         }
 
+        /* 💻 only desktop hover */
+        @media (min-width: 769px) {
         nav a:hover {
             background: #5a6f82;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: 0.3s;
+        }
         }
         
         .highlight {
@@ -405,7 +420,7 @@
         }
 
         .container {
-            max-width: 1200px;   /* 🔥 让整体更宽 */
+            max-width: 1200px;
             margin: 40px auto;   /* 🔥 加上下间距 */
             padding: 40px 20px;
         }
@@ -430,7 +445,9 @@
             background: white;
             padding: 25px;
             margin: 25px auto;
+
             border-radius: 12px;
+
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 
             overflow: hidden;
@@ -438,58 +455,64 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            
-            /* 🔥 动画关键 */ 
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
             border: 1px solid rgba(0,0,0,0.05);
+
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        /* 🔥 About layout 修复 */
         .who-layout {
             display: flex;
-            flex-direction: column;   /* 🔥 关键！！改这里 */
+            flex-direction: column;
             align-items: center;
             gap: 20px;
         }
 
         .who-img {
-            flex: 1;
-            text-align: center;   /* 🔥 让图片更稳居中 */
             width: 100%;
-        }   
+            text-align: center;
+        }
 
         .who-img img {
-            width: 100%;          /* 🔥 直接吃满卡片 */
-            height: 220px;       /* 🔥 变扁一点（像你给的图） */
-
+            width: 100%;
+            height: 220px;
             object-fit: cover;
             border-radius: 10px;
 
             display: block;
-            margin: 0 auto;      /* 🔥 居中 */
+            margin: 0 auto;
         }
 
         .who-text {
-            flex: 1.2;
             text-align: left;
-            padding-right: 10px;   /* 🔥 防止贴边 */
+            padding-right: 10px;
         }
 
-        .card h2 {
-            margin-bottom: 10px;
-        }   
+        /* CEO 卡片 */
+        .ceo-card {
+            text-align: center;
+            max-width: 400px;
+            margin: 40px auto;
 
-        .card p {
-            margin-bottom: 10px;
+            background: white;
+            padding: 25px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
         }
 
-        .card ul {
-            text-align: left;
-            max-width: 600px;
-            margin: 15px auto;
-        }
+        .ceo-img {
+            width: 120px;
+            height: 120px;
 
-        .card ul li {
-            margin-bottom: 8px;
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            margin: 20px auto;
+            display: block;
         }
 
         .clickable-card {
@@ -517,6 +540,14 @@
             padding: 0 20px;
         }
 
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            margin: 10px 0;
+            color: #2c3e50;
+        }
+
         .card-center {
             max-width: 700px;
             margin: 0 auto;
@@ -538,47 +569,13 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
-
-        .ceo-card {
-            text-align: center;
-            max-width: 400px;
-            margin: 40px auto;
-
-            background: white;
-            padding: 25px;
-
-            border-radius: 12px;
-
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-        }
-
-        .ceo-img {
-            width: 120px;        /* 👉 控制大小 */
-            height: 120px;
-
-            object-fit: cover;
-
-            border-radius: 50%;  /* 👉 CEO 标准头像 */
-
-            margin: 20px auto;
-            display: block;
-
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-
-        .ceo-card h3 {
-            margin-top: 10px;
-        }
-
-        .ceo-card .role {
-            color: #777;
-            margin-bottom: 10px;
-        }
         
         /* 💻 电脑 */
         @media (min-width: 769px) {
             .dropdown:hover .dropdown-content {
-                display: block;
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                visibility: visible;
             }
         }
         
@@ -688,6 +685,10 @@
             display: none;
             width: 100%;
             background: #2c3e50;
+
+            opacity: 1;
+            visibility: visible;
+            transform: none;
         }
 
         .dropdown.active .dropdown-content {
