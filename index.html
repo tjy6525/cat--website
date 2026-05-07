@@ -292,13 +292,24 @@
             align-self: flex-start;      /* 👉 靠左 */
 
             transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .card .btn {
+            margin: 20px auto 0;   /* 🔥 居中 + 下间距 */
+            display: block;
         }
 
         .btn:hover {
             background: #e67e22;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }  
+        }
+
+        .hero-content .btn {
+            margin: 10px 15px;
+        }
         
         .btn:active {
             transform: translateY(0px);
@@ -360,28 +371,6 @@
             position: relative;
             overflow: hidden;
             border-radius: 10px;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-
-            background: rgba(0,0,0,0.5);
-
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .card:hover .overlay {
-            opacity: 1;
         }
 
         .card:hover img {
@@ -918,11 +907,11 @@
 
         <div class="card-image">
             <img src="images/Semiconductor Solutions.jpg">
-
-            <div class="overlay">
-                <h3>Semiconductor Solutions</h3>
-            </div>
         </div>
+
+        <h3 class="card-title">
+            Semiconductor Solutions
+        </h3>
 
         <p>
             Advanced inspection, test, and automation systems for semiconductor manufacturing.
@@ -936,10 +925,11 @@
 
         <div class="card-image">
             <img src="images/healthcare-automation.webp">
-            <div class="overlay">
-                <h3>Healthcare Automation</h3>
-            </div>
         </div>
+            
+        <h3 class="card-title">
+            Healthcare Automation
+        </h3>
 
         <p>
             Digital healthcare ecosystem powered by Healthcare Automation Technology.
@@ -956,10 +946,11 @@
 
         <div class="card-image">
             <img src="images/Training & Development.jpg">
-            <div class="overlay">
-                <h3>Training & Development</h3>
-            </div>
         </div>
+            
+        <h3 class="card-title">
+            Training & Development
+        </h3>
 
         <p>
             Industry-driven semiconductor training and development programs.

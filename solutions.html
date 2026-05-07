@@ -289,9 +289,16 @@
 
             /* 🔥 关键 */
             width: fit-content;          /* 👉 不再拉满 */
-            align-self: flex-start;      /* 👉 靠左 */
+            align-self: center;      /* 👉 中间 */
 
             transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .card .btn {
+            margin: 20px auto 0;   /* 🔥 居中 + 下间距 */
+            display: block;
         }
 
         .btn:hover {
@@ -745,6 +752,36 @@
             font-weight: 600;
             color: #555;
         }
+        
+        .solution-list {
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: left;
+            line-height: 1.8;
+            list-style: none;
+        }
+
+        .solution-list i {
+            color: #f39c12;
+            margin-right: 10px;
+            opacity: 0.8;
+        }
+        
+        .solution-list li {
+            display: flex;
+            align-items: center;
+        }
+
+        .solution-list li:hover i {
+            opacity: 1;
+        }
+
+        .card.section-light,
+        .card.section-grey {
+            max-width: 900px;
+            margin: 40px auto;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -838,66 +875,69 @@
 </nav>
 
 <section class="container">
-    <div class="card">
+    <!-- 🔥 SEMICONDUCTOR -->
+<div class="card section-light" id="semiconductor">
+    <h2>Semiconductor Solutions</h2>
 
-        <!-- SEMICONDUCTOR -->
-        <h2 id="semiconductor">Semiconductor Solutions</h2>
-        <p>
-            We provide end-to-end solutions across semiconductor manufacturing:
-        </p>
+    <p>We provide end-to-end solutions across semiconductor manufacturing:</p>
 
-        <ul>
-            <li>Automated Optical Inspection (AOI)</li>
-            <li>Wafer Inspection Systems</li>
-            <li>Test Handlers & Automation</li>
-            <li>Post-Seal Inspection</li>
-            <li>Tape & Reel Systems</li>
-            <li>Device Programming</li>
-        </ul>
+    <ul class="solution-list">
+        <li><i class="fa-solid fa-eye"></i> Automated Optical Inspection (AOI)</li>
+        <li><i class="fa-solid fa-microchip"></i> Wafer Inspection Systems</li>
+        <li><i class="fa-solid fa-robot"></i> Test Handlers & Automation</li>
+        <li><i class="fa-solid fa-magnifying-glass"></i> Post-Seal Inspection</li>
+        <li><i class="fa-solid fa-box"></i> Tape & Reel Systems</li>
+        <li><i class="fa-solid fa-code"></i> Device Programming</li>
+    </ul>
+</div>
 
-        <!-- HEALTHCARE -->
-        <h2 id="healthcare">Healthcare Automation</h2>
+<!-- 🔥 HEALTHCARE -->
+<div class="card section-grey" id="healthcare">
+    <h2>Healthcare Automation</h2>
 
-        <p>
-            Through 
-            <a href="#http://hatsb.com/" target="_blank">Healthcare Automation Technology Sdn Bhd</a>
-        </p>
+    <p>
+        Through 
+        <a href="http://hatsb.com/" target="_blank">
+            Healthcare Automation Technology Sdn Bhd
+        </a>
+    </p>
 
-        <p>
-            We are building a next-generation healthcare ecosystem:
-        </p>
+    <p>We are building a next-generation healthcare ecosystem:</p>
 
-        <ul>
-            <li>SARA Digital Health Platform</li>
-            <li>Medical IoT Device Integration</li>
-            <li>Remote Patient Monitoring</li>
-            <li>Home Care Enablement</li>
-        </ul>
+    <ul class="solution-list">
+        <li><i class="fa-solid fa-heart-pulse"></i> SARA Digital Health Platform</li>
+        <li><i class="fa-solid fa-wifi"></i> Medical IoT Device Integration</li>
+        <li><i class="fa-solid fa-user-doctor"></i> Remote Patient Monitoring</li>
+        <li><i class="fa-solid fa-house-medical"></i> Home Care Enablement</li>
+    </ul>
 
-        <a href="#http://hatsb.com/" class="btn" target="_blank">Visit HATSB</a>
+    <a href="http://hatsb.com/" class="btn" target="_blank">
+        Visit HATSB
+    </a>
+</div>
 
-        <!-- TRAINING -->
-        <h2 id="training">Training & Development</h2>
+<!-- 🔥 TRAINING -->
+<div class="card section-light" id="training">
+    <h2>Training & Development</h2>
 
-        <p>
-            Through 
-            <a href="#" target="_blank">ASEMI</a>
-        </p>
+    <p>
+        Through 
+        <a href="#">ASEMI</a>
+    </p>
 
-        <p>
-            We support industry talent development:
-        </p>
+    <p>We support industry talent development:</p>
 
-        <ul>
-            <li>Train-the-Trainer Programs</li>
-            <li>Semiconductor Process Training</li>
-            <li>International Benchmarking</li>
-            <li>Industry Collaboration</li>
-        </ul>
+    <ul class="solution-list">
+        <li><i class="fa-solid fa-chalkboard-user"></i> Train-the-Trainer Programs</li>
+        <li><i class="fa-solid fa-industry"></i> Semiconductor Process Training</li>
+        <li><i class="fa-solid fa-globe"></i> International Benchmarking</li>
+        <li><i class="fa-solid fa-handshake"></i> Industry Collaboration</li>
+    </ul>
 
-        <a href="#" class="btn" target="_blank">Visit ASEMI</a>
-
-    </div>
+    <a href="#" class="btn">
+        Visit ASEMI
+    </a>
+</div>
 </section>
 
 <footer>
