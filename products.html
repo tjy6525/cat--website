@@ -554,6 +554,9 @@
         /* 📱 手机 */
         @media (max-width: 768px) {
 
+        header {
+            padding: 12px;
+        }
         nav {
             padding: 0;
         }
@@ -686,7 +689,7 @@
         .card {
             width: 90% !important;
             margin: 20px auto !important;
-            padding: 20px !important;
+            padding: 15px !important;
 
             display: flex;
             flex-direction: column;
@@ -697,8 +700,8 @@
         /* 图片统一 */
         .card img {
             width: 100%;
-            height: 180px;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
         }
 
         /* overlay 文字 */
@@ -721,18 +724,19 @@
         }
 
         .logo {
-            height: 60px;   /* 🔥 手机版稍微小一点 */
+            height: 45px;   /* 🔥 手机版稍微小一点 */
             margin-left: 0; /* 🔥 居中 */
         }
 
         /* 🔥 HERO MOBILE */
         .hero {
-            min-height: 40vh;
-            padding: 50px 15px;
+            min-height: 35vh;
+            padding: 25px 15px;
         }
 
         .hero-content h2 {
-            font-size: 26px;
+            font-size: 20px;
+            line-height: 1.4;
         }
         }
 
