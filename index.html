@@ -61,26 +61,36 @@
         /* 🔥 HEADER 布局 */
         .header-inner {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            position: relative;
-            gap: 20px;
+        }
+
+        .title-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tagline {
+            margin-top: 8px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #f5b041;
         }
 
         /* 💻 电脑版 LOGO */
         .logo {
-            height: 70px;        /* 🔥 放大 */
-            margin-left: 20px;   /* 🔥 不贴边 */
+            height: 90px;        /* 🔥 放大 */
+            margin-left: 0;
+            vertical-align: middle;
             transition: transform 0.3s ease;
         }
 
         .logo:hover {
             transform: scale(1.1);
-        }
-
-        /* 🔥 让文字保持中间 */
-        .header-text {
-            text-align: center;
         }
 
         nav {
@@ -241,40 +251,71 @@
         
         /*背景图 */
         .hero {
-            background: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085") center/cover no-repeat;
-            background-color: transparent;
-            
-            color: white;
-            text-align: center;
-            position: relative;
-            padding: 70px 20px;
-            min-height: 60vh;
-            z-index: 1;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+
+            min-height: 700px;
+            padding: 80px 8%;
+
+            background: linear-gradient(
+            135deg,
+            #dce4ec,
+            #eef2f7
+            );
+
+            gap: 50px;
         }
 
-        /* 黑色遮罩 */
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.3);
-            z-index: 0;
-        }
-        
-        /*文字*/
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: auto;
+        .hero-left {
+            flex: 1;
         }
 
-        .hero-content h2 {
-            font-size: 38px;
-            font-weight: 600;
+        .hero-left h2 {
+            font-size: 52px;
+            line-height: 1.2;
+            color: #1f2d3d;
+            margin-bottom: 25px;
+
+            text-align: left;
+        }
+
+        .hero-left p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 35px;
+
+            text-align: left;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-right {
+            flex: 1;
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+        .hero-right video {
+            width: 650px;
+            height: 650px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+            aspect-ratio: 1 / 1;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+            border: 4px solid rgba(255,255,255,0.4);
         }
 
         .btn {
@@ -309,10 +350,6 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        .hero-content .btn {
-            margin: 10px 15px;
-        }
-        
         .btn:active {
             transform: translateY(0px);
         }
@@ -586,7 +623,8 @@
         }
 
         header h1 {
-            font-size: 22px;
+            margin: 0;
+            font-size: 28px;
         }
 
         .menu-toggle {
@@ -713,12 +751,25 @@
 
         /* 🔥 MOBILE HEADER 修复 */
         .header-inner {
-            flex-direction: column;   /* 🔥 变上下 */
-            gap: 10px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            font-size: 22px;
+        }
+
+        .header-text h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .header-text p {
+            margin-top: 5px;
+            font-size: 16px;
         }
 
         .logo {
-            height: 60px;   /* 🔥 手机版稍微小一点 */
+            height: 50px;   /* 🔥 手机版稍微小一点 */
             margin-left: 0; /* 🔥 居中 */
         }
         }
@@ -793,14 +844,19 @@
 
     <div class="header-inner">
 
+    <div class="title-row">
+
         <img src="images/CATSB-Logo.png" class="logo">
 
-        <div class="header-text">
-            <h1>Control Automation Technology Sdn. Bhd.</h1>
-            <p>Powering Semiconductor Manufacturing & Digital Healthcare Innovation</p>
-        </div>
+        <h1>Control Automation Technology</h1>
 
     </div>
+
+    <p class="tagline">
+        Powering Semiconductor Manufacturing & Digital Healthcare Innovation
+    </p>
+
+</div>
 </header>
 
 <div class="menu-toggle" onclick="toggleMenu()">
@@ -820,16 +876,6 @@
         <a href="index.html#services">Our Services</a>
         <a href="index.html#global">Global Presence</a>
         <a href="index.html#contact">Contact Us</a>
-    </div>
-    </div>
-
-    <div class="dropdown">
-    <a href="about.html">About</a>
-    <div class="dropdown-content">
-        <a href="about.html#who">Who We Are</a>
-        <a href="about.html#vision">Vision</a>
-        <a href="about.html#mission">Mission</a>
-        <a href="about.html#leadership">Leadership</a>
     </div>
     </div>
 
@@ -873,20 +919,58 @@
     </div>
     </div>
 
+    <div class="dropdown">
+    <a href="about.html">About</a>
+    <div class="dropdown-content">
+        <a href="about.html#who">Who We Are</a>
+        <a href="about.html#vision">Vision</a>
+        <a href="about.html#mission">Mission</a>
+        <a href="about.html#leadership">Leadership</a>
+    </div>
+    </div>
+
     <a href="contact.html">Contact</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-content">
-    <h2>Powering Semiconductor Manufacturing & Digital Healthcare Innovation</h2>
-    <p>
-        Control Automation Technology delivers advanced inspection, automation, and digital health solutions across Southeast Asia, India, and the United States.
-    </p>
 
-    <a href="solutions.html" class="btn">Explore Solutions</a>
-    <a href="contact.html" class="btn">Contact Us</a>
+    <div class="hero-left">
+
+        <h2>
+            Powering Semiconductor Manufacturing
+            <br>
+            & Digital Healthcare Innovation
+        </h2>
+
+        <p>
+            Control Automation Technology delivers advanced inspection,
+            automation, and digital health solutions across Southeast Asia,
+            India, and the United States.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="solutions.html" class="btn">
+                Explore Solutions
+            </a>
+
+            <a href="contact.html" class="btn">
+                Contact Us
+            </a>
+
+        </div>
+
     </div>
+
+    <div class="hero-right">
+
+        <video autoplay muted loop playsinline>
+            <source src="videos/DBUE1616.MP4" type="video/mp4">
+        </video>
+
+    </div>
+
 </section>
 
 <!-- CREDIBILITY -->

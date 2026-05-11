@@ -61,16 +61,31 @@
         /* 🔥 HEADER 布局 */
         .header-inner {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            position: relative;
-            gap: 20px;
+        }
+
+        .title-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tagline {
+            margin-top: 8px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #f5b041;
         }
 
         /* 💻 电脑版 LOGO */
         .logo {
-            height: 70px;        /* 🔥 放大 */
-            margin-left: 20px;   /* 🔥 不贴边 */
+            height: 90px;        /* 🔥 放大 */
+            margin-left: 0;
+            vertical-align: middle;
             transition: transform 0.3s ease;
         }
 
@@ -766,14 +781,19 @@
 
     <div class="header-inner">
 
+    <div class="title-row">
+
         <img src="images/CATSB-Logo.png" class="logo">
 
-        <div class="header-text">
-            <h1>Control Automation Technology Sdn. Bhd.</h1>
-            <p>Powering Semiconductor Manufacturing & Digital Healthcare Innovation</p>
-        </div>
+        <h1>Control Automation Technology</h1>
 
     </div>
+
+    <p class="tagline">
+        Powering Semiconductor Manufacturing & Digital Healthcare Innovation
+    </p>
+
+</div>
 </header>
 
 <div class="menu-toggle" onclick="toggleMenu()">
@@ -843,6 +863,16 @@
     <div class="dropdown-content">
         <a href="projects.html#industries">Industries Served</a>
         <a href="projects.html#our">Our Positioning</a>
+    </div>
+    </div>
+
+    <div class="dropdown">
+    <a href="about.html">About</a>
+    <div class="dropdown-content">
+        <a href="about.html#who">Who We Are</a>
+        <a href="about.html#vision">Vision</a>
+        <a href="about.html#mission">Mission</a>
+        <a href="about.html#leadership">Leadership</a>
     </div>
     </div>
 
