@@ -815,10 +815,150 @@
             font-weight: 600;
             color: #555;
         }
+
+        .cookie-banner {
+            position: fixed;
+
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+    rgba(31,45,61,0.96);
+
+    backdrop-filter: blur(12px);
+
+    color: white;
+
+    padding: 28px 35px;
+
+    width: 90%;
+    max-width: 780px;
+
+    border-radius: 24px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.28);
+
+    z-index: 9999;
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
+
+    animation:
+    cookieFade 0.5s ease;
+}
+
+.cookie-banner p {
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color:
+    rgba(255,255,255,0.9);
+
+    margin: 0;
+
+    flex: 1;
+}
+
+.cookie-buttons {
+    display: flex;
+
+    gap: 14px;
+
+    flex-shrink: 0;
+}
+
+.cookie-buttons button {
+    padding: 14px 24px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition:
+    all 0.3s ease;
+}
+
+#accept-cookies {
+
+    background: #f39c12;
+
+    color: white;
+}
+
+#reject-cookies {
+    background:
+    rgba(255,255,255,0.12);
+
+    color: white;
+}
+
+.cookie-buttons button:hover {
+    transform: translateY(-3px);
+
+    opacity: 0.92;
+}
+
+@keyframes cookieFade {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+        translateX(-50%)
+        translateY(20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+        translateX(-50%)
+        translateY(0);
+    }
+}
     </style>
 </head>
 
 <body>
+<div id="cookie-banner" class="cookie-banner">
+
+    <p>
+        We use cookies to improve your browsing experience.
+    </p>
+
+    <div class="cookie-buttons">
+
+        <button id="accept-cookies">
+            Accept
+        </button>
+
+        <button id="reject-cookies">
+            Reject
+        </button>
+
+    </div>
+
+</div>
 
 <header class="header-bar">
 
@@ -856,16 +996,6 @@
         <a href="index.html#services">Our Services</a>
         <a href="index.html#global">Global Presence</a>
         <a href="index.html#contact">Contact Us</a>
-    </div>
-    </div>
-
-    <div class="dropdown">
-    <a href="about.html">About</a>
-    <div class="dropdown-content">
-        <a href="about.html#who">Who We Are</a>
-        <a href="about.html#vision">Vision</a>
-        <a href="about.html#mission">Mission</a>
-        <a href="about.html#leadership">Leadership</a>
     </div>
     </div>
 
@@ -1280,6 +1410,45 @@ window.addEventListener("load", function(){
     document.querySelectorAll("h2").forEach(function(title){
         title.classList.add("show-line");
     });
+});
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const cookieBanner =
+        document.getElementById("cookie-banner");
+
+    // 已经选择过
+   // if(localStorage.getItem("cookieChoice")){
+
+    //    cookieBanner.style.display = "none";
+    //}
+
+    // Accept
+    document
+    .getElementById("accept-cookies")
+    .addEventListener("click", function(){
+
+        localStorage.setItem(
+            "cookieChoice",
+            "accepted"
+        );
+
+        cookieBanner.style.display = "none";
+    });
+
+    // Reject
+    document
+    .getElementById("reject-cookies")
+    .addEventListener("click", function(){
+
+        localStorage.setItem(
+            "cookieChoice",
+            "rejected"
+        );
+
+        cookieBanner.style.display = "none";
+    });
+
 });
 </script defer>
 
