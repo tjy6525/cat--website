@@ -21,7 +21,7 @@
                 to right,
                 #dde4ec 0%,
                 #eef2f7 15%,
-                #eef2f7 85%,
+                #eef2f7 85%,12
                 #dde4ec 100%
             );
 
@@ -54,7 +54,7 @@
         header {
             background: #2c3e50;
             color: white;
-            padding: 20px;
+            padding: 10px 0;
             text-align: center;
         }
 
@@ -68,7 +68,10 @@
         .title-row {
             display: flex;
             align-items: center;
-            gap: 15px;
+            justify-content: center;
+
+            gap: 10px;
+            padding: 4px 0;
         }
 
         .tagline {
@@ -79,11 +82,15 @@
 
         header h1 {
             color: #f5b041;
+            font-size: 23px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1;
         }
-
+        
         /* 💻 电脑版 LOGO */
         .logo {
-            height: 90px;        /* 🔥 放大 */
+            height: 42px;
             margin-left: 0;
             vertical-align: middle;
             transition: transform 0.3s ease;
@@ -111,6 +118,12 @@
 
             padding: 5px 10px;   /* ✅ 固定 padding */
             border-radius: 5px;
+        }
+
+        nav a i {
+            font-size: 12px;
+            margin-left: 6px;
+            vertical-align: middle;
         }
 
         /* dropdown container */
@@ -148,6 +161,17 @@
 
             z-index: 99999;
         }
+
+        .submenu {
+    position: relative;
+}
+
+.submenu .dropdown-content {
+    top: 0;
+    left: 100%;
+
+    margin-left: 2px;
+}
 
         /* dropdown links */
         .dropdown-content a {
@@ -760,7 +784,9 @@
         }
 
         .dropdown.active .dropdown-content {
-            display: block;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            visibility: visible;
         }
 
         .dropdown.active {
@@ -913,10 +939,6 @@
 
     </div>
 
-    <p class="tagline">
-        Powering Semiconductor Manufacturing & Digital Healthcare Innovation
-    </p>
-
 </div>
 </header>
 
@@ -928,7 +950,10 @@
 
 <nav id="navMenu">
     <div class="dropdown">
-    <a href="index.html" class="active">Home</a>
+    <a href="index.html" class="active">
+        Home <!--i class="fas fa-chevron-down"></i> -->
+    </a>
+    <!--
     <div class="dropdown-content">
         <a href="index.html#our-business">Our Business</a>
         <a href="index.html#about">About Control Automation Technology</a>
@@ -938,19 +963,58 @@
         <a href="index.html#global">Global Presence</a>
         <a href="index.html#contact">Contact Us</a>
     </div>
+    -->
     </div>
 
     <div class="dropdown">
-    <a href="solutions.html">Solutions</a>
+    <a href="solutions.html">
+        Solutions <i class="fas fa-chevron-down"></i>
+    </a>
     <div class="dropdown-content">
-        <a href="solutions.html#semiconductor">Semiconductor Solutions</a>
-        <a href="solutions.html#healthcare">Healthcare Automation</a>
-        <a href="solutions.html#training">Training & Development</a>
+        <div class="dropdown submenu">
+
+        <a href="solutions.html#semiconductor">
+            Semiconductor Manufacturing
+            <i class="fas fa-chevron-right"></i>
+        </a>
+
+        <div class="dropdown-content">
+
+            <a href="#">
+                Wafer Inspection Systems
+            </a>
+
+            <a href="#">
+                Laser Marking Systems
+            </a>
+
+            <a href="#">
+                Component Inspection Systems
+            </a>
+
+        </div>
+
+    </div>
+
+    <a href="solutions.html#healthcare">
+        Digital Healthcare Ecosystem
+    </a>
+
+    <a href="solutions.html#training">
+        Semiconductor Industry Training
+    </a>
+
+</div>
+        <a href="solutions.html#healthcare">Digital Healthcare Ecosystem</a>
+        <a href="solutions.html#training">Semiconductor Industry Training</a>
     </div>
     </div>
 
+
     <div class="dropdown">
-    <a href="products.html">Products</a>
+    <a href="products.html">
+        Products <i class="fas fa-chevron-down"></i>
+    </a>
     <div class="dropdown-content">
         <a href="products.html#turret">Turret-Based Test, Inspection & Tape & Reel Systems</a>
         <a href="products.html#laser">Laser Marking Modules & Complete Systems</a>
@@ -973,7 +1037,9 @@
     <a href="services.html">Services</a>
 
     <div class="dropdown">
-    <a href="projects.html">Projects / Industries</a>
+    <a href="projects.html">
+        Projects / Industries <i class="fas fa-chevron-down"></i>
+    </a>
     <div class="dropdown-content">
         <a href="projects.html#industries">Industries Served</a>
         <a href="projects.html#our">Our Positioning</a>
@@ -981,7 +1047,9 @@
     </div>
 
     <div class="dropdown">
-    <a href="about.html">About</a>
+    <a href="about.html">
+        About <i class="fas fa-chevron-down"></i>
+    </a>
     <div class="dropdown-content">
         <a href="about.html#who">Who We Are</a>
         <a href="about.html#vision">Vision</a>
@@ -999,9 +1067,9 @@
     <div class="hero-left">
 
         <h2>
-            Powering Semiconductor Manufacturing
-            <br>
-            & Digital Healthcare Innovation
+            AI-Enabled Technology Solutions 
+            for Semiconductor Assembly, 
+            Test & Advanced Packaging
         </h2>
 
         <p>

@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <title>Products - Control Automation Technology</title>
+    <title>Process Solutions - Control Automation Technology</title>
 
     <style>
         body {
@@ -916,6 +916,38 @@
     opacity: 0.92;
 }
 
+.cookie-text a {
+
+    color: #f5b041;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+.cookie-text a:hover {
+
+    text-decoration: underline;
+}
+
+#close-cookie {
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    color: rgba(255,255,255,0.75);
+
+    transition: 0.3s ease;
+}
+
+#close-cookie:hover {
+
+    color: white;
+
+    transform: scale(1.1);
+}
+
 @keyframes cookieFade {
 
     from {
@@ -942,9 +974,18 @@
 <body>
 <div id="cookie-banner" class="cookie-banner">
 
-    <p>
-        We use cookies to improve your browsing experience.
-    </p>
+    <div class="cookie-text">
+
+        <p>
+            We use cookies to improve your browsing experience,
+            personalize content, and analyze website traffic.
+
+            <a href="cookies.html">
+                Cookie Policy
+            </a>
+        </p>
+
+    </div>
 
     <div class="cookie-buttons">
 
@@ -955,6 +996,10 @@
         <button id="reject-cookies">
             Reject
         </button>
+
+        <span id="close-cookie">
+            ✕
+        </span>
 
     </div>
 
@@ -1009,23 +1054,39 @@
     </div>
 
     <div class="dropdown">
-    <a href="products.html" class="active">Products</a>
+    <a href="products.html" class="active">Process Solutions</a>
     <div class="dropdown-content">
-        <a href="products.html#turret">Turret-Based Test, Inspection & Tape & Reel Systems</a>
-        <a href="products.html#laser">Laser Marking Modules & Complete Systems</a>
-        <a href="products.html#peel">Peel Force Tester (TP-15x)</a>
-        <a href="products.html#manualTaping">Manual Taping System (MT-35)</a>
-        <a href="products.html#tube">Tube-to-Tube Inspection System</a>
-        <a href="products.html#tape">Tape-to-Tape Test & Inspection Systems</a>
-        <a href="products.html#post">Post Seal Inspection System</a>
-        <a href="products.html#manualLaser">Manual Laser Marking Stations</a>
-        <a href="products.html#custom">Custom Machine & Automation Solutions</a>
-        <a href="products.html#wafer">Wafer Inspection Systems</a>
-        <a href="products.html#test">Test Handlers</a>
-        <a href="products.html#dieSorter">Die Sorter</a>
-        <a href="products.html#dieAttach">Die Attach</a>
-        <a href="products.html#testers">Testers</a>
-        <a href="products.html#testSockets">Test Sockets & Pins</a>
+        <a href="#waferInspection">
+Wafer Inspection Systems
+</a>
+
+<a href="products.html#componentInspection">
+Component Inspection Systems
+</a>
+
+<a href="products.html#testHandler">
+Test Handler Systems
+</a>
+
+<a href="products.html#testInterface">
+Test Interface Solutions
+</a>
+
+<a href="products.html#laserMarking">
+Laser Marking Systems
+</a>
+
+<a href="products.html#packingTape">
+Packing & Tape Reel Systems
+</a>
+
+<a href="products.html#xraySpecial">
+X-Ray & Special Process Equipment
+</a>
+
+<a href="products.html#legacySupport">
+Legacy Product Support
+</a>
     </div>
     </div>
 
@@ -1056,12 +1117,17 @@
 <div class="card">
 
     <!-- 🔥 PROPRIETARY -->
-    <h2 class="primary-title">CAT Proprietary Systems</h2>
+    <h2 class="primary-title">Process Solutions</h2>
 
     <!-- INTRO -->
     <div class="intro">
         <p>
-            Control Automation Technology offers a comprehensive portfolio of proprietary systems and distributed solutions supporting semiconductor manufacturing processes from wafer inspection to final test and packaging.
+            Control Automation Technology supports
+semiconductor manufacturing processes
+through inspection, test handling,
+laser marking,
+automation,
+and packaging solutions.
         </p>
     </div>
 
@@ -1178,87 +1244,13 @@
     </div>
 
     <!-- 🟨 PARTNER -->
-    <h2 class="secondary-title">Distribution & Partner Solutions</h2>
+    /*<h2 class="secondary-title">Distribution & Partner Solutions</h2>
 
     <p style="text-align:center; max-width:800px; margin:auto;">
         We represent leading global partners to provide complete semiconductor manufacturing solutions:
     </p>
 
-    <div class="card-section secondary-section">
 
-        <div class="card" id="wafer">
-            <div class="card-image">
-                <img src="images/Wafer Inspection Systems .png">
-            </div>
-            
-            <h3 class="card-title">
-                Wafer Inspection Systems
-            </h3>
-
-            <p>High-precision inspection for wafer surface analysis.</p>
-        </div>
-
-        <div class="card" id="test">
-            <div class="card-image">
-                <img src="images/Test Handlers .png">
-            </div>
-            
-            <h3 class="card-title">
-                Test Handlers
-            </h3>
-
-            <p>Automated systems for semiconductor device handling.</p>
-        </div>
-
-        <div class="card" id="dieSorter">
-            <div class="card-image">
-                <img src="images/Die Sorter.png">
-            </div>
-            
-            <h3 class="card-title">
-                Die Sorter
-            </h3>
-
-            <p>Sorting solutions for semiconductor dies.</p>
-        </div>
-
-        <div class="card" id="dieAttach">
-            <div class="card-image">
-                <img src="images/placeholder.jpg">
-            </div>
-            
-            <h3 class="card-title">
-                Die Attach
-            </h3>
-
-            <p>Precision die bonding systems.</p>
-        </div>
-
-        <div class="card" id="testers">
-            <div class="card-image">
-                <img src="images/placeholder.jpg">
-            </div>
-            
-            <h3 class="card-title">
-                Testers
-            </h3>
-
-            <p>Electrical testing systems for device validation.</p>
-        </div>
-
-        <div class="card" id="testSockets">
-            <div class="card-image">
-                <img src="images/placeholder.jpg">
-            </div>
-            
-            <h3 class="card-title">
-                Test Sockets & Pins
-            </h3>
-
-            <p>Reliable interfaces for semiconductor testing.</p>
-        </div>
-
-    </div>
 
 </div>
 </section>
@@ -1450,7 +1442,15 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
 });
-</script defer>
+
+// Close button
+document
+.getElementById("close-cookie")
+.addEventListener("click", function(){
+
+    cookieBanner.style.display = "none";
+});
+</script>
 
 </body>
 </html>
