@@ -130,7 +130,7 @@
         .dropdown {
             position: relative;
             display: inline-block;
-            padding-bottom: 5px;    /* 👈 增加 hover 区域 */
+            padding-bottom: 18px;    /* 👈 增加 hover 区域 */
         }
 
         /* dropdown menu */
@@ -139,8 +139,7 @@
             background: white;
             min-width: 200px;
 
-            max-height: 300px;   /* 🔥 控制高度 */
-            overflow-y: auto;    /* 🔥 允许滚动 */
+            overflow: visible;    /* 🔥 允许滚动 */
 
             box-shadow: 0 6px 20px rgba(0,0,0,0.18);
             border-radius: 8px;
@@ -160,23 +159,70 @@
             transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
 
             z-index: 99999;
+            display: flex;
+
+            flex-direction: column;
+            gap: 0;
         }
 
         .submenu {
     position: relative;
+
+    display: flex;
+    flex-direction: column;
 }
 
-.submenu .dropdown-content {
-    top: 0;
-    left: 100%;
+.submenu .dropdown-content { 
+    position: static;
 
-    margin-left: 2px;
+    display: none;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    border: none;
+
+    padding: 0;
+
+    margin-top: 0px;
+
+    border-top: 1px solid #ccc;
+
+    padding-top: 0;
+
+    padding-bottom: 15px;
+
+    border-radius: 0;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px 40px;
+}
+
+.submenu:hover > .dropdown-content {
+    display: grid;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.menu-divider {
+
+    border: none;
+
+    border-top: 1px solid #ccc;
+
+    margin: 0;
+
+    transform: translateY(0px);
 }
 
         /* dropdown links */
         .dropdown-content a {
             color: #333;
-            padding: 10px 15px;
+            padding: 9px 15px;
             display: block;
             text-align: left;
 
@@ -190,6 +236,7 @@
                 padding-left 0.25s ease;
 
             position: relative;
+            white-space: nowrap;
         }
 
         /* 📱 MOBILE：轻微 hover（舒服版） */
@@ -209,9 +256,8 @@
         /* 💻 只给电脑用 */
         @media (min-width: 769px) {
         .dropdown-content a:hover {
-            background: #f2f4f7;
-            transform: translateY(-3px);
-            padding-left: 20px;
+            color: #f5b041;
+            background: transparent;
             }
         }
 
@@ -663,10 +709,24 @@
         
         /* 💻 电脑 */
         @media (min-width: 769px) {
-            .dropdown:hover .dropdown-content {
+            /* 一级 dropdown */
+            nav > .dropdown:hover > .dropdown-content {
+
                 opacity: 1;
+
                 transform: translateY(0) scale(1);
+
                 visibility: visible;
+            }
+
+            /* submenu */
+            .submenu:hover > .dropdown-content {
+
+                opacity: 1;
+
+                visibility: visible;
+
+                transform: translateY(0);
             }
         }
         
@@ -859,6 +919,13 @@
             height: 50px;   /* 🔥 手机版稍微小一点 */
             margin-left: 0; /* 🔥 居中 */
         }
+
+        .footer-grid{
+
+    grid-template-columns:1fr;
+
+    gap:30px;
+}
         }
 
         /* 📱 Tablet */
@@ -922,6 +989,69 @@
             font-weight: 600;
             color: #555;
         }
+
+        .footer{
+
+    background:#021233;
+
+    color:white;
+
+    padding:70px 60px 30px;
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr 1fr;
+
+    gap:60px;
+}
+
+.footer h4{
+
+    margin-bottom:20px;
+
+    color:white;
+
+    letter-spacing:1px;
+}
+
+.footer a{
+
+    display:block;
+
+    color:#bfc9d6;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+}
+
+.footer a:hover{
+
+    color:#f39c12;
+}
+
+.footer p{
+
+    color:#bfc9d6;
+}
+
+.footer hr{
+
+    margin:40px 0 20px;
+
+    border:none;
+
+    border-top:1px solid rgba(255,255,255,0.15);
+}
+
+.footer-copy{
+
+    text-align:center;
+}
     </style>
 </head>
 
@@ -979,22 +1109,21 @@
         </a>
 
         <div class="dropdown-content">
-
-            <a href="#">
-                Wafer Inspection Systems
-            </a>
-
-            <a href="#">
-                Laser Marking Systems
-            </a>
-
-            <a href="#">
-                Component Inspection Systems
-            </a>
-
+            <a href="wafer-inspection.html">Wafer Inspection System</a>
+            <a href="laser-marking.html">Laser Marking Systems</a>
+            <a href="component-inspection.html">Component Inspection Systems</a>
+            <a href="#">Tester & Test handler</a>
+            <a href="#">Test Accessories</a>
+            <a href="#">Device Programming Solutions</a>
+            <a href="#">Post-Seal Inspection and Counter Systems</a>
+            <a href="#">Packing/Tape & Reel Systems</a>
+            <a href="#">X-Ray Inspection Systems</a>
+            <a href="#">Special Process Equipment</a>
+            <a href="#">Legacy Product Support</a>
+        </div>
         </div>
 
-    </div>
+        <hr class="menu-divider">
 
     <a href="solutions.html#healthcare">
         Digital Healthcare Ecosystem
@@ -1004,10 +1133,7 @@
         Semiconductor Industry Training
     </a>
 
-</div>
-        <a href="solutions.html#healthcare">Digital Healthcare Ecosystem</a>
-        <a href="solutions.html#training">Semiconductor Industry Training</a>
-    </div>
+    </div> 
     </div>
 
 
@@ -1310,8 +1436,92 @@
     <a href="contact.html" class="btn">Contact Us</a>
 </section>
 
-<footer>
-    <p>© 2026 Control Automation Technology Sdn. Bhd.</p>
+<footer class="footer">
+
+<div class="footer-grid">
+
+<div>
+
+<h4>Quick Links</h4>
+
+<a href="index.html">Home</a>
+<a href="solutions.html">Solutions</a>
+<a href="products.html">Products</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects / Industries</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+
+</div>
+
+<div>
+
+<h4>Semiconductor Solutions</h4>
+
+<a href="wafer-inspection.html">
+Wafer Inspection Systems
+</a>
+
+<a href="#">
+Laser Marking Systems
+</a>
+
+<a href="component-inspection.html">
+Component Inspection Systems
+</a>
+
+<a href="#">
+Tester & Test Handler
+</a>
+
+<a href="#">
+Device Programming Solutions
+</a>
+
+<a href="#">
+Packing / Tape & Reel Systems
+</a>
+
+</div>
+
+<div>
+
+<h4>Healthcare</h4>
+
+<a href="#">
+SARA Digital Health Platform
+</a>
+
+<a href="#">
+Medical IoT Device Integration
+</a>
+
+<a href="#">
+Home-Based Care Enablement
+</a>
+
+</div>
+
+<div>
+
+<h4>Training</h4>
+
+<a href="#">
+Train-the-Trainer Programs
+</a>
+
+<a href="#">
+Semiconductor Process Training
+</a>
+
+<a href="#">
+International Benchmarking
+</a>
+
+</div>
+
+</div>
+
 </footer>
 
 <script>

@@ -733,6 +733,13 @@
             height: 60px;   /* 🔥 手机版稍微小一点 */
             margin-left: 0; /* 🔥 居中 */
         }
+
+        .footer-grid{
+
+    grid-template-columns:1fr;
+
+    gap:30px;
+}
         }
 
         /* 📱 Tablet */
@@ -772,6 +779,69 @@
             font-weight: 600;
             color: #555;
         }
+
+        .footer{
+
+    background:#021233;
+
+    color:white;
+
+    padding:70px 60px 30px;
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr 1fr;
+
+    gap:60px;
+}
+
+.footer h4{
+
+    margin-bottom:20px;
+
+    color:white;
+
+    letter-spacing:1px;
+}
+
+.footer a{
+
+    display:block;
+
+    color:#bfc9d6;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+}
+
+.footer a:hover{
+
+    color:#f39c12;
+}
+
+.footer p{
+
+    color:#bfc9d6;
+}
+
+.footer hr{
+
+    margin:40px 0 20px;
+
+    border:none;
+
+    border-top:1px solid rgba(255,255,255,0.15);
+}
+
+.footer-copy{
+
+    text-align:center;
+}
     </style>
 </head>
 
@@ -924,8 +994,92 @@
 </div>
 </section>
 
-<footer>
-    <p>© 2026 Control Automation Technology Sdn. Bhd.</p>
+<footer class="footer">
+
+<div class="footer-grid">
+
+<div>
+
+<h4>Quick Links</h4>
+
+<a href="index.html">Home</a>
+<a href="solutions.html">Solutions</a>
+<a href="products.html">Products</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects / Industries</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+
+</div>
+
+<div>
+
+<h4>Semiconductor Solutions</h4>
+
+<a href="wafer-inspection.html">
+Wafer Inspection Systems
+</a>
+
+<a href="#">
+Laser Marking Systems
+</a>
+
+<a href="component-inspection.html">
+Component Inspection Systems
+</a>
+
+<a href="#">
+Tester & Test Handler
+</a>
+
+<a href="#">
+Device Programming Solutions
+</a>
+
+<a href="#">
+Packing / Tape & Reel Systems
+</a>
+
+</div>
+
+<div>
+
+<h4>Healthcare</h4>
+
+<a href="#">
+SARA Digital Health Platform
+</a>
+
+<a href="#">
+Medical IoT Device Integration
+</a>
+
+<a href="#">
+Home-Based Care Enablement
+</a>
+
+</div>
+
+<div>
+
+<h4>Training</h4>
+
+<a href="#">
+Train-the-Trainer Programs
+</a>
+
+<a href="#">
+Semiconductor Process Training
+</a>
+
+<a href="#">
+International Benchmarking
+</a>
+
+</div>
+
+</div>
+
 </footer>
 
 <script>

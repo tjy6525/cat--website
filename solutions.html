@@ -212,6 +212,15 @@
             gap: 15px;
         }
 
+        .solution-grid h2{
+            justify-content:flex-start;
+            text-align:left;
+        }
+
+        .solution-grid li{
+            color:#2c3e50;
+        }
+
         /* 初始状态（隐藏） */
         h2::before,
         h2::after {
@@ -293,7 +302,14 @@
         }
 
         .btn {
-            display: inline-block;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            padding: 0;
+            font-size: 18px;
+            font-weight: 600;
+
+            /*display: inline-block;
             padding: 10px 22px;
             background: linear-gradient(135deg, #f39c12, #e67e22);
             color: white;
@@ -305,17 +321,17 @@
             margin-top: 10px;
 
             /* 🔥 关键 */
-            width: fit-content;          /* 👉 不再拉满 */
-            align-self: center;      /* 👉 中间 */
+           /* width: fit-content;          /* 👉 不再拉满 */
+           /* align-self: center;      /* 👉 中间 */
 
-            transition: all 0.3s ease;
+            /*transition: all 0.3s ease;
             letter-spacing: 0.5px;
-            font-weight: 600;
+            font-weight: 600;*/
         }
 
         .card .btn {
-            margin: 20px auto 0;   /* 🔥 居中 + 下间距 */
-            display: block;
+            display: inline-block;
+            margin-top: 15px;
         }
 
         .btn:hover {
@@ -345,7 +361,7 @@
         }
 
         .card i {
-            font-size: 30px;
+            font-size: 18px;
             margin-bottom: 10px;
             color: orange;
         }
@@ -392,8 +408,8 @@
 
         /* 🔥 Hover effect */
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
 
         .about {
@@ -452,7 +468,8 @@
         }
 
         .container {
-            max-width: 1100px;
+            width: 95%;
+            max-width: 1800px;
             margin: 40px auto;   /* 🔥 加上下间距 */
             padding: 40px 20px;
         }
@@ -481,7 +498,7 @@
 
             scroll-margin-top: 140px; 
             
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 
             overflow: hidden;
 
@@ -491,6 +508,9 @@
             
             /* 🔥 动画关键 */ 
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            justify-content: flex-start;
+
+            min-height: 420px;
         }
 
         .clickable-card {
@@ -730,6 +750,21 @@
             height: 60px;   /* 🔥 手机版稍微小一点 */
             margin-left: 0; /* 🔥 居中 */
         }
+
+        .solution-grid{
+            grid-template-columns: repeat(1fr);
+        }
+
+        .process-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .footer-grid{
+
+    grid-template-columns:1fr;
+
+    gap:30px;
+}
         }
 
         /* 📱 Tablet */
@@ -774,19 +809,16 @@
             max-width: 600px;
             margin: 20px auto;
             text-align: left;
-            line-height: 1.8;
-            list-style: none;
+            line-height: 1.6;
+            list-style: disc;
+            padding-left: 30px;
+            margin-top: 20px;
         }
 
         .solution-list i {
             color: #f39c12;
             margin-right: 10px;
             opacity: 0.8;
-        }
-        
-        .solution-list li {
-            display: flex;
-            align-items: center;
         }
 
         .solution-list li:hover i {
@@ -795,10 +827,192 @@
 
         .card.section-light,
         .card.section-grey {
-            max-width: 900px;
-            margin: 40px auto;
-            text-align: center;
+            max-width: none;
+            margin: 0;
+            text-align: left;
         }
+
+        .solution-grid{
+            display:grid;
+            grid-template-columns: repeat(3,minmax(400px,1fr));
+            gap:40px;
+        }
+
+        .semiconductor-card{
+            background: #f7f3ec;
+            border: 1px solid #f5c27b;
+        }
+
+        .healthcare-card{
+            background: #edf7f1;
+            border: 1px solid #9be3b3;
+        }
+
+        .training-card{
+            background: #f7f4e8;
+            border: 1px solid #f0d46b;
+        }
+
+        .semiconductor-card .btn{
+    color:#f97316;
+}
+
+.healthcare-card .btn{
+    color:#008f5a;
+}
+
+.training-card .btn{
+    color:#c45a00;
+}
+
+.solution-grid h2 {
+
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.semiconductor-card h2 i {
+    color: #f97316;
+}
+
+.healthcare-card h2 i {
+    color: #16a34a;
+}
+
+.training-card h2 i {
+    color: #d97706;
+}
+
+.process-solutions {
+
+    margin-top: 80px;
+}
+
+.process-solutions h2 {
+
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.process-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+.process-card {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    border: 1px solid #dce3ea;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.05);
+
+    transition: 0.3s;
+}
+
+.process-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,0.08);
+}
+
+.process-card h3 {
+
+    color: #0f172a;
+
+    margin-bottom: 15px;
+}
+
+.process-card p {
+
+    color: #64748b;
+
+    min-height: 70px;
+}
+
+.process-card a {
+
+    color: #f97316;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.footer{
+
+    background:#021233;
+
+    color:white;
+
+    padding:70px 60px 30px;
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr 1fr;
+
+    gap:60px;
+}
+
+.footer h4{
+
+    margin-bottom:20px;
+
+    color:white;
+
+    letter-spacing:1px;
+}
+
+.footer a{
+
+    display:block;
+
+    color:#bfc9d6;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+}
+
+.footer a:hover{
+
+    color:#f39c12;
+}
+
+.footer p{
+
+    color:#bfc9d6;
+}
+
+.footer hr{
+
+    margin:40px 0 20px;
+
+    border:none;
+
+    border-top:1px solid rgba(255,255,255,0.15);
+}
+
+.footer-copy{
+
+    text-align:center;
+}
     </style>
 </head>
 
@@ -907,25 +1121,30 @@
 </nav>
 
 <section class="container">
+<div class="solution-grid">
     <!-- 🔥 SEMICONDUCTOR -->
-<div class="card section-light" id="semiconductor">
-    <h2>Semiconductor Solutions</h2>
-
-    <p>We provide end-to-end solutions across semiconductor manufacturing:</p>
+<div class="card semiconductor-card" id="semiconductor">
+    <h2>
+        <i class="fa-solid fa-microchip"></i>
+        Semiconductor Solutions
+    </h2>
 
     <ul class="solution-list">
-        <li><i class="fa-solid fa-eye"></i> Automated Optical Inspection (AOI)</li>
-        <li><i class="fa-solid fa-microchip"></i> Wafer Inspection Systems</li>
-        <li><i class="fa-solid fa-robot"></i> Test Handlers & Automation</li>
-        <li><i class="fa-solid fa-magnifying-glass"></i> Post-Seal Inspection</li>
-        <li><i class="fa-solid fa-box"></i> Tape & Reel Systems</li>
-        <li><i class="fa-solid fa-code"></i> Device Programming</li>
+        <li>Automated Optical Inspection (AOI)</li>
+        <li>Wafer Inspection Systems</li>
+        <li>Test Handlers & Automation</li>
+        <li>Post-Seal Inspection</li>
+        <li>Tape & Reel Systems</li>
+        <li>Device Programming</li>
     </ul>
 </div>
 
 <!-- 🔥 HEALTHCARE -->
-<div class="card section-grey" id="healthcare">
-    <h2>Healthcare Automation</h2>
+<div class="card healthcare-card" id="healthcare">
+    <h2>
+        <i class="fa-solid fa-heart-pulse"></i>
+        Healthcare Automation
+    </h2>
 
     <p>
         Through 
@@ -934,13 +1153,11 @@
         </a>
     </p>
 
-    <p>We are building a next-generation healthcare ecosystem:</p>
-
     <ul class="solution-list">
-        <li><i class="fa-solid fa-heart-pulse"></i> SARA Digital Health Platform</li>
-        <li><i class="fa-solid fa-wifi"></i> Medical IoT Device Integration</li>
-        <li><i class="fa-solid fa-user-doctor"></i> Remote Patient Monitoring</li>
-        <li><i class="fa-solid fa-house-medical"></i> Home Care Enablement</li>
+        <li>SARA Digital Health Platform</li>
+        <li>Medical IoT Device Integration</li>
+        <li>Remote Patient Monitoring</li>
+        <li>Home Care Enablement</li>
     </ul>
 
     <a href="http://hatsb.com/" class="btn" target="_blank">
@@ -949,8 +1166,11 @@
 </div>
 
 <!-- 🔥 TRAINING -->
-<div class="card section-light" id="training">
-    <h2>Training & Development</h2>
+<div class="card training-card" id="training">
+    <h2>
+         <i class="fa-solid fa-graduation-cap"></i>
+         Training & Development
+    </h2>
 
     <p>
         Through 
@@ -959,23 +1179,182 @@
         </a>
     </p>
 
-    <p>We support industry talent development:</p>
-
     <ul class="solution-list">
-        <li><i class="fa-solid fa-chalkboard-user"></i> Train-the-Trainer Programs</li>
-        <li><i class="fa-solid fa-industry"></i> Semiconductor Process Training</li>
-        <li><i class="fa-solid fa-globe"></i> International Benchmarking</li>
-        <li><i class="fa-solid fa-handshake"></i> Industry Collaboration</li>
+        <li>Train-the-Trainer Programs</li>
+        <li>Semiconductor Process Training</li>
+        <li>International Benchmarking</li>
+        <li>Industry Collaboration</li>
     </ul>
 
     <a href="https://semi.academy/#blog" class="btn" target="_blank">
         Visit ASEMI
     </a>
 </div>
+</div>
 </section>
 
-<footer>
-    <p>© 2026 Control Automation Technology Sdn. Bhd.</p>
+<section class="process-solutions">
+
+    <h2>Semiconductor Manufacturing Solutions</h2>
+
+    <div class="process-grid">
+
+        <div class="process-card">
+            <h3>Wafer Inspection Systems</h3>
+            <p>Advanced wafer inspection solutions for defect detection, quality control, and process optimization.</p>
+            <a href="wafer-inspection.html">Learn More →</a>
+        </div>
+
+        <div class="process-card">
+            <h3>Laser Marking Systems</h3>
+            <p>High-precision laser marking systems for semiconductor packages and lead frames.</p>
+            <a href="#">Learn More →</a>
+        </div>
+
+        <div class="process-card">
+            <h3>Component Inspection Systems</h3>
+            <p>Automated inspection systems designed for high-speed component verification and sorting.</p>
+            <a href="component-inspection.html">Learn More →</a>
+        </div>
+
+        <div class="process-card">
+            <h3>Tester & Test Handler</h3>
+            <p>Reliable test handling solutions for semiconductor device testing and automation.</p>
+            <a href="#">Learn More →</a>
+        </div>
+
+        <div class="process-card">
+            <h3>Test Accessories</h3>
+            <p>Supporting tools and accessories for enhanced semiconductor testing performance.</p>
+            <a href="#">Learn More →</a>
+        </div>
+
+        <div class="process-card">
+            <h3>Device Programming Solutions</h3>
+            <p>Automated programming systems for IC devices with high accuracy and efficiency.</p>
+            <a href="#">Learn More →</a>
+        </div>
+
+        <div class="process-card">
+            <h3>Post-Seal Inspection and Counter Systems</h3>
+            <p>Inspection and counting systems ensuring product quality after sealing processes.</p>
+            <a href="#">Learn More →</a>
+        </div>
+
+        <div class="process-card">
+            <h3>Packing / Tape & Reel Systems</h3>
+            <p>Automated tape and reel packaging systems for semiconductor component handling.</p>
+            <a href="#">Learn More →</a>
+        </div>
+
+        <div class="process-card">
+            <h3>X-Ray Inspection Systems</h3>
+            <p>Non-destructive X-ray inspection solutions for internal defect analysis and quality assurance.</p>
+            <a href="#">Learn More →</a>
+        </div>
+
+        <div class="process-card">
+            <h3>Special Process Equipment</h3>
+            <p>Custom-engineered equipment tailored for specialized semiconductor manufacturing processes.</p>
+            <a href="#">Learn More →</a>
+        </div>
+
+        <div class="process-card">
+            <h3>Legacy Product Support</h3>
+            <p>Continued technical support and maintenance for legacy semiconductor equipment.</p>
+            <a href="#">Learn More →</a>
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="footer">
+
+<div class="footer-grid">
+
+<div>
+
+<h4>Quick Links</h4>
+
+<a href="index.html">Home</a>
+<a href="solutions.html">Solutions</a>
+<a href="products.html">Products</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects / Industries</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+
+</div>
+
+<div>
+
+<h4>Semiconductor Solutions</h4>
+
+<a href="wafer-inspection.html">
+Wafer Inspection Systems
+</a>
+
+<a href="#">
+Laser Marking Systems
+</a>
+
+<a href="component-inspection.html">
+Component Inspection Systems
+</a>
+
+<a href="#">
+Tester & Test Handler
+</a>
+
+<a href="#">
+Device Programming Solutions
+</a>
+
+<a href="#">
+Packing / Tape & Reel Systems
+</a>
+
+</div>
+
+<div>
+
+<h4>Healthcare</h4>
+
+<a href="#">
+SARA Digital Health Platform
+</a>
+
+<a href="#">
+Medical IoT Device Integration
+</a>
+
+<a href="#">
+Home-Based Care Enablement
+</a>
+
+</div>
+
+<div>
+
+<h4>Training</h4>
+
+<a href="#">
+Train-the-Trainer Programs
+</a>
+
+<a href="#">
+Semiconductor Process Training
+</a>
+
+<a href="#">
+International Benchmarking
+</a>
+
+</div>
+
+</div>
+
 </footer>
 
 <script>
