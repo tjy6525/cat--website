@@ -21,12 +21,13 @@
                 to right,
                 #dde4ec 0%,
                 #eef2f7 15%,
-                #eef2f7 85%,12
+                #eef2f7 85%,
                 #dde4ec 100%
             );
 
             line-height: 1.6;
             scroll-behavior: smooth;
+            font-size: 14px;
         }
 
         body::before {
@@ -102,12 +103,18 @@
 
         nav {
             background: #34495e;
-            padding: 10px;
+            padding: 0;
+            height: 52px;
             text-align: center;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
 
             position: sticky;
             top: 0;
             z-index: 1000;
+            font-size: 14px;
         }
 
         nav a {
@@ -115,8 +122,11 @@
             margin: 15px;
             text-decoration: none;
             font-weight: bold;
+            display:flex;
+            align-items:center;
 
-            padding: 5px 10px;   /* ✅ 固定 padding */
+            height:52px;
+            padding: 0 15px;   /* ✅ 固定 padding */
             border-radius: 5px;
         }
 
@@ -129,15 +139,19 @@
         /* dropdown container */
         .dropdown {
             position: relative;
-            display: inline-block;
-            padding-bottom: 18px;    /* 👈 增加 hover 区域 */
+            display: inline-flex;
+            align-items:center;
+
+            padding-bottom:0;
         }
 
         /* dropdown menu */
         .dropdown-content {
             position: absolute;
             background: white;
-            min-width: 200px;
+            width: auto;
+
+            min-width: 280px;
 
             overflow: visible;    /* 🔥 允许滚动 */
 
@@ -146,7 +160,6 @@
 
             top: 100%;
             margin-top: 0px;
-            left: 0;
 
             padding: 5px 0;
 
@@ -165,14 +178,64 @@
             gap: 0;
         }
 
+        .dropdown-content a{
+
+            color: #333;
+            padding: 9px 15px;
+            display: block;
+            text-align: left;
+
+            margin:0 !important;
+            height:auto !important;
+
+            line-height:1.4;
+        }
+
+        .mega-menu .dropdown-content{
+            position: fixed;
+            top:52px;   /* header + nav 实际高度 */
+            left: 0;
+            width: 100vw;
+            box-sizing: border-box;
+            border-radius: 0;
+        }
+
         .submenu {
     position: relative;
+    width:100%;
 
     display: flex;
     flex-direction: column;
 }
 
-.submenu .dropdown-content { 
+.submenu > a{
+    display:flex !important;
+
+    justify-content:flex-start;
+
+    align-items:center;
+
+    width:100%;
+
+    margin:0;
+
+    padding:12px 20px;
+
+    gap:8px;
+}
+
+.submenu-arrow{
+    margin-left:6px;
+    font-size:12px;
+    vertical-align:middle;
+    transition: transform 0.3s ease;
+}
+
+.nav-arrow{
+    transition: transform 0.3s ease;
+}
+
+.submenu .dropdown-content {
     position: static;
 
     display: none;
@@ -195,17 +258,37 @@
 
     border-radius: 0;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3,max-content);
 
-    gap: 15px 40px;
+    width: 100%;
+
+    box-sizing: border-box;
+
+    justify-content:start;
+
+    gap:15px 60px;
+}
+
+.submenu .dropdown-content a{
+    height:auto !important;
+
+    min-height:unset;
+
+    padding:10px 20px;
+
+    margin:0;
 }
 
 .submenu:hover > .dropdown-content {
     display: grid;
+}
 
-    flex-direction: column;
+.submenu:hover .submenu-arrow{
+    transform: rotate(90deg);
+}
 
-    gap: 10px;
+.dropdown:hover .nav-arrow{
+    transform: rotate(90deg);
 }
 
 .menu-divider {
@@ -275,6 +358,8 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
+            font-size:42px;
+            font-weight:700;
         }
 
         /* 初始状态（隐藏） */
@@ -342,7 +427,7 @@
         }
 
         .hero-left h2 {
-            font-size: 52px;
+            font-size: 50px;
             line-height: 1.2;
             color: #1f2d3d;
             margin-bottom: 25px;
@@ -538,17 +623,13 @@
             padding: 15px;
         }
 
-        nav a.active {
-            background: #5a6f82;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
         /* 💻 only desktop hover */
         @media (min-width: 769px) {
-        nav a:hover {
-            background: #5a6f82;
-        }
+            nav a:hover{
+
+                color: #f5b041;
+                background: transparent;
+            }
         }
         
         .highlight {
@@ -678,7 +759,7 @@
         }
 
         .card-title {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 600;
             text-align: center;
             margin: 10px 0;
@@ -728,6 +809,20 @@
 
                 transform: translateY(0);
             }
+
+            .dropdown:hover > .dropdown-content{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.nav-arrow{
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .nav-arrow{
+    transform: rotate(90deg);
+}
         }
         
         /* 📱 手机 */
@@ -896,6 +991,10 @@
             line-height: 1.6;
         }
 
+        .card li{
+            font-size:14px;
+        }
+
         /* 🔥 MOBILE HEADER 修复 */
         .header-inner {
             flex-direction: row;
@@ -1004,12 +1103,20 @@
     display:grid;
 
     grid-template-columns:
-        1.5fr 1fr 1fr 1fr;
+        380px
+        220px
+        320px
+        300px;
 
-    gap:60px;
+    justify-content:space-between;
+
+    align-items:start;
+
+    gap:40px;
 }
 
 .footer h4{
+    font-size:20px;
 
     margin-bottom:20px;
 
@@ -1027,6 +1134,8 @@
     text-decoration:none;
 
     margin-bottom:12px;
+
+    font-size:14px;
 }
 
 .footer a:hover{
@@ -1035,8 +1144,8 @@
 }
 
 .footer p{
-
     color:#bfc9d6;
+    font-size:14px;
 }
 
 .footer hr{
@@ -1051,6 +1160,44 @@
 .footer-copy{
 
     text-align:center;
+}
+
+.footer-company{
+    text-align:left;
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.footer-company img{
+    display:block;
+    margin-bottom:20px;
+}
+
+.footer-company p{
+    margin-bottom:12px;
+}
+
+.footer-email{
+    color:#f39c12 !important;
+    font-weight:600;
+}
+
+.footer-grid > div{
+    text-align:left;
+}
+
+.footer-grid h4{
+    text-align:left;
+}
+
+.footer-grid a{
+    text-align:left;
+}
+
+.footer-grid p{
+    text-align:left;
 }
     </style>
 </head>
@@ -1186,36 +1333,40 @@
     <a href="contact.html">Contact</a>
 </nav>
 
-<h1>Wafer AOI Inspection</h1>
-
-<hr>
-
-<h3>Navigation</h3>
-
-<ul>
-
-<li>
-<a href="die-inspection.html">
-← Die Inspection
-</a>
-</li>
-
-<li>
-<a href="wafer-inspection.html">
-← Wafer Inspection System
-</a>
-</li>
-
-<li>
-<a href="solutions.html">
-← Solutions
-</a>
-</li>
-</ul>
+<h1>Dual Reel Post Seal Inspection</h1>
 
 <footer class="footer">
 
 <div class="footer-grid">
+
+<div class="footer-company">
+
+    <img src="images/CATSB-Logo.png"
+         style="height:60px;margin-bottom:15px;">
+
+    <p>
+        Semiconductor manufacturing solutions
+        and digital health technology across
+        Southeast Asia, India, and the United States.
+    </p>
+
+    <br>
+
+    <p>Selangor, Malaysia</p>
+
+    <a href="mailto:sales@cat-my.com"
+        class="footer-email">
+        sales@cat-my.com
+    </a>
+
+    <a href="https://www.cat-my.com"
+        target="_blank">
+        www.cat-my.com
+    </a>
+
+    <p>+60 .........</p>
+
+</div>
 
 <div>
 
@@ -1236,66 +1387,72 @@
 <h4>Semiconductor Solutions</h4>
 
 <a href="wafer-inspection.html">
-Wafer Inspection Systems
+    Wafer Inspection System
 </a>
 
-<a href="#">
-Laser Marking Systems
+<a href="laser-marking.html">
+    Laser Marking Systems
 </a>
 
 <a href="component-inspection-system.html">
-Component Inspection Systems
+    Component Inspection Systems
 </a>
 
-<a href="#">
-Tester & Test Handler
+<a href="tester-test-handler.html">
+    Tester & Test handler
 </a>
 
-<a href="#">
-Device Programming Solutions
+<a href="test-accessories.html">
+    Test Accessories
 </a>
 
-<a href="#">
-Packing / Tape & Reel Systems
+<a href="device-programming.html">
+    Device Programming Solutions
+</a>
+
+<a href="post-seal-inspection.html">
+    Post-Seal Inspection and Counter Systems
+</a>
+
+<a href="packing-tape-reel.html">
+    Packing/Tape & Reel Systems
+</a>
+
+<a href="xray-inspection.html">
+    X-Ray Inspection Systems
+</a>
+
+<a href="special-process-equipment.html">
+    Special Process Equipment
+</a>
+
+<a href="legacy-product-support.html">
+    Legacy Product Support
 </a>
 
 </div>
 
 <div>
 
-<h4>Healthcare</h4>
+    <h4>Business Units</h4>
 
-<a href="#">
-SARA Digital Health Platform
-</a>
+    <a href="https://hatsb.com">
+        Healthcare Automation (HATSB)
+    </a>
 
-<a href="#">
-Medical IoT Device Integration
-</a>
+    <a href="https://semi.academy">
+        Training & Development (ASEMI)
+    </a>
 
-<a href="#">
-Home-Based Care Enablement
-</a>
+    <h4>Engineering Support</h4>
 
-</div>
+    <a href="services.html">
+        Technical Support
+    </a>
 
-<div>
-
-<h4>Training</h4>
-
-<a href="#">
-Train-the-Trainer Programs
-</a>
-
-<a href="#">
-Semiconductor Process Training
-</a>
-
-<a href="#">
-International Benchmarking
-</a>
-
-</div>
+    <a href="contact.html">
+        Submit an Inquiry
+    </a>
 
 </div>
 
@@ -1441,7 +1598,27 @@ window.addEventListener("load", function(){
         title.classList.add("show-line");
     });
 });
-</script>
 
+function updateMegaMenuPosition(){
+
+    const nav = document.getElementById("navMenu");
+
+    const menus =
+        document.querySelectorAll(".mega-menu > .dropdown-content");
+
+    const navBottom =
+        nav.getBoundingClientRect().bottom;
+
+    menus.forEach(function(menu){
+        menu.style.top = navBottom + "px";
+    });
+}
+
+window.addEventListener("load", updateMegaMenuPosition);
+
+window.addEventListener("scroll", updateMegaMenuPosition);
+
+window.addEventListener("resize", updateMegaMenuPosition);
+</script>
 </body>
 </html>

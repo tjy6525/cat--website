@@ -103,8 +103,13 @@
 
         nav {
             background: #34495e;
-            padding: 10px;
+            padding: 0;
+            height: 52px;
             text-align: center;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
 
             position: sticky;
             top: 0;
@@ -117,8 +122,11 @@
             margin: 15px;
             text-decoration: none;
             font-weight: bold;
+            display:flex;
+            align-items:center;
 
-            padding: 5px 10px;   /* ✅ 固定 padding */
+            height:52px;
+            padding: 0 15px;   /* ✅ 固定 padding */
             border-radius: 5px;
         }
 
@@ -131,8 +139,10 @@
         /* dropdown container */
         .dropdown {
             position: relative;
-            display: inline-block;
-            padding-bottom: 18px;    /* 👈 增加 hover 区域 */
+            display: inline-flex;
+            align-items:center;
+
+            padding-bottom:0;
         }
 
         /* dropdown menu */
@@ -168,9 +178,21 @@
             gap: 0;
         }
 
+        .dropdown-content a{
+            color: #333;
+            padding: 9px 15px;
+            display: block;
+            text-align: left;
+
+            margin:0 !important;
+            height:auto !important;
+
+            line-height:1.4;
+        }
+
         .mega-menu .dropdown-content{
             position: fixed;
-            top: 115px;
+            top:52px;   /* header + nav 实际高度 */
             left: 0;
             width: 100vw;
             box-sizing: border-box;
@@ -179,12 +201,40 @@
 
         .submenu {
     position: relative;
+    width:100%;
 
     display: flex;
     flex-direction: column;
 }
 
-.submenu .dropdown-content { 
+.submenu > a{
+    display:flex !important;
+
+    justify-content:flex-start;
+
+    align-items:center;
+
+    width:100%;
+
+    margin:0;
+
+    padding:12px 20px;
+
+    gap:8px;
+}
+
+.submenu-arrow{
+    margin-left:6px;
+    font-size:12px;
+    vertical-align:middle;
+    transition: transform 0.3s ease;
+}
+
+.nav-arrow{
+    transition: transform 0.3s ease;
+}
+
+.submenu .dropdown-content {
     position: static;
 
     display: none;
@@ -207,21 +257,37 @@
 
     border-radius: 0;
 
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3,max-content);
 
     width: 100%;
 
     box-sizing: border-box;
 
-    gap: 40px;
+    justify-content:start;
+
+    gap:15px 60px;
+}
+
+.submenu .dropdown-content a{
+    height:auto !important;
+
+    min-height:unset;
+
+    padding:10px 20px;
+
+    margin:0;
 }
 
 .submenu:hover > .dropdown-content {
     display: grid;
+}
 
-    flex-direction: column;
+.submenu:hover .submenu-arrow{
+    transform: rotate(90deg);
+}
 
-    gap: 10px;
+.dropdown:hover .nav-arrow{
+    transform: rotate(90deg);
 }
 
 .menu-divider {
@@ -295,19 +361,6 @@
             font-weight:700;
         }
 
-        /* 初始状态（隐藏） */
-        h2::before,
-        h2::after {
-            content: "";
-            height: 2px;
-            background: linear-gradient(to right, transparent, #d0d7de);
-
-            flex: 1;
-            max-width: 120px;
-
-            transform: scaleX(0);   /* 🔥 一开始收起来 */
-        }
-
         /* 左右方向 */
         h2::before {
             transform-origin: right;
@@ -315,12 +368,6 @@
 
         h2::after {
             background: linear-gradient(to left, transparent, #d0d7de);
-        }
-
-        /* 🔥 动画触发 */
-        h2.show-line::before,
-        h2.show-line::after {
-            animation: lineExpand 5.0s ease forwards;
         }
 
         /* 🔥 动画定义 */
@@ -338,25 +385,23 @@
         }
         
         /*背景图 */
-        .hero {
-            display: flex;
-            align-items: stretch;
-            justify-content: space-between;
+        .hero{
+    min-height:700px;
 
-            min-height: 700px;
-            padding: 80px 8%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-            background: linear-gradient(
-            135deg,
-            #dce4ec,
-            #eef2f7
-            );
+    padding:0 7%;
 
-            gap: 50px;
-        }
+    background:#f6f8fb;
+
+    gap:60px;
+}
 
         .hero-left {
-            flex: 1;
+            flex:1;
+            max-width:650px;
         }
 
         .hero-left h2 {
@@ -382,41 +427,22 @@
             gap: 15px;
         }
 
-        .hero-right {
-            flex: 1;
-            display: flex;
+        .hero-right{
+    flex:1;
+}
 
-            justify-content: center;
-            align-items: center;
+.hero-right video{
+    width:100%;
+    height:700px;
 
-            overflow: hidden;
-        }
+    object-fit:cover;
 
-        .hero-right video {
-            /*正方形设计*/
-            width: 100%;
-            height: 720px;
+    border-radius:0;
 
-            object-fit: cover;
+    box-shadow:none;
 
-            border-radius: 25px;
-
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-
-            border: 4px solid rgba(255,255,255,0.4);
-            /*圆形设计
-            width: 520px;
-            height: 520px;
-
-            object-fit: cover;
-
-            border-radius: 50%;
-            aspect-ratio: 1 / 1;
-
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-
-            border: 4px solid rgba(255,255,255,0.4);*/
-        }
+    border:none;
+}
 
         .btn {
             display: inline-block;
@@ -477,12 +503,12 @@
         }
 
         .card-section {
-            display: grid;
+            display:grid;
 
-            grid-template-columns:
-            repeat(auto-fit, minmax(320px, 1fr));
+grid-template-columns:
+repeat(3,1fr);
 
-            gap: 35px;
+gap:30px;
         }
 
         .card-section .card {
@@ -496,20 +522,15 @@
 
         .card img {
             width: 100%;
-    height: 260px;
-
-    object-fit: cover;
-
-    border-radius: 14px;
-
-    margin-bottom: 20px;
-
-    transition:
-    transform 0.5s ease;
-
-    filter:
-    brightness(0.95)
-    contrast(1.02);
+            height: 260px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            transition:
+                transform 0.5s ease;
+                filter:
+            brightness(0.95)
+            contrast(1.02);
         }
 
         .card-image {
@@ -556,17 +577,12 @@
             padding: 15px;
         }
 
-        nav a.active {
-            background: #5a6f82;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
         /* 💻 only desktop hover */
         @media (min-width: 769px) {
-        nav a:hover {
-            background: #5a6f82;
-        }
+            nav a:hover{
+                color: #f5b041;
+                background: transparent;
+            }
         }
         
         .highlight {
@@ -666,6 +682,7 @@
     transition:
     transform 0.35s ease,
     box-shadow 0.35s ease;
+    height:100%;
         }
 
         .clickable-card {
@@ -698,10 +715,14 @@
         .card-title {
             font-size: 20px;
             font-weight: 600;
-            text-align: center;
+            text-align: left;
             margin: 10px 0;
             color: #2c3e50;
         }
+
+        .card p{
+    text-align:left;
+}
 
         .card-center {
             max-width: 700px;
@@ -746,6 +767,20 @@
 
                 transform: translateY(0);
             }
+
+            .dropdown:hover > .dropdown-content{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.nav-arrow{
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .nav-arrow{
+    transform: rotate(90deg);
+}
         }
         
         /* 📱 手机 */
@@ -1122,6 +1157,197 @@
 .footer-grid p{
     text-align:left;
 }
+
+.section-label{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    color:#f39c12;
+
+    font-size:13px;
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:20px;
+}
+
+.section-label::before{
+    content:"";
+
+    width:40px;
+    height:2px;
+
+    background:#f39c12;
+}
+
+.hero-title{
+    font-size:68px !important;
+    line-height:1.05 !important;
+
+    text-align:left !important;
+    display:block !important;
+
+    font-weight:800;
+
+    color:#0f172a;
+
+    margin-bottom:30px;
+}
+
+.hero-title::before,
+.hero-title::after{
+    display:none !important;
+}
+
+.hero-title span{
+    color:#f59e0b;
+    display:block;
+}
+
+.country-tags{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.country-tags span{
+padding:12px 22px;
+background:white;
+border-radius:999px;
+border:1px solid #d8dee7;
+}
+
+.section-label{
+    color:#f39c12;
+    font-weight:700;
+    letter-spacing:2px;
+    font-size:13px;
+
+    margin-bottom:25px;
+}
+
+.hero-title{
+    font-size:68px !important;
+    line-height:1.05 !important;
+
+    text-align:left !important;
+
+    font-weight:800;
+
+    color:#0f172a;
+
+    margin-bottom:30px;
+}
+
+.hero-title::before,
+.hero-title::after{
+    display:none !important;
+}
+
+.hero-title span{
+    color:#f59e0b;
+}
+
+.credibility{
+
+    background:#021233;
+
+    color:white;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+    align-items:center;
+
+    padding:18px 0;
+
+    text-align:center;
+}
+
+.credibility > div{
+    min-height:120px;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.credibility > div:last-child{
+    border-right:none;
+}
+
+.credibility h3{
+
+    color:#f59e0b;
+
+    font-size:28px;
+
+    margin-bottom:6px;
+    margin:0;
+}
+
+.credibility p{
+
+    color:#9fb0c7;
+
+    margin:0;
+    margin-top:8px;
+}
+
+.btn-outline{
+
+    background:white !important;
+
+    color:#334155 !important;
+
+    border:1px solid #cbd5e1;
+
+    box-shadow:none;
+}
+
+.center-label{
+justify-content:center;
+}
+
+.global-title{
+
+font-size:56px;
+
+font-weight:800;
+
+text-align:center;
+}
+
+.card-link-btn{
+
+    display:inline-block;
+
+    margin-top:auto;
+
+    color:#f59e0b;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    font-size:18px;
+}
+
+.card{
+    align-items:flex-start;
+}
+
+.card h3,
+.card p{
+    text-align:left;
+    padding:0;
+}
     </style>
 </head>
 
@@ -1150,7 +1376,7 @@
 
 <nav id="navMenu">
     <div class="dropdown mega-menu">
-    <a href="index.html" class="active">
+    <a href="index.html">
         Home <!--i class="fas fa-chevron-down"></i> -->
     </a>
     <!--
@@ -1168,25 +1394,25 @@
 
     <div class="dropdown mega-menu">
     <a href="solutions.html">
-        Solutions <i class="fas fa-chevron-down"></i>
+        Solutions <i class="fas fa-chevron-right nav-arrow"></i>
     </a>
     <div class="dropdown-content">
         <div class="dropdown submenu">
 
         <a href="solutions.html#semiconductor">
             Semiconductor Manufacturing
-            <i class="fas fa-chevron-right"></i>
+            <i class="fas fa-chevron-right submenu-arrow"></i>
         </a>
 
         <div class="dropdown-content">
             <a href="wafer-inspection.html">Wafer Inspection System</a>
             <a href="laser-marking.html">Laser Marking Systems</a>
-            <a href="component-inspection.html">Component Inspection Systems</a>
-            <a href="tester-test-handler.html">Tester & Test handler</a>
+            <a href="component-inspection-system.html">Component Inspection Systems</a>
+            <a href="tester-and-test-handler.html">Tester & Test handler</a>
             <a href="test-accessories.html">Test Accessories</a>
             <a href="device-programming-solutions.html">Device Programming Solutions</a>
-            <a href="post-seal-inspection-and-counter-systems.html#">Post-Seal Inspection and Counter Systems</a>
-            <a href="packing-tape-reel-systems.html">Packing/Tape & Reel Systems</a>
+            <a href="post-seal-inspection-and-counter-systems.html">Post-Seal Inspection and Counter Systems</a>
+            <a href="packing-tape-and-reel-systems.html">Packing/Tape & Reel Systems</a>
             <a href="x-ray-inspection-systems.html">X-Ray Inspection Systems</a>
             <a href="special-process-equipment.html">Special Process Equipment</a>
             <a href="legacy-product-support.html">Legacy Product Support</a>
@@ -1206,10 +1432,9 @@
     </div> 
     </div>
 
-
-    <div class="dropdown">
+    <div class="dropdown mega-menu">
     <a href="products.html">
-        Products <i class="fas fa-chevron-down"></i>
+        Products <i class="fas fa-chevron-right nav-arrow"></i>
     </a>
     <div class="dropdown-content">
         <a href="products.html#turret">Turret-Based Test, Inspection & Tape & Reel Systems</a>
@@ -1232,9 +1457,9 @@
 
     <a href="services.html">Services</a>
 
-    <div class="dropdown">
+    <div class="dropdown mega-menu">
     <a href="projects.html">
-        Projects / Industries <i class="fas fa-chevron-down"></i>
+        Projects / Industries <i class="fas fa-chevron-right nav-arrow"></i>
     </a>
     <div class="dropdown-content">
         <a href="projects.html#industries">Industries Served</a>
@@ -1242,9 +1467,9 @@
     </div>
     </div>
 
-    <div class="dropdown">
+    <div class="dropdown mega-menu">
     <a href="about.html">
-        About <i class="fas fa-chevron-down"></i>
+        About <i class="fas fa-chevron-right nav-arrow"></i>
     </a>
     <div class="dropdown-content">
         <a href="about.html#who">Who We Are</a>
@@ -1260,33 +1485,38 @@
 <!-- HERO -->
 <section class="hero">
 
-    <div class="hero-left">
+<div class="hero-left">
 
-        <h2>
-            AI-Enabled Technology Solutions 
-            for Semiconductor Assembly, 
-            Test & Advanced Packaging
-        </h2>
+<div class="section-label">
+SEMICONDUCTOR & HEALTHCARE TECHNOLOGY
+</div>
 
-        <p>
-            Control Automation Technology delivers advanced inspection,
-            automation, and digital health solutions across Southeast Asia,
-            India, and the United States.
-        </p>
+<h2 class="hero-title">
+Precision Engineering for
+<span>
+    Advanced Manufacturing
+</span>
+</h2>
 
-        <div class="hero-buttons">
+<p>
+Control Automation Technology delivers advanced
+inspection, test, and automation solutions across
+Southeast Asia, India, and the United States.
+</p>
 
-            <a href="solutions.html" class="btn">
-                Explore Solutions
-            </a>
+<div class="hero-buttons">
 
-            <a href="contact.html" class="btn">
-                Contact Us
-            </a>
+<a href="solutions.html" class="btn">
+Explore Solutions
+</a>
 
-        </div>
+<a href="contact.html" class="btn btn-outline">
+Contact Us
+</a>
 
-    </div>
+</div>
+
+</div>
 
     <div class="hero-right">
 
@@ -1298,108 +1528,98 @@
 
 </section>
 
-<!-- CREDIBILITY -->
 <section class="credibility">
-    <div><i class="fas fa-industry"></i><br>30+ Years Experience</div>
-    <div><i class="fas fa-globe"></i><br>Global Customers</div>
-    <div><i class="fas fa-tools"></i><br>Engineering Support</div>
-    <div><i class="fas fa-handshake"></i><br>Trusted Partner</div>
+
+<div>
+<h3>30+</h3>
+<p>Years Industry Experience</p>
+</div>
+
+<div>
+<h3>Global</h3>
+<p>Customer Base</p>
+</div>
+
+<div>
+<h3>Regional</h3>
+<p>Engineering Support</p>
+</div>
+
+<div>
+<h3>Trusted</h3>
+<p>Technology Partner</p>
+</div>
+
 </section>
 
 <!-- BUSINESS PILLARS（已修正🔥） -->
-<section class="container section-light">
-    <h2 id="our-business">Our Business</h2>
+ <section class="container section-light">
 
-    <div class="card-section">
+<div class="section-label">
+OUR BUSINESS UNITS
+</div>
 
-        <!-- CAT -->
-        <a href="solutions.html" class="card-link">
-        <div class="card">
+<h2>
+Three Integrated Divisions
+</h2>
 
-        <div class="card-image">
-            <img src="images/Semiconductor Solutions.jpg">
-        </div>
+<div class="card-section">
 
-        <h3 class="card-title">
-            Semiconductor Solutions
-        </h3>
+<div class="card">
+<img src="images/Semiconductor Solutions.jpg">
 
-        <p>
-            Advanced inspection, test, and automation systems for semiconductor manufacturing.
-        </p>
+<h3>Semiconductor Solutions</h3>
 
-        </div>
-        </a>
+<p>
+Advanced semiconductor inspection,
+automation and packaging solutions.
+</p>
 
-        <!-- HATSB -->
-        <div class="card clickable-card" onclick="window.open('http://hatsb.com/', '_blank')">
+<a href="solutions.html" class="card-link-btn">
+Explore Solutions →
+</a>
 
-        <div class="card-image">
-            <img src="images/healthcare-automation.webp">
-        </div>
-            
-        <h3 class="card-title">
-            Healthcare Automation
-        </h3>
+</div>
 
-        <p>
-            Digital healthcare ecosystem powered by Healthcare Automation Technology.
-        </p>
+<div class="card">
 
-        <a href="http://hatsb.com/" class="btn" target="_blank">
-            Visit HATSB
-        </a>
+<img src="images/healthcare-automation.webp">
 
-        </div>
+<h3>Healthcare Automation</h3>
 
-        <!-- ASEMI -->
-        <div class="card clickable-card" onclick="window.open('https://semi.academy/#blog', '_blank')">
+<p>
+Digital healthcare ecosystem
+and connected care solutions.
+</p>
 
-        <div class="card-image">
-            <img src="images/Training & Development.jpg">
-        </div>
-            
-        <h3 class="card-title">
-            Training & Development
-        </h3>
+<a href="https://hatsb.com" class="card-link-btn">
+Visit HATSB ↗
+</a>
 
-        <p>
-            Industry-driven semiconductor training and development programs.
-        </p>
+</div>
 
-        <a href="https://semi.academy/#blog" class="btn" target="_blank">
-            Visit ASEMI
-        </a>
+<div class="card">
 
-        </div>
+<img src="images/Training & Development.jpg">
 
-    </div>
-</section>
+<h3>Training & Development</h3>
 
-<!-- ABOUT -->
-<section class="container section-grey">
+<p>
+Industry-ready workforce
+development programs.
+</p>
 
-    <div class="card card-center">
+<a href="https://semi.academy" class="card-link-btn">
+Visit ASEMI ↗
+</a>
 
-    <h2 id="about">About Control Automation Technology</h2>
+</div>
 
-    <div style="max-width: 600px; margin: auto;">
-
-    <p>
-        Control Automation Technology Sdn Bhd is a regional technology solutions provider with over 30 years of experience in semiconductor manufacturing equipment, automation systems, and emerging healthcare technologies.
-    </p>
-
-    <p>
-        We support customers across Asia and the United States with high-performance solutions, engineering expertise, and long-term service partnerships.
-    </p>
-
-    </div>
-
-    </div>
+</div>
 
 </section>
 
-<!-- SOLUTIONS -->
+<!-- SOLUTIONS
 <section class="container section-light">
     <h2 id="solutions">Solutions Overview</h2>
 
@@ -1434,76 +1654,69 @@
 
     </div>
 </section>
+-->
 
-<!-- PRODUCTS -->
-<section class="container section-grey">
-    <h2 id="products">Products Highlight</h2>
-
-    <div class="grid">
-         
-        <div class="card">
-            <img src="images/Proprietary Systems Developed.jpg">
-            <p>Proprietary Systems Developed by CAT</p>
-        </div>
-
-        <div class="card">
-            <img src="images/Semiconductor Equipment & Automation.jpg">
-            <p>Semiconductor Equipment & Automation</p>
-        </div>
-
-        <div class="card">
-            <img src="images/Healthcare Devices & Solutions.webp">
-            <p>Healthcare Devices & Solutions</p>
-        </div>
-
-    </div>
-
-    <div style="text-align:center;">
-        <a href="products.html" class="btn">View All Products</a>
-    </div>
-</section>
-
-<!-- SERVICES -->
-<section class="container section-light">
-    <h2 id="services">Our Services</h2>
-
-    <div class="grid">
-
-    <div class="card">
-        <i class="fas fa-cogs"></i>
-        Installation & Commissioning
-    </div>
-
-    <div class="card">
-        <i class="fas fa-tools"></i>
-        Preventive Maintenance
-    </div>
-
-    <div class="card">
-        <i class="fas fa-chart-line"></i>
-        Process Optimization
-    </div>
-
-    <div class="card">
-        <i class="fas fa-chalkboard-teacher"></i>
-        Technical Training
-    </div>
-
-    </div>
-</section>
+ 
 
 <!-- GLOBAL -->
-<section class="container section-grey">
-    <h2 id="global">Global Presence</h2>
-    <p style="text-align:center;">
-        Operating across Malaysia, Singapore, Thailand, Vietnam, India, United States, Mexico, and Canada.
-    </p>
+ <section class="container section-grey">
+
+<div class="section-label center-label">
+GLOBAL PRESENCE
+</div>
+
+<h2 class="global-title">
+Serving Customers Worldwide
+</h2>
+
+<p style="text-align:center;">
+Supporting customers across Asia and North America.
+</p>
+
+<div class="country-tags">
+
+<span>Malaysia</span>
+<span>Singapore</span>
+<span>Thailand</span>
+<span>Vietnam</span>
+<span>India</span>
+<span>USA</span>
+<span>Mexico</span>
+<span>Canada</span>
+
+</div>
+
 </section>
 
 <!-- CTA -->
-<section class="cta">
-    <h2 id="contact">Let’s Build Your Next Technology Solution</h2>
-    <a href="contact.html" class="btn">Contact Us</a>
+ <section class="cta">
+
+<div class="section-label"
+style="justify-content:center;">
+ENGINEERING INQUIRY
+</div>
+
+<h2>
+Let's Build Your Next Technology Solution
+</h2>
+
+<p style="
+max-width:800px;
+margin:auto;
+margin-top:20px;
+margin-bottom:40px;
+color:#d0d7de;
+">
+
+Our engineering team is ready to discuss
+your semiconductor manufacturing requirements.
+
+</p>
+
+<a href="contact.html" class="btn">
+Submit Inquiry
+</a>
+
 </section>
 
 <footer class="footer">
@@ -1565,7 +1778,7 @@
     Laser Marking Systems
 </a>
 
-<a href="component-inspection.html">
+<a href="component-inspection-system.html">
     Component Inspection Systems
 </a>
 
@@ -1764,12 +1977,26 @@ function closeLightbox(){
     document.getElementById("lightbox").style.display = "none";
 }
 
-window.addEventListener("load", function(){
-    document.querySelectorAll("h2").forEach(function(title){
-        title.classList.add("show-line");
-    });
-});
-</script>
+function updateMegaMenuPosition(){
 
+    const nav = document.getElementById("navMenu");
+
+    const menus =
+        document.querySelectorAll(".mega-menu > .dropdown-content");
+
+    const navBottom =
+        nav.getBoundingClientRect().bottom;
+
+    menus.forEach(function(menu){
+        menu.style.top = navBottom + "px";
+    });
+}
+
+window.addEventListener("load", updateMegaMenuPosition);
+
+window.addEventListener("scroll", updateMegaMenuPosition);
+
+window.addEventListener("resize", updateMegaMenuPosition);
+</script>
 </body>
 </html>

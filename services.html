@@ -27,6 +27,7 @@
 
             line-height: 1.6;
             scroll-behavior: smooth;
+            font-size: 14px;
         }
 
         body::before {
@@ -54,7 +55,7 @@
         header {
             background: #2c3e50;
             color: white;
-            padding: 20px;
+            padding: 10px 0;
             text-align: center;
         }
 
@@ -68,7 +69,10 @@
         .title-row {
             display: flex;
             align-items: center;
-            gap: 15px;
+            justify-content: center;
+
+            gap: 10px;
+            padding: 4px 0;
         }
 
         .tagline {
@@ -79,11 +83,15 @@
 
         header h1 {
             color: #f5b041;
+            font-size: 23px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1;
         }
 
         /* 💻 电脑版 LOGO */
         .logo {
-            height: 90px;        /* 🔥 放大 */
+            height: 42px;
             margin-left: 0;
             vertical-align: middle;
             transition: transform 0.3s ease;
@@ -100,12 +108,18 @@
 
         nav {
             background: #34495e;
-            padding: 10px;
+            padding: 0;
+            height: 52px;
             text-align: center;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
 
             position: sticky;
             top: 0;
             z-index: 1000;
+            font-size: 14px;
         }
 
         nav a {
@@ -113,33 +127,44 @@
             margin: 15px;
             text-decoration: none;
             font-weight: bold;
+            display:flex;
+            align-items:center;
 
-            padding: 5px 10px;   /* ✅ 固定 padding */
+            height:52px;
+            padding: 0 15px;   /* ✅ 固定 padding */
             border-radius: 5px;
+        }
+
+        nav a i {
+            font-size: 12px;
+            margin-left: 6px;
+            vertical-align: middle;
         }
 
         /* dropdown container */
         .dropdown {
             position: relative;
-            display: inline-block;
-            padding-bottom: 5px;    /* 👈 增加 hover 区域 */
+            display: inline-flex;
+            align-items:center;
+
+            padding-bottom:0;
         }
 
         /* dropdown menu */
         .dropdown-content {
             position: absolute;
             background: white;
-            min-width: 200px;
+            width: auto;
 
-            max-height: 300px;   /* 🔥 控制高度 */
-            overflow-y: auto;    /* 🔥 允许滚动 */
+            min-width: 280px;
+
+            overflow: visible;    /* 🔥 允许滚动 */
 
             box-shadow: 0 6px 20px rgba(0,0,0,0.18);
             border-radius: 8px;
 
             top: 100%;
             margin-top: 0px;
-            left: 0;
 
             padding: 5px 0;
 
@@ -152,12 +177,140 @@
             transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
 
             z-index: 99999;
+            display: flex;
+
+            flex-direction: column;
+            gap: 0;
         }
 
         /* dropdown links */
         .dropdown-content a {
             color: #333;
-            padding: 10px 15px;
+            padding: 9px 15px;
+            display: block;
+            text-align: left;
+
+            margin:0 !important;
+            height:auto !important;
+
+            line-height:1.4;
+        }
+
+        .mega-menu .dropdown-content{
+            position: fixed;
+            top:52px;   /* header + nav 实际高度 */
+            left: 0;
+            width: 100vw;
+            box-sizing: border-box;
+            border-radius: 0;
+        }
+
+        .submenu {
+    position: relative;
+    width:100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.submenu > a{
+    display:flex !important;
+
+    justify-content:flex-start;
+
+    align-items:center;
+
+    width:100%;
+
+    margin:0;
+
+    padding:12px 20px;
+
+    gap:8px;
+}
+
+.submenu-arrow{
+    margin-left:6px;
+    font-size:12px;
+    vertical-align:middle;
+    transition: transform 0.3s ease;
+}
+
+.nav-arrow{
+    transition: transform 0.3s ease;
+}
+
+.submenu .dropdown-content {
+    position: static;
+
+    display: none;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    border: none;
+
+    padding: 0;
+
+    margin-top: 0px;
+
+    border-top: 1px solid #ccc;
+
+    padding-top: 0;
+
+    padding-bottom: 15px;
+
+    border-radius: 0;
+
+    grid-template-columns: repeat(3,max-content);
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    justify-content:start;
+
+    gap:15px 60px;
+}
+
+.submenu .dropdown-content a{
+    height:auto !important;
+
+    min-height:unset;
+
+    padding:10px 20px;
+
+    margin:0;
+}
+
+.submenu:hover > .dropdown-content {
+    display: grid;
+}
+
+.submenu:hover .submenu-arrow{
+    transform: rotate(90deg);
+}
+
+.dropdown:hover .nav-arrow{
+    transform: rotate(90deg);
+}
+
+.menu-divider {
+
+    border: none;
+
+    border-top: 1px solid #ccc;
+
+    margin: 0;
+
+    transform: translateY(0px);
+}
+
+        /* dropdown links */
+        .dropdown-content a {
+            color: #333;
+            padding: 9px 15px;
             display: block;
             text-align: left;
 
@@ -171,6 +324,7 @@
                 padding-left 0.25s ease;
 
             position: relative;
+            white-space: nowrap;
         }
 
         /* 📱 MOBILE：轻微 hover（舒服版） */
@@ -190,9 +344,8 @@
         /* 💻 只给电脑用 */
         @media (min-width: 769px) {
         .dropdown-content a:hover {
-            background: #f2f4f7;
-            transform: translateY(-3px);
-            padding-left: 20px;
+            color: #f5b041;
+            background: transparent;
             }
         }
 
@@ -210,6 +363,8 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
+            font-size:42px;
+            font-weight:700;
         }
 
         /* 初始状态（隐藏） */
@@ -252,44 +407,6 @@
 
         section[id] {
             scroll-margin-top: 140px;
-        }
-        
-        /*背景图 */
-        .hero {
-            background: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085") center/cover no-repeat;
-            background-color: transparent;
-            
-            color: white;
-            text-align: center;
-            position: relative;
-            padding: 70px 20px;
-            min-height: 60vh;
-            z-index: 1;
-        }
-
-        /* 黑色遮罩 */
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.3);
-            z-index: 0;
-        }
-        
-        /*文字*/
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .hero-content h2 {
-            font-size: 38px;
-            font-weight: 600;
         }
 
         .btn {
@@ -345,8 +462,11 @@
 
         .card-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+
+            grid-template-columns:
+            repeat(auto-fit, minmax(320px, 1fr));
+
+            gap: 35px;
         }
 
         .card-section .card {
@@ -360,17 +480,15 @@
 
         .card img {
             width: 100%;
-            height: 200px;          /* 👉 控制高度 */
-            object-fit: cover;      /* 👉 关键！裁切图片 */
-            
-            border-radius: 10px;
-
-            /* ⭐ 阴影重点 */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
-            filter: brightness(0.9) contrast(0.95) saturate(0.8);
+            height: 260px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            transition:
+                transform 0.5s ease;
+                filter:
+            brightness(0.95)
+            contrast(1.02);
         }
 
         .card-image {
@@ -435,9 +553,21 @@
 
         .cta {
             text-align: center;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white; 
-            padding: 80px 20px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #1f2d3d,
+    #34495e
+    );
+
+    color: white;
+
+    padding: 120px 20px;
+
+    position: relative;
+
+    overflow: hidden;
         }
 
         .cta .btn:hover {
@@ -468,22 +598,25 @@
 
         .card {
             background: white;
-            padding: 25px;
-            margin: 10px;
-            border-radius: 12px;
 
-            scroll-margin-top: 140px; 
-            
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px;
 
-            overflow: hidden;
+    border-radius: 18px;
 
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            
-            /* 🔥 动画关键 */ 
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.06);
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    border: 1px solid rgba(0,0,0,0.04);
+
+    transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
         }
 
         .clickable-card {
@@ -503,6 +636,8 @@
             text-decoration: none;
             color: inherit;
             display: block;
+            flex: 1;
+            max-width: 320px;
         }
 
         .card h3,
@@ -512,7 +647,7 @@
         }
 
         .card-title {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 600;
             text-align: center;
             margin: 10px 0;
@@ -541,13 +676,41 @@
             gap: 20px;
         }
         
-                                                                                                                                                                                                   /* 💻 电脑 */
+        /* 💻 电脑 */
         @media (min-width: 769px) {
-            .dropdown:hover .dropdown-content {
+            /* 一级 dropdown */
+            nav > .dropdown:hover > .dropdown-content {
+
                 opacity: 1;
+
                 transform: translateY(0) scale(1);
+
                 visibility: visible;
             }
+
+            /* submenu */
+            .submenu:hover > .dropdown-content {
+
+                opacity: 1;
+
+                visibility: visible;
+
+                transform: translateY(0);
+            }
+
+            .dropdown:hover > .dropdown-content{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.nav-arrow{
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .nav-arrow{
+    transform: rotate(90deg);
+}
         }
         
         /* 📱 手机 */
@@ -588,7 +751,8 @@
         }
 
         header h1 {
-            font-size: 22px;
+            margin: 0;
+            font-size: 28px;
         }
 
         .menu-toggle {
@@ -663,7 +827,9 @@
         }
 
         .dropdown.active .dropdown-content {
-            display: block;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            visibility: visible;
         }
 
         .dropdown.active {
@@ -715,12 +881,25 @@
 
         /* 🔥 MOBILE HEADER 修复 */
         .header-inner {
-            flex-direction: column;   /* 🔥 变上下 */
-            gap: 10px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            font-size: 22px;
+        }
+
+        .header-text h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .header-text p {
+            margin-top: 5px;
+            font-size: 16px;
         }
 
         .logo {
-            height: 60px;   /* 🔥 手机版稍微小一点 */
+            height: 50px;   /* 🔥 手机版稍微小一点 */
             margin-left: 0; /* 🔥 居中 */
         }
 
@@ -784,12 +963,20 @@
     display:grid;
 
     grid-template-columns:
-        1.5fr 1fr 1fr 1fr;
+        380px
+        220px
+        320px
+        300px;
 
-    gap:60px;
+    justify-content:space-between;
+
+    align-items:start;
+
+    gap:40px;
 }
 
 .footer h4{
+    font-size:20px;
 
     margin-bottom:20px;
 
@@ -807,6 +994,8 @@
     text-decoration:none;
 
     margin-bottom:12px;
+
+    font-size:14px;
 }
 
 .footer a:hover{
@@ -815,8 +1004,8 @@
 }
 
 .footer p{
-
     color:#bfc9d6;
+    font-size:14px;
 }
 
 .footer hr{
@@ -831,6 +1020,44 @@
 .footer-copy{
 
     text-align:center;
+}
+
+.footer-company{
+    text-align:left;
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.footer-company img{
+    display:block;
+    margin-bottom:20px;
+}
+
+.footer-company p{
+    margin-bottom:12px;
+}
+
+.footer-email{
+    color:#f39c12 !important;
+    font-weight:600;
+}
+
+.footer-grid > div{
+    text-align:left;
+}
+
+.footer-grid h4{
+    text-align:left;
+}
+
+.footer-grid a{
+    text-align:left;
+}
+
+.footer-grid p{
+    text-align:left;
 }
     </style>
 </head>
@@ -849,10 +1076,6 @@
 
     </div>
 
-    <p class="tagline">
-        Powering Semiconductor Manufacturing & Digital Healthcare Innovation
-    </p>
-
 </div>
 </header>
 
@@ -863,8 +1086,11 @@
 </div>
 
 <nav id="navMenu">
-    <div class="dropdown">
-    <a href="index.html">Home</a>
+    <div class="dropdown mega-menu">
+    <a href="index.html">
+        Home <!--i class="fas fa-chevron-down"></i> -->
+    </a>
+    <!--
     <div class="dropdown-content">
         <a href="index.html#our-business">Our Business</a>
         <a href="index.html#about">About Control Automation Technology</a>
@@ -874,29 +1100,53 @@
         <a href="index.html#global">Global Presence</a>
         <a href="index.html#contact">Contact Us</a>
     </div>
+    -->
     </div>
 
-    <div class="dropdown">
-    <a href="about.html">About</a>
+    <div class="dropdown mega-menu">
+    <a href="solutions.html">
+        Solutions <i class="fas fa-chevron-right nav-arrow"></i>
+    </a>
     <div class="dropdown-content">
-        <a href="about.html#who">Who We Are</a>
-        <a href="about.html#vision">Vision</a>
-        <a href="about.html#mission">Mission</a>
-        <a href="about.html#leadership">Leadership</a>
-    </div>
+        <div class="dropdown submenu">
+
+        <a href="solutions.html#semiconductor">
+            Semiconductor Manufacturing
+            <i class="fas fa-chevron-right submenu-arrow"></i>
+        </a>
+
+        <div class="dropdown-content">
+            <a href="wafer-inspection.html">Wafer Inspection System</a>
+            <a href="laser-marking.html">Laser Marking Systems</a>
+            <a href="component-inspection-system.html">Component Inspection Systems</a>
+            <a href="tester-and-test-handler.html">Tester & Test handler</a>
+            <a href="test-accessories.html">Test Accessories</a>
+            <a href="device-programming-solutions.html">Device Programming Solutions</a>
+            <a href="post-seal-inspection-and-counter-systems.html">Post-Seal Inspection and Counter Systems</a>
+            <a href="packing-tape-and-reel-systems.html">Packing/Tape & Reel Systems</a>
+            <a href="x-ray-inspection-systems.html">X-Ray Inspection Systems</a>
+            <a href="special-process-equipment.html">Special Process Equipment</a>
+            <a href="legacy-product-support.html">Legacy Product Support</a>
+        </div>
+        </div>
+
+        <hr class="menu-divider">
+
+    <a href="solutions.html#healthcare">
+        Digital Healthcare Ecosystem
+    </a>
+
+    <a href="solutions.html#training">
+        Semiconductor Industry Training
+    </a>
+
+    </div> 
     </div>
 
-    <div class="dropdown">
-    <a href="solutions.html">Solutions</a>
-    <div class="dropdown-content">
-        <a href="solutions.html#semiconductor">Semiconductor Solutions</a>
-        <a href="solutions.html#healthcare">Healthcare Automation</a>
-        <a href="solutions.html#training">Training & Development</a>
-    </div>
-    </div>
-
-    <div class="dropdown">
-    <a href="products.html">Products</a>
+    <div class="dropdown mega-menu">
+    <a href="products.html">
+        Products <i class="fas fa-chevron-right nav-arrow"></i>
+    </a>
     <div class="dropdown-content">
         <a href="products.html#turret">Turret-Based Test, Inspection & Tape & Reel Systems</a>
         <a href="products.html#laser">Laser Marking Modules & Complete Systems</a>
@@ -916,18 +1166,22 @@
     </div>
     </div>
 
-    <a href="services.html" class="active">Services</a>
+    <a href="services.html">Services</a>
 
-    <div class="dropdown">
-    <a href="projects.html">Projects / Industries</a>
+    <div class="dropdown mega-menu">
+    <a href="projects.html">
+        Projects / Industries <i class="fas fa-chevron-right nav-arrow"></i>
+    </a>
     <div class="dropdown-content">
         <a href="projects.html#industries">Industries Served</a>
         <a href="projects.html#our">Our Positioning</a>
     </div>
     </div>
 
-    <div class="dropdown">
-    <a href="about.html">About</a>
+    <div class="dropdown mega-menu">
+    <a href="about.html">
+        About <i class="fas fa-chevron-right nav-arrow"></i>
+    </a>
     <div class="dropdown-content">
         <a href="about.html#who">Who We Are</a>
         <a href="about.html#vision">Vision</a>
@@ -1015,7 +1269,7 @@ Wafer Inspection Systems
 Laser Marking Systems
 </a>
 
-<a href="component-inspection.html">
+<a href="component-inspection-system.html">
 Component Inspection Systems
 </a>
 
@@ -1197,6 +1451,27 @@ window.addEventListener("load", function(){
         title.classList.add("show-line");
     });
 });
+
+function updateMegaMenuPosition(){
+
+    const nav = document.getElementById("navMenu");
+
+    const menus =
+        document.querySelectorAll(".mega-menu > .dropdown-content");
+
+    const navBottom =
+        nav.getBoundingClientRect().bottom;
+
+    menus.forEach(function(menu){
+        menu.style.top = navBottom + "px";
+    });
+}
+
+window.addEventListener("load", updateMegaMenuPosition);
+
+window.addEventListener("scroll", updateMegaMenuPosition);
+
+window.addEventListener("resize", updateMegaMenuPosition);
 </script>
 
 </body>

@@ -27,6 +27,8 @@
 
             line-height: 1.6;
             scroll-behavior: smooth;
+            font-size: 14px;
+
         }
 
         body::before {
@@ -212,19 +214,6 @@
             gap: 15px;
         }
 
-        /* 初始状态（隐藏） */
-        h2::before,
-        h2::after {
-            content: "";
-            height: 2px;
-            background: linear-gradient(to right, transparent, #d0d7de);
-
-            flex: 1;
-            max-width: 120px;
-
-            transform: scaleX(0);   /* 🔥 一开始收起来 */
-        }
-
         /* 左右方向 */
         h2::before {
             transform-origin: right;
@@ -232,12 +221,6 @@
 
         h2::after {
             background: linear-gradient(to left, transparent, #d0d7de);
-        }
-
-        /* 🔥 动画触发 */
-        h2.show-line::before,
-        h2.show-line::after {
-            animation: lineExpand 5.0s ease forwards;
         }
 
         /* 🔥 动画定义 */
@@ -455,10 +438,62 @@
         }
 
         .container {
-            max-width: 1100px;
-            margin: 40px auto;   /* 🔥 加上下间距 */
-            padding: 40px 20px;
+            max-width:1600px;
+
+    margin:auto;
+
+    padding:60px;
         }
+
+        .products-layout{
+
+    display:grid;
+
+    grid-template-columns:
+        420px
+        1fr;
+
+    gap:40px;
+
+    align-items:start;
+}
+
+.products-sidebar{
+
+    position:sticky;
+
+    top:120px;
+}
+
+.products-content{
+    width:100%;
+}
+
+.sidebar-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.08);
+}
+
+.sidebar-group{
+
+    margin-bottom:30px;
+}
+
+.sidebar-group h3{
+
+    font-size:16px;
+    line-height:1.4;
+    margin-bottom:15px;
+
+    color:#081f4d;
+}
 
         /* 🔥 Section 分层 */
         .section-light {
@@ -495,6 +530,18 @@
             /* 🔥 动画关键 */ 
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
+        .primary-section .card{
+            background:white;
+
+    border:1px solid #efc48e;
+
+    border-radius:14px;
+
+    box-shadow:none;
+
+    padding:28px;
+}
 
         .clickable-card {
             cursor: pointer;
@@ -796,12 +843,54 @@
 
         /* ===== 主区（CAT） ===== */
         .primary-section {
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-            margin-top: 20px;
+            display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+
+    background:none;
+
+    border:none;
+
+    padding:0;
+    margin-top:0;
         }
+
+    .products-intro{
+
+    max-width:1200px;
+
+    margin:0 auto 40px auto;
+
+    padding:20px 0;
+}
+
+.products-intro h1{
+    font-size:56px;
+
+    font-weight:800;
+
+    color:#0f172a;
+
+    line-height:1.05;
+
+    margin-bottom:20px;
+}
+
+.products-intro p{
+
+    max-width:800px;
+
+    font-size:18px;
+
+    line-height:1.7;
+
+    color:#555;
+
+    margin:0;
+}
 
         .primary-title {
             font-size: 28px;
@@ -809,13 +898,25 @@
         }
 
         /* ===== 次区（Distribution） ===== */
-        .secondary-section {
-            background: #f4f7fb;
-            padding: 20px;
-            border-radius: 12px;
-            opacity: 0.9;
-            margin-top: 10px;
-        }
+        .secondary-section{
+
+    margin-top:80px;
+
+    background:none;
+
+    padding:0;
+}
+
+        .secondary-section .card{
+
+    background:white;
+
+    border:1px solid #d9e3ef;
+
+    box-shadow:none;
+
+    border-radius:14px;
+}
 
         .secondary-title {
             font-size: 22px;
@@ -975,6 +1076,77 @@
         translateY(0);
     }
 }
+.contact-cta{
+
+    max-width:1500px;
+
+    margin:60px auto;
+
+    padding:50px 60px;
+
+    border:1px solid #d8e0ea;
+
+    border-radius:24px;
+
+    background:transparent;
+}
+
+.contact-cta h2{
+
+    font-size:48px;
+
+    font-weight:800;
+
+    color:#081f4d;
+
+    margin-bottom:20px;
+}
+
+.contact-cta p{
+
+    font-size:20px;
+
+    color:#4a617d;
+
+    margin-bottom:30px;
+
+     text-align:center;
+}
+
+.contact-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:30px;
+}
+
+.email-link{
+
+    font-size:22px;
+
+    color:#f39c12;
+
+    text-decoration:none;
+}
+
+.inquiry-btn{
+
+    background:#eb7d2f;
+
+    color:white;
+
+    padding:18px 35px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:700;
+}
 
 .footer{
 
@@ -1037,6 +1209,81 @@
 .footer-copy{
 
     text-align:center;
+}
+
+.cat-label{
+
+    color:#e67e22;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+
+    text-transform:uppercase;
+}
+
+.cat-heading{
+
+    font-size:56px;
+
+    font-weight:800;
+
+    color:#0f172a;
+
+    margin:0 0 40px 0;
+
+    justify-content:flex-start;
+}
+
+.partner-heading{
+
+    font-size:56px;
+
+    font-weight:800;
+
+    color:#0f172a;
+
+    margin-bottom:30px;
+}
+
+.partner-text{
+
+    font-size:24px;
+
+    color:#4a617d;
+
+    margin-bottom:40px;
+}
+
+.product-group{
+    cursor:pointer;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:8px;
+}
+
+.product-group.active{
+    background:#eef2f7;
+    border-left:4px solid #f39c12;
+}
+
+.machine-group{
+    display:none;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:25px;
+}
+
+.machine-group.active{
+    display:grid;
+}
+
+.machine-display{
+    width:100%;
 }
     </style>
 </head>
@@ -1101,8 +1348,11 @@
 </div>
 
 <nav id="navMenu">
-    <div class="dropdown">
-    <a href="index.html">Home</a>
+    <div class="dropdown mega-menu">
+    <a href="index.html">
+        Home <!--i class="fas fa-chevron-down"></i> -->
+    </a>
+    <!--
     <div class="dropdown-content">
         <a href="index.html#our-business">Our Business</a>
         <a href="index.html#about">About Control Automation Technology</a>
@@ -1112,66 +1362,88 @@
         <a href="index.html#global">Global Presence</a>
         <a href="index.html#contact">Contact Us</a>
     </div>
+    -->
     </div>
 
-    <div class="dropdown">
-    <a href="solutions.html">Solutions</a>
+    <div class="dropdown mega-menu">
+    <a href="solutions.html">
+        Solutions <i class="fas fa-chevron-right nav-arrow"></i>
+    </a>
     <div class="dropdown-content">
-        <a href="solutions.html#semiconductor">Semiconductor Solutions</a>
-        <a href="solutions.html#healthcare">Healthcare Automation</a>
-        <a href="solutions.html#training">Training & Development</a>
-    </div>
+        <div class="dropdown submenu">
+
+        <a href="solutions.html#semiconductor">
+            Semiconductor Manufacturing
+            <i class="fas fa-chevron-right submenu-arrow"></i>
+        </a>
+
+        <div class="dropdown-content">
+            <a href="wafer-inspection.html">Wafer Inspection System</a>
+            <a href="laser-marking.html">Laser Marking Systems</a>
+            <a href="component-inspection-system.html">Component Inspection Systems</a>
+            <a href="tester-and-test-handler.html">Tester & Test handler</a>
+            <a href="test-accessories.html">Test Accessories</a>
+            <a href="device-programming-solutions.html">Device Programming Solutions</a>
+            <a href="post-seal-inspection-and-counter-systems.html">Post-Seal Inspection and Counter Systems</a>
+            <a href="packing-tape-and-reel-systems.html">Packing/Tape & Reel Systems</a>
+            <a href="x-ray-inspection-systems.html">X-Ray Inspection Systems</a>
+            <a href="special-process-equipment.html">Special Process Equipment</a>
+            <a href="legacy-product-support.html">Legacy Product Support</a>
+        </div>
+        </div>
+
+        <hr class="menu-divider">
+
+    <a href="solutions.html#healthcare">
+        Digital Healthcare Ecosystem
+    </a>
+
+    <a href="solutions.html#training">
+        Semiconductor Industry Training
+    </a>
+
+    </div> 
     </div>
 
-    <div class="dropdown">
-    <a href="products.html" class="active">Process Solutions</a>
+    <div class="dropdown mega-menu">
+    <a href="products.html">
+        Products <i class="fas fa-chevron-right nav-arrow"></i>
+    </a>
     <div class="dropdown-content">
-        <a href="#waferInspection">
-Wafer Inspection Systems
-</a>
-
-<a href="products.html#componentInspection">
-Component Inspection Systems
-</a>
-
-<a href="products.html#testHandler">
-Test Handler Systems
-</a>
-
-<a href="products.html#testInterface">
-Test Interface Solutions
-</a>
-
-<a href="products.html#laserMarking">
-Laser Marking Systems
-</a>
-
-<a href="products.html#packingTape">
-Packing & Tape Reel Systems
-</a>
-
-<a href="products.html#xraySpecial">
-X-Ray & Special Process Equipment
-</a>
-
-<a href="products.html#legacySupport">
-Legacy Product Support
-</a>
+        <a href="products.html#turret">Turret-Based Test, Inspection & Tape & Reel Systems</a>
+        <a href="products.html#laser">Laser Marking Modules & Complete Systems</a>
+        <a href="products.html#peel">Peel Force Tester (TP-15x)</a>
+        <a href="products.html#manualTaping">Manual Taping System (MT-35)</a>
+        <a href="products.html#tube">Tube-to-Tube Inspection System</a>
+        <a href="products.html#tape">Tape-to-Tape Test & Inspection Systems</a>
+        <a href="products.html#post">Post Seal Inspection System</a>
+        <a href="products.html#manualLaser">Manual Laser Marking Stations</a>
+        <a href="products.html#custom">Custom Machine & Automation Solutions</a>
+        <a href="products.html#wafer">Wafer Inspection Systems</a>
+        <a href="products.html#test">Test Handlers</a>
+        <a href="products.html#dieSorter">Die Sorter</a>
+        <a href="products.html#dieAttach">Die Attach</a>
+        <a href="products.html#testers">Testers</a>
+        <a href="products.html#testSockets">Test Sockets & Pins</a>
     </div>
     </div>
 
     <a href="services.html">Services</a>
 
-    <div class="dropdown">
-    <a href="projects.html">Projects / Industries</a>
+    <div class="dropdown mega-menu">
+    <a href="projects.html">
+        Projects / Industries <i class="fas fa-chevron-right nav-arrow"></i>
+    </a>
     <div class="dropdown-content">
         <a href="projects.html#industries">Industries Served</a>
         <a href="projects.html#our">Our Positioning</a>
     </div>
     </div>
 
-    <div class="dropdown">
-    <a href="about.html">About</a>
+    <div class="dropdown mega-menu">
+    <a href="about.html">
+        About <i class="fas fa-chevron-right nav-arrow"></i>
+    </a>
     <div class="dropdown-content">
         <a href="about.html#who">Who We Are</a>
         <a href="about.html#vision">Vision</a>
@@ -1183,148 +1455,352 @@ Legacy Product Support
     <a href="contact.html">Contact</a>
 </nav>
 
-<section class="container">
-<div class="card">
+<!-- INTRO -->
+    <div class="products-intro">
 
-    <!-- 🔥 PROPRIETARY -->
-    <h2 class="primary-title">Process Solutions</h2>
+    <h1>Products</h1>
 
-    <!-- INTRO -->
-    <div class="intro">
-        <p>
-            Control Automation Technology supports
-semiconductor manufacturing processes
-through inspection, test handling,
-laser marking,
-automation,
-and packaging solutions.
-        </p>
-    </div>
-
-    <div class="card-section primary-section">
-
-    <div class="card" id="turret">
-        <div class="card-image">
-            <img src="images/Turret-Based Test, Inspection & Tape & Reel Systems.png">
-        </div>
-
-        <h3 class="card-title">
-            Turret-Based Test, Inspection & Tape & Reel Systems
-        </h3>
-
-        <p>Integrated systems combining test, inspection, and tape-and-reel processes for high efficiency.</p>
-    </div>
-
-    <div class="card" id="laser">
-        <div class="card-image">
-            <img src="images/Laser Marking Modules & Complete Systems .png">
-        </div>
-        
-        <h3 class="card-title">
-            Laser Marking Modules & Complete Systems
-        </h3>
-
-        <p>Precision laser marking for lead frame and package identification.</p>
-    </div>
-
-    <div class="card" id="peel">
-        <div class="card-image">
-            <img src="images/Peel Force Tester (TP-15x) .png">
-        </div>
-        
-        <h3 class="card-title">
-            Peel Force Tester (TP-15x)
-        </h3>
-
-        <p>System for measuring peel strength and ensuring packaging quality.</p>
-    </div>
-
-    <div class="card" id="manualTaping">
-        <div class="card-image">
-            <img src="images/Manual Taping System (MT-35) .png">
-        </div>
-
-        <h3 class="card-title">
-            Manual Taping System (MT-35)
-        </h3>
-
-        <p>Flexible solution for low-volume and customized applications.</p>
-    </div>
-
-    <div class="card" id="tube">
-        <div class="card-image">
-            <img src="images/Tube-to-Tube Inspection System .png">
-        </div>
-
-        <h3 class="card-title">
-            Tube-to-Tube Inspection System
-        </h3>
-
-        <p>Automated inspection for tube-based component handling.</p>
-    </div>
-
-    <div class="card" id="tape">
-        <div class="card-image">
-            <img src="images/Tape-to-Tape Test & Inspection Systems .png">
-        </div>
-        
-        <h3 class="card-title">
-            Tape-to-Tape Test & Inspection Systems
-        </h3>
-
-        <p>Inline testing and inspection during tape processing.</p>
-    </div>
-
-    <div class="card" id="post">
-        <div class="card-image">
-            <img src="images/Post Seal Inspection System.png">
-        </div>
-        
-        <h3 class="card-title">
-            Post Seal Inspection System
-        </h3>
-
-        <p>Detection of defects after encapsulation processes.</p>
-    </div>
-
-    <div class="card" id="manualLaser">
-        <div class="card-image">
-            <img src="images/placeholder.jpg">
-        </div>
-        
-        <h3 class="card-title">
-            Manual Laser Marking Stations
-        </h3>
-
-        <p>Standalone marking systems for flexible operations.</p>
-    </div>
-
-    <div class="card" id="custom">
-        <div class="card-image">
-            <img src="images/placeholder.jpg">
-        </div>
-        
-        <h3 class="card-title">
-            Custom Machine & Automation Solutions
-        </h3>
-
-        <p>Custom-designed systems tailored to customer requirements.</p>
-    </div>
-
-    </div>
-
-    <!-- 🟨 PARTNER -->
-    /*<h2 class="secondary-title">Distribution & Partner Solutions</h2>
-
-    <p style="text-align:center; max-width:800px; margin:auto;">
-        We represent leading global partners to provide complete semiconductor manufacturing solutions:
+    <p>
+        Control Automation Technology offers a comprehensive portfolio
+        of proprietary systems and distributed solutions supporting
+        semiconductor manufacturing processes from wafer inspection
+        to final test and packaging.
     </p>
 
+</div>
 
+<section class="container">
+<div class="card">
+<div class="products-layout">
+
+    <div class="products-sidebar">
+        <div class="sidebar-card">
+
+    <div class="sidebar-group">
+
+    <div class="cat-label">
+        ★  CAT PROPRIETARY
+    </div>
+
+    <h3>
+        CAT Proprietary Systems
+    </h3>
+
+    <ul class="sidebar-menu">
+
+<li class="product-group active"
+    data-target="turret">
+    Turret-Based Test, Inspection &
+    Tape & Reel Systems
+</li>
+
+<li class="product-group"
+    data-target="laser">
+    Laser Marking Modules &
+    Complete Systems
+</li>
+
+<li class="product-group"
+    data-target="peel">
+    Peel Force Tester
+</li>
+
+<li class="product-group"
+    data-target="manualTaping">
+    Manual Taping System
+</li>
+
+<li class="product-group"
+    data-target="tube">
+    Tube-to-Tube Inspection System
+</li>
+
+<li class="product-group"
+    data-target="tape">
+    Tape-to-Tape Test & Inspection Systems 
+</li>
+
+<li class="product-group"
+    data-target="post">
+    Post Seal Inspection System
+</li>
+
+<li class="product-group"
+    data-target="manualLaser">
+    Manual Laser Marking Stations
+</li>
+
+<li class="product-group"
+    data-target="custom">
+    Custom Machine & Automation Solutions
+</li>
+
+</ul>
+
+</div>
+
+    <div class="sidebar-group">
+
+    <div class="cat-label">
+        ★ DISTRIBUTION
+    </div>
+
+    <h3>
+        Distribution & Partner Solutions
+    </h3>
+
+    <ul class="sidebar-menu">
+
+<li class="product-group"
+    data-target="wafer">
+    Wafer Inspection Systems
+</li>
+
+<li class="product-group"
+    data-target="handler">
+    Test Handlers
+</li>
+
+<li class="product-group"
+    data-target="diesorter">
+    Die Sorter
+</li>
+
+<li class="product-group"
+    data-target="dieattach">
+    Die Attach
+</li>
+
+<li class="product-group"
+    data-target="testers">
+    Testers
+</li>
+
+<li class="product-group"
+    data-target="socket">
+    Test Sockets & Pins
+</li>
+
+</ul>
+
+</div>
+
+</div>
+    </div>
+
+    <div class="machine-display">
+
+    <div id="turret" class="machine-group active">
+
+        <div class="card">
+            Bowl to Tape for Iota Detector & Emitter
+        </div>
+
+        <div class="card">
+            High Speed Tray Taping System
+        </div>
+
+        <div class="card">
+            Super High-Speed Component Inspection
+        </div>
+
+        <div class="card">
+            Semi Tape & Reel Machine
+        </div>
+
+        <div class="card">
+            Auto Component Taping Machine
+        </div>
+
+    </div>
+
+    <div id="laser" class="machine-group">
+
+        <div class="card">
+            Laser Marker Handler
+        </div>
+
+        <div class="card">
+            Fiber Laser Single Head
+        </div>
+
+        <div class="card">
+            Fiber Laser Dual Heads
+        </div>
+
+    </div>
+
+    <div id="peel" class="machine-group">
+
+        <div class="card">
+            Carrier Tape Peel Force Analyzer
+        </div>
+
+    </div>
+
+    <div id="post" class="machine-group">
+
+        <div class="card">
+            Dual Reel Post-Seal Inspection
+        </div>
+
+    </div>
+
+    <div id="custom" class="machine-group">
+
+        <div class="card">
+            Test Jig
+        </div>
+
+        <div class="card">
+            Auto Reel to Reel Integrated to X-Ray Inspection
+        </div>
+
+        <div class="card">
+            JEDEC Tray Inspection & Cleaning System
+        </div>
+
+        <div class="card">
+            Automated Programming System
+        </div>
+
+        <div class="card">
+            X-Ray Component Counter
+        </div>
+
+        <div class="card">
+            X-Ray Inline Automatic Counting Machine
+        </div>
+
+        <div class="card">
+            X-Ray Inspection System
+        </div>
+
+        <div class="card">
+            Offline Precision Micro Focus X-ray Inspection
+        </div>
+
+    </div>
+
+    <div id="wafer" class="machine-group">
+
+        <div class="card">
+            Wafer AOI Inspection
+        </div>
+
+    </div>
+
+    <div id="handler" class="machine-group">
+
+        <div class="card">
+            Series PnP Handler (Tray to Tray)
+        </div>
+
+        <div class="card">
+            PnP Handler (Tray to Tray)
+        </div>
+
+    </div>
+
+    <div id="diesorter" class="machine-group">
+
+        <div class="card">
+            Wafer to Wafer Die Sorter
+        </div>
+
+    </div>
+
+    <div id="dieattach" class="machine-group">
+
+        <div class="card">
+            Highly Accurate Thermo-sonic Wire Bonder
+        </div>
+
+        <div class="card">
+            Fully Automatic Thermo-sonic Ball Bonder
+        </div>
+
+        <div class="card">
+            Thermosonic Wire Ball Bonders - Gold, Silver & Copper Wires
+        </div>
+
+    </div>
+
+    <div id="testers" class="machine-group">
+
+        <div class="card">
+            CurveMaster X Max
+        </div>
+
+        <div class="card">
+            CurveMaster L
+        </div>
+
+        <div class="card">
+            CurveMaster C
+        </div>
+
+    </div>
+
+    <div id="socket" class="machine-group">
+
+        <div class="card">
+            Test Socket
+        </div>
+
+        <div class="card">
+            Pogo Pin
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- 🟨 PARTNER -->
+    <section class="secondary-section">
+
+<div class="card-section">
+</div>
+
+</section>
+    </div>
+
+</div>
 
 </div>
 </section>
 
+<section class="contact-cta">
+
+<h2>
+Contact for More Information
+</h2>
+
+<p>
+Our engineering team is available to discuss
+specifications, lead times, and integration requirements.
+</p>
+
+<div class="contact-actions">
+
+<a href="mailto:sales@cat-my.com"
+class="email-link">
+
+sales@cat-my.com
+
+</a>
+
+<a href="contact.html"
+class="inquiry-btn">
+
+Submit an Inquiry
+
+</a>
+
+</div>
+
+</section>
+</div>
 <footer class="footer">
 
 <div class="footer-grid">
@@ -1355,7 +1831,7 @@ Wafer Inspection Systems
 Laser Marking Systems
 </a>
 
-<a href="component-inspection.html">
+<a href="component-inspection-system.html">
 Component Inspection Systems
 </a>
 
@@ -1603,6 +2079,33 @@ document
 .addEventListener("click", function(){
 
     cookieBanner.style.display = "none";
+});
+
+const buttons =
+document.querySelectorAll(".product-group");
+
+const groups =
+document.querySelectorAll(".machine-group");
+
+buttons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        buttons.forEach(b =>
+            b.classList.remove("active"));
+
+        groups.forEach(g =>
+            g.classList.remove("active"));
+
+        button.classList.add("active");
+
+        document
+        .getElementById(
+            button.dataset.target
+        )
+        .classList.add("active");
+    });
+
 });
 </script>
 
