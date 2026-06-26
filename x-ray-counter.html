@@ -1221,6 +1221,7 @@
 .content-area{
 
     flex:1;
+    min-width:0;
 }
 
 .machine-container{
@@ -1234,20 +1235,22 @@
 
 .machine-title{
 
-    font-size:48px;
+    font-size:64px;
 
     font-weight:700;
 
     color:#1f2d3d;
 
-    margin-bottom:50px;
+    margin-bottom:30px;
+
+    text-align:left;
 }
 
 .machine-interface{
 
     display:flex;
 
-    gap:60px;
+    gap:50px;
 
     align-items:center;
 
@@ -1256,7 +1259,8 @@
 
 .machine-image{
 
-    width:450px;
+    width:280px;
+    flex-shrink:0;
 }
 
 .machine-image img{
@@ -1329,11 +1333,14 @@
 .content-area{
 
     flex:1;
+    min-width:0;
 }
 
 .request-form{
 
     width:380px;
+
+    flex-shrink:0;
 
     background:white;
 
@@ -1389,6 +1396,59 @@
     color:#f39c12;
 
     font-weight:600;
+}
+
+.request-form h3{
+
+    margin-top:0;
+
+    margin-bottom:20px;
+
+    color:#1f2d3d;
+}
+
+.request-form input,
+.request-form textarea{
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:12px;
+
+    margin-bottom:15px;
+
+    border:1px solid #d8dde6;
+
+    border-radius:8px;
+
+    font-family:inherit;
+}
+
+.request-form textarea{
+
+    height:120px;
+
+    resize:vertical;
+}
+
+.request-form button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#f39c12;
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
 }
     </style>
 </head>
@@ -1447,7 +1507,7 @@
         </a>
 
         <div class="dropdown-content">
-            <a href="wafer-inspection.html">Wafer Inspection System</a>
+            <a href="wafer-inspection-system.html">Wafer Inspection System</a>
             <a href="laser-marking.html">Laser Marking Systems</a>
             <a href="component-inspection-system.html">Component Inspection Systems</a>
             <a href="tester-and-test-handler.html">Tester & Test handler</a>
@@ -1532,24 +1592,20 @@
     <div class="content-area">
 
         <!-- machine info -->
+         <h1 class="machine-title">
+    X-Ray Component Counter
+</h1>
+
         <div class="machine-interface">
 
     <div class="machine-image">
 
-        <img src="images/xc1000.jpg"
+        <img src="images/X-Ray Component Counter.jpeg"
              alt="XC-1000 X-Ray Component Counter">
 
     </div>
 
     <div class="machine-info">
-
-        <h1 class="machine-title">
-            XC-1000
-        </h1>
-
-        <h3>
-            X-Ray Component Counter
-        </h3>
 
         <p>
             An offline automatic counting machine.
@@ -1590,17 +1646,15 @@
 
     <a href="index.html">Home</a>
     <span>></span>
+    
+    <a href="solutions.html">Solutions</a>
+    <span>></span>
 
     <a href="products.html">Products</a>
     <span>></span>
 
-    <a href="wafer-inspection.html">
-        Wafer Inspection
-    </a>
-    <span>></span>
-
     <span class="current">
-        Re-flex II
+        X-Ray Component Counter 
     </span>
 
     </div>
@@ -1609,9 +1663,23 @@
     <!-- RIGHT -->
     <div class="request-form">
 
-        Request Information Form
+<h3>Request Information</h3>
 
-    </div>
+<input type="text" placeholder="Full Name">
+
+<input type="text" placeholder="Company">
+
+<input type="email" placeholder="Work Email">
+
+<input type="text" placeholder="Process Required">
+
+<textarea placeholder="Project Requirement"></textarea>
+
+<button>
+Submit Inquiry
+</button>
+
+</div>
 
 </section>
 
@@ -1666,7 +1734,7 @@
 
 <h4>Semiconductor Solutions</h4>
 
-<a href="wafer-inspection.html">
+<a href="wafer-inspection-system.html">
     Wafer Inspection System
 </a>
 

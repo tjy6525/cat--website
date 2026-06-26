@@ -102,12 +102,18 @@
 
         nav {
             background: #34495e;
-            padding: 10px;
+            padding: 0;
+            height: 52px;
             text-align: center;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
 
             position: sticky;
             top: 0;
             z-index: 1000;
+            font-size: 14px;
         }
 
         nav a {
@@ -115,33 +121,44 @@
             margin: 15px;
             text-decoration: none;
             font-weight: bold;
+            display:flex;
+            align-items:center;
 
-            padding: 5px 10px;   /* ✅ 固定 padding */
+            height:52px;
+            padding: 0 15px;   /* ✅ 固定 padding */
             border-radius: 5px;
+        }
+
+        nav a i {
+            font-size: 12px;
+            margin-left: 6px;
+            vertical-align: middle;
         }
 
         /* dropdown container */
         .dropdown {
             position: relative;
-            display: inline-block;
-            padding-bottom: 5px;    /* 👈 增加 hover 区域 */
+            display: inline-flex;
+            align-items:center;
+
+            padding-bottom:0;
         }
 
-        /* dropdown menu */
+         /* dropdown menu */
         .dropdown-content {
             position: absolute;
             background: white;
-            min-width: 200px;
+            width: auto;
 
-            max-height: 300px;   /* 🔥 控制高度 */
-            overflow-y: auto;    /* 🔥 允许滚动 */
+            min-width: 280px;
+
+            overflow: visible;    /* 🔥 允许滚动 */
 
             box-shadow: 0 6px 20px rgba(0,0,0,0.18);
             border-radius: 8px;
 
             top: 100%;
             margin-top: 0px;
-            left: 0;
 
             padding: 5px 0;
 
@@ -154,12 +171,324 @@
             transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
 
             z-index: 99999;
+            display: flex;
+
+            flex-direction: column;
+            gap: 0;
         }
+
+        .dropdown-content a{
+            color: #333;
+            padding: 9px 15px;
+            display: block;
+            text-align: left;
+
+            margin:0 !important;
+            height:auto !important;
+
+            line-height:1.4;
+        }
+
+        .mega-menu .dropdown-content{
+
+    position:fixed;
+
+    top:52px;
+
+    left:0;
+
+    width:100vw;
+
+    box-sizing:border-box;
+
+    border-radius:0;
+
+    background:rgba(225,230,235,0.42);
+
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+color:#1f2937;
+
+    box-shadow:none;
+
+    padding:40px 60px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:40px;
+}
+
+/* Products / Projects / About */
+
+.mega-menu > .dropdown-content > a{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:100%;
+
+    min-height:60px;
+
+    padding:16px 20px;
+
+    box-sizing:border-box;
+
+    border-radius:8px;
+
+    border:1px solid rgba(100,116,139,0.15);
+
+    background:transparent;
+
+    color:#475569;
+
+    border:1px solid rgba(100,116,139,0.15);
+
+    text-decoration:none;
+
+    transition:all .25s ease;
+}
+
+.mega-menu > .dropdown-content > a:hover{
+
+    background:transparent;
+
+    color:#f5b041;
+
+    border-color:#f5b041;
+
+    transform:none;
+}
+
+.mega-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.mega-column h4{
+
+    color:#334155;
+
+    font-size:20px;
+
+    margin-bottom:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    padding:12px 16px;
+
+    border-radius:8px;
+}
+
+.mega-arrow{
+
+    margin-left:8px;
+
+    font-size:12px;
+
+    transition:transform .3s ease;
+}
+
+.mega-column:hover h4{
+
+    color:#f5b041;
+}
+
+.mega-column:hover .mega-arrow{
+
+    transform:rotate(90deg);
+}
+
+.mega-column a{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:100%;
+
+    height:60px;
+
+    box-sizing:border-box;
+
+    border-radius:8px;
+
+    border:1px solid rgba(100,116,139,0.15);
+
+    background:rgba(255,255,255,0.05);
+
+    color:#475569;
+
+    text-decoration:none;
+
+    transition:all .25s ease;
+}
+
+.mega-column a:hover{
+
+    background:transparent;
+
+    color:#f5b041;
+
+    border-color:#f5b041;
+}
+
+.mega-submenu{
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    animation:slideDown .25s ease;
+}
+
+.mega-column:hover .mega-submenu{
+
+    display:flex;
+}
+
+@keyframes slideDown{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-10px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+        .submenu {
+    position: relative;
+    width:100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.submenu > a{
+    display:flex !important;
+
+    justify-content:flex-start;
+
+    align-items:center;
+
+    width:100%;
+
+    margin:0;
+
+    padding:12px 20px;
+
+    gap:8px;
+}
+
+.submenu-arrow{
+    margin-left:6px;
+    font-size:12px;
+    vertical-align:middle;
+    transition: transform 0.3s ease;
+}
+
+.nav-arrow{
+    transition: transform 0.3s ease;
+}
+
+.submenu .dropdown-content {
+    position: static;
+
+    display: none;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    border: none;
+
+    padding: 0;
+
+    margin-top: 0px;
+
+    border-top: 1px solid #ccc;
+
+    padding-top: 0;
+
+    padding-bottom: 15px;
+
+    border-radius: 0;
+
+    grid-template-columns: repeat(3,max-content);
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    justify-content:start;
+
+    gap:15px 60px;
+}
+
+.submenu .dropdown-content a{
+    height:auto !important;
+
+    min-height:unset;
+
+    padding:10px 20px;
+
+    margin:0;
+}
+
+.submenu:hover > .dropdown-content {
+    display: grid;
+}
+
+.submenu:hover .submenu-arrow{
+    transform: rotate(90deg);
+}
+
+.dropdown:hover .nav-arrow{
+    transform: rotate(90deg);
+}
+
+.menu-divider {
+
+    border: none;
+
+    border-top: 1px solid #ccc;
+
+    margin: 0;
+
+    transform: translateY(0px);
+}
 
         /* dropdown links */
         .dropdown-content a {
-            color: #333;
-            padding: 10px 15px;
+            color:#475569;
+            padding: 9px 15px;
             display: block;
             text-align: left;
 
@@ -173,6 +502,7 @@
                 padding-left 0.25s ease;
 
             position: relative;
+            white-space: nowrap;
         }
 
         /* 📱 MOBILE：轻微 hover（舒服版） */
@@ -187,15 +517,6 @@
             transform: none !important;
             padding-left: 25px !important;
         }
-        }
-
-        /* 💻 只给电脑用 */
-        @media (min-width: 769px) {
-        .dropdown-content a:hover {
-            background: #f2f4f7;
-            transform: translateY(-3px);
-            padding-left: 20px;
-            }
         }
 
         section {
@@ -226,7 +547,8 @@
         /* 🔥 动画定义 */
         @keyframes lineExpand {
             from {
-                                                                                                                                                                                           }
+                transform: scaleX(0);
+            }
             to {
                 transform: scaleX(1);
             }
@@ -234,44 +556,6 @@
 
         section[id] {
             scroll-margin-top: 140px;
-        }
-        
-        /*背景图 */
-        .hero {
-            background: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085") center/cover no-repeat;
-            background-color: transparent;
-            
-            color: white;
-            text-align: center;
-            position: relative;
-            padding: 70px 20px;
-            min-height: 60vh;
-            z-index: 1;
-        }
-
-        /* 黑色遮罩 */
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.3);
-            z-index: 0;
-        }
-        
-        /*文字*/
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .hero-content h2 {
-            font-size: 38px;
-            font-weight: 600;
         }
 
         .btn {
@@ -405,17 +689,12 @@
             padding: 15px;
         }
 
-        nav a.active {
-            background: #5a6f82;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
         /* 💻 only desktop hover */
         @media (min-width: 769px) {
-        nav a:hover {
-            background: #5a6f82;
-        }
+            nav a:hover{
+                color: #f5b041;
+                background: transparent;
+            }
         }
         
         .highlight {
@@ -605,11 +884,39 @@
         
         /* 💻 电脑 */
         @media (min-width: 769px) {
-            .dropdown:hover .dropdown-content {
+            /* 一级 dropdown */
+            nav > .dropdown:hover > .dropdown-content {
+
                 opacity: 1;
+
                 transform: translateY(0) scale(1);
+
                 visibility: visible;
             }
+
+            /* submenu */
+            .submenu:hover > .dropdown-content {
+
+                opacity: 1;
+
+                visibility: visible;
+
+                transform: translateY(0);
+            }
+
+            .dropdown:hover > .dropdown-content{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.nav-arrow{
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .nav-arrow{
+    transform: rotate(90deg);
+}
         }
         
         /* 📱 手机 */
@@ -1162,12 +1469,20 @@
     display:grid;
 
     grid-template-columns:
-        1.5fr 1fr 1fr 1fr;
+        380px
+        220px
+        320px
+        300px;
 
-    gap:60px;
+    justify-content:space-between;
+
+    align-items:start;
+
+    gap:40px;
 }
 
 .footer h4{
+    font-size:20px;
 
     margin-bottom:20px;
 
@@ -1185,6 +1500,8 @@
     text-decoration:none;
 
     margin-bottom:12px;
+
+    font-size:14px;
 }
 
 .footer a:hover{
@@ -1193,8 +1510,8 @@
 }
 
 .footer p{
-
     color:#bfc9d6;
+    font-size:14px;
 }
 
 .footer hr{
@@ -1209,6 +1526,44 @@
 .footer-copy{
 
     text-align:center;
+}
+
+.footer-company{
+    text-align:left;
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.footer-company img{
+    display:block;
+    margin-bottom:20px;
+}
+
+.footer-company p{
+    margin-bottom:12px;
+}
+
+.footer-email{
+    color:#f39c12 !important;
+    font-weight:600;
+}
+
+.footer-grid > div{
+    text-align:left;
+}
+
+.footer-grid h4{
+    text-align:left;
+}
+
+.footer-grid a{
+    text-align:left;
+}
+
+.footer-grid p{
+    text-align:left;
 }
 
 .cat-label{
@@ -1322,7 +1677,7 @@
 
 </div>
 
-<header class="header-bar">
+<!--header class="header-bar">
 
     <div class="header-inner">
 
@@ -1339,7 +1694,7 @@
     </p>
 
 </div>
-</header>
+</header-->
 
 <div class="menu-toggle" onclick="toggleMenu()">
     <span></span>
@@ -1369,46 +1724,65 @@
     <a href="solutions.html">
         Solutions <i class="fas fa-chevron-right nav-arrow"></i>
     </a>
+    
     <div class="dropdown-content">
-        <div class="dropdown submenu">
 
-        <a href="solutions.html#semiconductor">
-            Semiconductor Manufacturing
-            <i class="fas fa-chevron-right submenu-arrow"></i>
-        </a>
+    <div class="mega-column">
 
-        <div class="dropdown-content">
-            <a href="wafer-inspection.html">Wafer Inspection System</a>
-            <a href="laser-marking.html">Laser Marking Systems</a>
-            <a href="component-inspection-system.html">Component Inspection Systems</a>
-            <a href="tester-and-test-handler.html">Tester & Test handler</a>
-            <a href="test-accessories.html">Test Accessories</a>
-            <a href="device-programming-solutions.html">Device Programming Solutions</a>
-            <a href="post-seal-inspection-and-counter-systems.html">Post-Seal Inspection and Counter Systems</a>
-            <a href="packing-tape-and-reel-systems.html">Packing/Tape & Reel Systems</a>
-            <a href="x-ray-inspection-systems.html">X-Ray Inspection Systems</a>
-            <a href="special-process-equipment.html">Special Process Equipment</a>
-            <a href="legacy-product-support.html">Legacy Product Support</a>
-        </div>
+        <h4>
+            Semiconductor
+            <i class="fas fa-chevron-right mega-arrow"></i>
+        </h4>
+
+        <div class="mega-submenu">
+
+        <a href="wafer-inspection-system.html">Wafer Inspection Systems</a>
+
+        <a href="laser-marking.html">Laser Marking Systems</a>
+
+        <a href="component-inspection-system.html">Component Inspection Systems</a>
+
         </div>
 
-        <hr class="menu-divider">
+    </div>
 
-    <a href="solutions.html#healthcare">
-        Digital Healthcare Ecosystem
-    </a>
+    <div class="mega-column">
 
-    <a href="solutions.html#training">
-        Semiconductor Industry Training
-    </a>
+        <h4>
+            Healthcare Automation
+            <i class="fas fa-chevron-right mega-arrow"></i>
+        </h4>
 
-    </div> 
+        <div class="mega-submenu">
+
+        <a href="https://hatsb.com">Visit HATSB</a>
+
+        </div>
+
+    </div>
+
+    <div class="mega-column">
+
+        <h4>
+            Training & Development
+            <i class="fas fa-chevron-right mega-arrow"></i>
+        </h4>
+
+        <div class="mega-submenu">
+
+        <a href="https://semi.academy">Visit ASEMI</a>
+
+        </div>
+
+    </div>
+
+</div>
     </div>
 
     <div class="dropdown mega-menu">
-    <a href="products.html">
-        Products <i class="fas fa-chevron-right nav-arrow"></i>
-    </a>
+        <a href="products.html">
+            Products <i class="fas fa-chevron-right nav-arrow"></i>
+        </a>
     <div class="dropdown-content">
         <a href="products.html#turret">Turret-Based Test, Inspection & Tape & Reel Systems</a>
         <a href="products.html#laser">Laser Marking Modules & Complete Systems</a>
@@ -1800,10 +2174,47 @@ Submit an Inquiry
 </div>
 
 </section>
-</div>
+
 <footer class="footer">
 
 <div class="footer-grid">
+
+<div class="footer-company">
+
+    <img src="images/CATSB-Logo.png"
+         style="height:90px;margin-bottom:20px;">
+
+    <p>
+        Semiconductor manufacturing solutions
+        and digital health technology across
+        Southeast Asia, India, and the United States.
+    </p>
+
+    <br>
+
+    <p>
+        <i class="fas fa-location-dot"></i>
+        Selangor, Malaysia
+    </p>
+
+    <a href="mailto:sales@cat-my.com"
+        class="footer-email">
+        <i class="fas fa-envelope"></i>
+        sales@cat-my.com
+    </a>
+
+    <a href="https://www.cat-my.com"
+        target="_blank">
+        <i class="fas fa-globe"></i>
+        www.cat-my.com
+    </a>
+
+    <p>
+        <i class="fas fa-phone"></i>
+        +60 3-7877 8707
+    </p>
+
+</div>
 
 <div>
 
@@ -1823,67 +2234,73 @@ Submit an Inquiry
 
 <h4>Semiconductor Solutions</h4>
 
-<a href="wafer-inspection.html">
-Wafer Inspection Systems
+<a href="wafer-inspection-system.html">
+    Wafer Inspection System
 </a>
 
-<a href="#">
-Laser Marking Systems
+<a href="laser-marking.html">
+    Laser Marking Systems
 </a>
 
 <a href="component-inspection-system.html">
-Component Inspection Systems
+    Component Inspection Systems
 </a>
 
-<a href="#">
-Tester & Test Handler
+<a href="tester-and-test-handler.html">
+    Tester & Test handler
 </a>
 
-<a href="#">
-Device Programming Solutions
+<a href="test-accessories.html">
+    Test Accessories
 </a>
 
-<a href="#">
-Packing / Tape & Reel Systems
+<a href="device-programming-solutions.html">
+    Device Programming Solutions
+</a>
+
+<a href="post-seal-inspection-and-counter-systems.html">
+    Post-Seal Inspection and Counter Systems
+</a>
+
+<a href="packing-tape-and-reel-systems.html">
+    Packing/Tape & Reel Systems
+</a>
+
+<a href="x-ray-inspection-systems.html">
+    X-Ray Inspection Systems
+</a>
+
+<a href="special-process-equipment.html">
+    Special Process Equipment
+</a>
+
+<a href="legacy-product-support.html">
+    Legacy Product Support
 </a>
 
 </div>
 
 <div>
 
-<h4>Healthcare</h4>
+    <h4>Business Units</h4>
 
-<a href="#">
-SARA Digital Health Platform
-</a>
+    <a href="https://hatsb.com">
+        Healthcare Automation (HATSB)
+    </a>
 
-<a href="#">
-Medical IoT Device Integration
-</a>
+    <a href="https://semi.academy">
+        Training & Development (ASEMI)
+    </a>
 
-<a href="#">
-Home-Based Care Enablement
-</a>
+    <h4>Engineering Support</h4>
 
-</div>
+    <a href="services.html">
+        Technical Support
+    </a>
 
-<div>
-
-<h4>Training</h4>
-
-<a href="#">
-Train-the-Trainer Programs
-</a>
-
-<a href="#">
-Semiconductor Process Training
-</a>
-
-<a href="#">
-International Benchmarking
-</a>
-
-</div>
+    <a href="contact.html">
+        Submit an Inquiry
+    </a>
 
 </div>
 
@@ -2107,6 +2524,27 @@ buttons.forEach(button => {
     });
 
 });
+
+function updateMegaMenuPosition(){
+
+    const nav = document.getElementById("navMenu");
+
+    const menus =
+        document.querySelectorAll(".mega-menu > .dropdown-content");
+
+    const navBottom =
+        nav.getBoundingClientRect().bottom;
+
+    menus.forEach(function(menu){
+        menu.style.top = navBottom + "px";
+    });
+}
+
+window.addEventListener("load", updateMegaMenuPosition);
+
+window.addEventListener("scroll", updateMegaMenuPosition);
+
+window.addEventListener("resize", updateMegaMenuPosition);
 </script>
 
 </body>

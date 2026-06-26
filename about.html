@@ -179,7 +179,6 @@
         }
 
         .dropdown-content a{
-
             color: #333;
             padding: 9px 15px;
             display: block;
@@ -192,13 +191,198 @@
         }
 
         .mega-menu .dropdown-content{
-            position: fixed;
-            top:52px;   /* header + nav 实际高度 */
-            left: 0;
-            width: 100vw;
-            box-sizing: border-box;
-            border-radius: 0;
-        }
+
+    position:fixed;
+
+    top:52px;
+
+    left:0;
+
+    width:100vw;
+
+    box-sizing:border-box;
+
+    border-radius:0;
+
+    background:rgba(225,230,235,0.42);
+
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+color:#1f2937;
+
+    box-shadow:none;
+
+    padding:40px 60px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:40px;
+}
+
+/* Products / Projects / About */
+
+.mega-menu > .dropdown-content > a{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:100%;
+
+    min-height:60px;
+
+    padding:16px 20px;
+
+    box-sizing:border-box;
+
+    border-radius:8px;
+
+    border:1px solid rgba(100,116,139,0.15);
+
+    background:transparent;
+
+    color:#475569;
+
+    border:1px solid rgba(100,116,139,0.15);
+
+    text-decoration:none;
+
+    transition:all .25s ease;
+}
+
+.mega-menu > .dropdown-content > a:hover{
+
+    background:transparent;
+
+    color:#f5b041;
+
+    border-color:#f5b041;
+
+    transform:none;
+}
+
+.mega-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.mega-column h4{
+
+    color:#334155;
+
+    font-size:20px;
+
+    margin-bottom:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    padding:12px 16px;
+
+    border-radius:8px;
+}
+
+.mega-arrow{
+
+    margin-left:8px;
+
+    font-size:12px;
+
+    transition:transform .3s ease;
+}
+
+.mega-column:hover h4{
+
+    color:#f5b041;
+}
+
+.mega-column:hover .mega-arrow{
+
+    transform:rotate(90deg);
+}
+
+.mega-column a{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:100%;
+
+    height:60px;
+
+    box-sizing:border-box;
+
+    border-radius:8px;
+
+    border:1px solid rgba(100,116,139,0.15);
+
+    background:rgba(255,255,255,0.05);
+
+    color:#475569;
+
+    text-decoration:none;
+
+    transition:all .25s ease;
+}
+
+.mega-column a:hover{
+
+    background:transparent;
+
+    color:#f5b041;
+
+    border-color:#f5b041;
+}
+
+.mega-submenu{
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    animation:slideDown .25s ease;
+}
+
+.mega-column:hover .mega-submenu{
+
+    display:flex;
+}
+
+@keyframes slideDown{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-10px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
 
         .submenu {
     position: relative;
@@ -304,7 +488,7 @@
 
         /* dropdown links */
         .dropdown-content a {
-            color: #333;
+            color:#475569;
             padding: 9px 15px;
             display: block;
             text-align: left;
@@ -336,14 +520,6 @@
         }
         }
 
-        /* 💻 只给电脑用 */
-        @media (min-width: 769px) {
-        .dropdown-content a:hover {
-            color: #f5b041;
-            background: transparent;
-            }
-        }
-
         section {
             padding: 50px 20px;
             transition: background 0.3s ease;
@@ -362,19 +538,6 @@
             font-weight:700;
         }
 
-        /* 初始状态（隐藏） */
-        h2::before,
-        h2::after {
-            content: "";
-            height: 2px;
-            background: linear-gradient(to right, transparent, #d0d7de);
-
-            flex: 1;
-            max-width: 120px;
-
-            transform: scaleX(0);   /* 🔥 一开始收起来 */
-        }
-
         /* 左右方向 */
         h2::before {
             transform-origin: right;
@@ -382,12 +545,6 @@
 
         h2::after {
             background: linear-gradient(to left, transparent, #d0d7de);
-        }
-
-        /* 🔥 动画触发 */
-        h2.show-line::before,
-        h2.show-line::after {
-            animation: lineExpand 5.0s ease forwards;
         }
 
         /* 🔥 动画定义 */
@@ -1083,7 +1240,7 @@
 
 <body>
 
-<header class="header-bar">
+<!--header class="header-bar">
 
     <div class="header-inner">
 
@@ -1096,13 +1253,7 @@
     </div>
 
 </div>
-</header>
-
-<div class="menu-toggle" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
+</header-->
 
 <nav id="navMenu">
     <div class="dropdown mega-menu">
@@ -1126,46 +1277,65 @@
     <a href="solutions.html">
         Solutions <i class="fas fa-chevron-right nav-arrow"></i>
     </a>
+    
     <div class="dropdown-content">
-        <div class="dropdown submenu">
 
-        <a href="solutions.html#semiconductor">
-            Semiconductor Manufacturing
-            <i class="fas fa-chevron-right submenu-arrow"></i>
-        </a>
+    <div class="mega-column">
 
-        <div class="dropdown-content">
-            <a href="wafer-inspection.html">Wafer Inspection System</a>
-            <a href="laser-marking.html">Laser Marking Systems</a>
-            <a href="component-inspection-system.html">Component Inspection Systems</a>
-            <a href="tester-and-test-handler.html">Tester & Test handler</a>
-            <a href="test-accessories.html">Test Accessories</a>
-            <a href="device-programming-solutions.html">Device Programming Solutions</a>
-            <a href="post-seal-inspection-and-counter-systems.html">Post-Seal Inspection and Counter Systems</a>
-            <a href="packing-tape-and-reel-systems.html">Packing/Tape & Reel Systems</a>
-            <a href="x-ray-inspection-systems.html">X-Ray Inspection Systems</a>
-            <a href="special-process-equipment.html">Special Process Equipment</a>
-            <a href="legacy-product-support.html">Legacy Product Support</a>
-        </div>
+        <h4>
+            Semiconductor
+            <i class="fas fa-chevron-right mega-arrow"></i>
+        </h4>
+
+        <div class="mega-submenu">
+
+        <a href="wafer-inspection-system.html">Wafer Inspection Systems</a>
+
+        <a href="laser-marking.html">Laser Marking Systems</a>
+
+        <a href="component-inspection-system.html">Component Inspection Systems</a>
+
         </div>
 
-        <hr class="menu-divider">
+    </div>
 
-    <a href="solutions.html#healthcare">
-        Digital Healthcare Ecosystem
-    </a>
+    <div class="mega-column">
 
-    <a href="solutions.html#training">
-        Semiconductor Industry Training
-    </a>
+        <h4>
+            Healthcare Automation
+            <i class="fas fa-chevron-right mega-arrow"></i>
+        </h4>
 
-    </div> 
+        <div class="mega-submenu">
+
+        <a href="https://hatsb.com">Visit HATSB</a>
+
+        </div>
+
+    </div>
+
+    <div class="mega-column">
+
+        <h4>
+            Training & Development
+            <i class="fas fa-chevron-right mega-arrow"></i>
+        </h4>
+
+        <div class="mega-submenu">
+
+        <a href="https://semi.academy">Visit ASEMI</a>
+
+        </div>
+
+    </div>
+
+</div>
     </div>
 
     <div class="dropdown mega-menu">
-    <a href="products.html">
-        Products <i class="fas fa-chevron-right nav-arrow"></i>
-    </a>
+        <a href="products.html">
+            Products <i class="fas fa-chevron-right nav-arrow"></i>
+        </a>
     <div class="dropdown-content">
         <a href="products.html#turret">Turret-Based Test, Inspection & Tape & Reel Systems</a>
         <a href="products.html#laser">Laser Marking Modules & Complete Systems</a>
@@ -1281,7 +1451,7 @@
 <div class="footer-company">
 
     <img src="images/CATSB-Logo.png"
-         style="height:60px;margin-bottom:15px;">
+         style="height:90px;margin-bottom:20px;">
 
     <p>
         Semiconductor manufacturing solutions
@@ -1291,19 +1461,27 @@
 
     <br>
 
-    <p>Selangor, Malaysia</p>
+    <p>
+        <i class="fas fa-location-dot"></i>
+        Selangor, Malaysia
+    </p>
 
     <a href="mailto:sales@cat-my.com"
         class="footer-email">
+        <i class="fas fa-envelope"></i>
         sales@cat-my.com
     </a>
 
     <a href="https://www.cat-my.com"
         target="_blank">
+        <i class="fas fa-globe"></i>
         www.cat-my.com
     </a>
 
-    <p>+60 .........</p>
+    <p>
+        <i class="fas fa-phone"></i>
+        +60 3-7877 8707
+    </p>
 
 </div>
 
@@ -1325,7 +1503,7 @@
 
 <h4>Semiconductor Solutions</h4>
 
-<a href="wafer-inspection.html">
+<a href="wafer-inspection-system.html">
     Wafer Inspection System
 </a>
 
@@ -1337,7 +1515,7 @@
     Component Inspection Systems
 </a>
 
-<a href="tester-test-handler.html">
+<a href="tester-and-test-handler.html">
     Tester & Test handler
 </a>
 
@@ -1345,19 +1523,19 @@
     Test Accessories
 </a>
 
-<a href="device-programming.html">
+<a href="device-programming-solutions.html">
     Device Programming Solutions
 </a>
 
-<a href="post-seal-inspection.html">
+<a href="post-seal-inspection-and-counter-systems.html">
     Post-Seal Inspection and Counter Systems
 </a>
 
-<a href="packing-tape-reel.html">
+<a href="packing-tape-and-reel-systems.html">
     Packing/Tape & Reel Systems
 </a>
 
-<a href="xray-inspection.html">
+<a href="x-ray-inspection-systems.html">
     X-Ray Inspection Systems
 </a>
 
