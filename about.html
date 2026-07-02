@@ -17,20 +17,14 @@
             font-family: 'Inter', Arial, sans-serif;
             margin: 0;
 
-            background: linear-gradient(
-                to right,
-                #dde4ec 0%,
-                #eef2f7 15%,
-                #eef2f7 85%,
-                #dde4ec 100%
-            );
+            background: #f8f6f2;
 
             line-height: 1.6;
             scroll-behavior: smooth;
             font-size: 14px;
         }
 
-        body::before {
+        /*body::before {
             content: "";
             position: fixed;
             top: 0;
@@ -50,7 +44,7 @@
             height: 100%;
             background: radial-gradient(circle, rgba(44,62,80,0.15), transparent);
             z-index: -1;
-        }
+        }*/
 
         header {
             background: #2c3e50;
@@ -111,15 +105,17 @@
             justify-content:center;
             align-items:center;
 
-            position: sticky;
-            top: 0;
+            gap: 25px;
+
+            position:sticky;
+            top:0;
+            overflow:visible;
             z-index: 1000;
             font-size: 14px;
         }
 
         nav a {
             color: white;
-            margin: 15px;
             text-decoration: none;
             font-weight: bold;
             display:flex;
@@ -128,6 +124,7 @@
             height:52px;
             padding: 0 15px;   /* ✅ 固定 padding */
             border-radius: 5px;
+            justify-content:center;
         }
 
         nav a i {
@@ -138,11 +135,24 @@
 
         /* dropdown container */
         .dropdown {
-            position: relative;
-            display: inline-flex;
+            /*position: relative;
+            display: flex;
             align-items:center;
 
-            padding-bottom:0;
+            padding-bottom:0;*/
+            position:relative;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            height:52px;
+        }
+
+        .mega-menu{
+            position:relative;
         }
 
         /* dropdown menu */
@@ -164,7 +174,7 @@
             padding: 5px 0;
 
             opacity: 0;
-            transform: translateY(6px) scale(0.98);
+            transform: translateX(-50%) translateY(0);
             visibility: hidden;
 
             transition: 
@@ -192,35 +202,38 @@
 
         .mega-menu .dropdown-content{
 
-    position:fixed;
+            position:absolute;
 
-    top:52px;
+            top:52px;
+            margin-top:0;
+            left:50%;
+            transform: translateX(-50%);
 
-    left:0;
+            padding:40px 60px;
 
-    width:100vw;
+            box-sizing:border-box;
 
-    box-sizing:border-box;
+            border-radius:0;
 
-    border-radius:0;
+            background:rgba(225,230,235,0.42);
 
-    background:rgba(225,230,235,0.42);
+            backdrop-filter:blur(20px);
+            -webkit-backdrop-filter:blur(20px);
+            color:#1f2937;
 
-backdrop-filter:blur(20px);
--webkit-backdrop-filter:blur(20px);
-color:#1f2937;
+            box-shadow:none;
 
-    box-shadow:none;
+            display:grid;
 
-    padding:40px 60px;
+            padding:20px;
 
-    display:grid;
+            gap:20px;
 
-    grid-template-columns:
-        repeat(3,1fr);
+            grid-template-columns:
+                repeat(3,max-content);
 
-    gap:40px;
-}
+            justify-content:center;
+        }
 
 /* Products / Projects / About */
 
@@ -267,6 +280,8 @@ color:#1f2937;
 }
 
 .mega-column{
+
+    width:220px;
 
     display:flex;
 
@@ -353,18 +368,28 @@ color:#1f2937;
 
 .mega-submenu{
 
-    display:none;
+    display:flex;
 
     flex-direction:column;
 
     gap:15px;
 
-    animation:slideDown .25s ease;
+    opacity:0;
+
+    visibility:hidden;
+
+    max-height:0;
+
+    overflow:hidden;
 }
 
 .mega-column:hover .mega-submenu{
 
-    display:flex;
+    opacity:1;
+
+    visibility:visible;
+
+    max-height:500px;
 }
 
 @keyframes slideDown{
@@ -907,7 +932,7 @@ color:#1f2937;
 
                 opacity: 1;
 
-                transform: translateY(0) scale(1);
+                transform:translateX(-50%);
 
                 visibility: visible;
             }
@@ -919,13 +944,13 @@ color:#1f2937;
 
                 visibility: visible;
 
-                transform: translateY(0);
+                transform:translateY(0);
             }
 
             .dropdown:hover > .dropdown-content{
     opacity:1;
     visibility:visible;
-    transform:translateY(0);
+    transform:translateX(-50%);
 }
 
 .nav-arrow{
@@ -1375,7 +1400,7 @@ color:#1f2937;
         <a href="about.html#who">Who We Are</a>
         <a href="about.html#vision">Vision</a>
         <a href="about.html#mission">Mission</a>
-        <a href="about.html#leadership">Leadership</a>
+        <!--a href="about.html#leadership">Leadership</a-->
     </div>
     </div>
 
@@ -1387,7 +1412,7 @@ color:#1f2937;
 <div class="card who-layout" id="who">
 
     <div class="who-img">
-        <img src="images/who.jpg">
+        <img src="images/catsb about us.png">
     </div>
 
     <div class="who-text">
@@ -1427,7 +1452,7 @@ color:#1f2937;
 
 </div>
 
-<!-- LEADERSHIP -->
+<!-- LEADERSHIP>
 <div class="card ceo-card" id="leadership">
 
     <h2>Leadership</h2>
@@ -1441,7 +1466,7 @@ color:#1f2937;
         A seasoned professional with over 30 years of experience in semiconductor technology and engineering solutions.
     </p>
 
-</div>
+</div-->
 </section>
 
 <footer class="footer">
@@ -1716,7 +1741,7 @@ window.addEventListener("load", function(){
     });
 });
 
-function updateMegaMenuPosition(){
+/*function updateMegaMenuPosition(){
 
     const nav = document.getElementById("navMenu");
 
@@ -1735,7 +1760,7 @@ window.addEventListener("load", updateMegaMenuPosition);
 
 window.addEventListener("scroll", updateMegaMenuPosition);
 
-window.addEventListener("resize", updateMegaMenuPosition);
+window.addEventListener("resize", updateMegaMenuPosition);*/
 </script>
 
 </body>

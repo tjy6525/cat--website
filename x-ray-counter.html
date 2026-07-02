@@ -1252,24 +1252,38 @@
 
     gap:50px;
 
-    align-items:center;
+    align-items:flex-start;
 
     margin-bottom:50px;
 }
 
 .machine-image{
+    width:420px;      /* 或450px */
 
-    width:280px;
+    height:360px;
+
+    overflow:hidden;
+
+    border-radius:16px;
+
     flex-shrink:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 }
 
 .machine-image img{
 
-    width:100%;
+    width:300%;      /* 放大 */
 
-    border-radius:16px;
+    height:auto;
 
     display:block;
+
+    margin-left:-20%;   /* 左右各裁一點 */
 }
 
 .machine-info{
@@ -1600,7 +1614,7 @@
 
     <div class="machine-image">
 
-        <img src="images/X-Ray Component Counter.jpeg"
+        <img src="images/pogo pin.png"
              alt="XC-1000 X-Ray Component Counter">
 
     </div>

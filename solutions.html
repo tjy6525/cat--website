@@ -17,7 +17,7 @@
             font-family: 'Inter', Arial, sans-serif;
             margin: 0;
 
-            background: #eef2f7;
+            background: #f8f6f2;
 
             line-height: 1.6;
             scroll-behavior: smooth;
@@ -49,7 +49,7 @@
         header {
             background: #2c3e50;
             color: white;
-            padding: 20px;
+            padding: 10px 0;
             text-align: center;
         }
 
@@ -63,7 +63,10 @@
         .title-row {
             display: flex;
             align-items: center;
-            gap: 15px;
+            justify-content: center;
+
+            gap: 10px;
+            padding: 4px 0;
         }
 
         .tagline {
@@ -74,11 +77,15 @@
 
         header h1 {
             color: #f5b041;
+            font-size: 23px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1;
         }
 
         /* 💻 电脑版 LOGO */
         .logo {
-            height: 90px;        /* 🔥 放大 */
+            height: 42px;
             margin-left: 0;
             vertical-align: middle;
             transition: transform 0.3s ease;
@@ -98,15 +105,17 @@
             justify-content:center;
             align-items:center;
 
-            position: sticky;
-            top: 0;
+            gap: 25px;
+
+            position:sticky;
+            top:0;
+            overflow:visible;
             z-index: 1000;
             font-size: 14px;
         }
 
         nav a {
             color: white;
-            margin: 15px;
             text-decoration: none;
             font-weight: bold;
             display:flex;
@@ -115,6 +124,7 @@
             height:52px;
             padding: 0 15px;   /* ✅ 固定 padding */
             border-radius: 5px;
+            justify-content:center;
         }
 
         nav a i {
@@ -125,11 +135,24 @@
 
          /* dropdown container */
         .dropdown {
-            position: relative;
-            display: inline-flex;
+            /*position: relative;
+            display: flex;
             align-items:center;
 
-            padding-bottom:0;
+            padding-bottom:0;*/
+            position:relative;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            height:52px;
+        }
+
+        .mega-menu{
+            position:relative;
         }
 
         /* dropdown menu */
@@ -151,7 +174,7 @@
             padding: 5px 0;
 
             opacity: 0;
-            transform: translateY(6px) scale(0.98);
+            transform: translateX(-50%) translateY(0);
             visibility: hidden;
 
             transition: 
@@ -179,35 +202,38 @@
 
         .mega-menu .dropdown-content{
 
-    position:fixed;
+            position:absolute;
 
-    top:52px;
+            top:52px;
+            margin-top:0;
+            left:50%;
+            transform: translateX(-50%);
 
-    left:0;
+            padding:40px 60px;
 
-    width:100vw;
+            box-sizing:border-box;
 
-    box-sizing:border-box;
+            border-radius:0;
 
-    border-radius:0;
+            background:rgba(225,230,235,0.42);
 
-    background:rgba(225,230,235,0.42);
+            backdrop-filter:blur(20px);
+            -webkit-backdrop-filter:blur(20px);
+            color:#1f2937;
 
-backdrop-filter:blur(20px);
--webkit-backdrop-filter:blur(20px);
-color:#1f2937;
+            box-shadow:none;
 
-    box-shadow:none;
+            display:grid;
 
-    padding:40px 60px;
+            padding:20px;
 
-    display:grid;
+            gap:20px;
 
-    grid-template-columns:
-        repeat(3,1fr);
+            grid-template-columns:
+                repeat(3,max-content);
 
-    gap:40px;
-}
+            justify-content:center;
+        }
 
 /* Products / Projects / About */
 
@@ -254,6 +280,8 @@ color:#1f2937;
 }
 
 .mega-column{
+
+    width:220px;
 
     display:flex;
 
@@ -340,18 +368,28 @@ color:#1f2937;
 
 .mega-submenu{
 
-    display:none;
+    display:flex;
 
     flex-direction:column;
 
     gap:15px;
 
-    animation:slideDown .25s ease;
+    opacity:0;
+
+    visibility:hidden;
+
+    max-height:0;
+
+    overflow:hidden;
 }
 
 .mega-column:hover .mega-submenu{
 
-    display:flex;
+    opacity:1;
+
+    visibility:visible;
+
+    max-height:500px;
 }
 
 @keyframes slideDown{
@@ -707,11 +745,11 @@ color:#1f2937;
             filter: brightness(0.9) contrast(0.95) saturate(0.8);
         }
 
-        .card-image {
+        /*.card-image {
             position: relative;
             overflow: hidden;
             border-radius: 10px;
-        }
+        }*/
 
         .card:hover img {
             transform: scale(1.03);
@@ -782,10 +820,13 @@ color:#1f2937;
         }
 
         .container {
-            width: 95%;
-            max-width: 1800px;
-            margin: 40px auto;   /* 🔥 加上下间距 */
-            padding: 40px 20px;
+            width:96%;
+
+            max-width:1800px;
+
+            margin:0 auto;
+
+            padding:40px 20px;
         }
 
         /* 🔥 Section 分层 */
@@ -889,7 +930,7 @@ color:#1f2937;
 
                 opacity: 1;
 
-                transform: translateY(0) scale(1);
+                transform:translateX(-50%);
 
                 visibility: visible;
             }
@@ -901,13 +942,13 @@ color:#1f2937;
 
                 visibility: visible;
 
-                transform: translateY(0);
+                transform:translateY(0);
             }
 
             .dropdown:hover > .dropdown-content{
     opacity:1;
     visibility:visible;
-    transform:translateY(0);
+    transform:translateX(-50%);
 }
 
 .nav-arrow{
@@ -1300,12 +1341,10 @@ color:#1f2937;
     display:grid;
 
     grid-template-columns:
-        420px
+        340px
         1fr;
 
-    gap:40px;
-
-    align-items:start;
+    gap:35px;
 }
 
 .products-sidebar{
@@ -1391,6 +1430,74 @@ color:#1f2937;
     box-shadow:none;
 
     padding:28px;
+}
+
+.machine-card{
+    padding:0;
+
+    height:260px;
+
+    border:1px solid #d9e3ef;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    background:white;
+
+    box-shadow:none;
+
+    transition:0.25s;
+}
+
+.machine-card img{
+
+    width:100%;
+
+    height:170px;
+
+    object-fit:cover;
+
+    margin:0;
+
+    border-radius:0;
+
+    box-shadow:none;
+
+    filter:none;
+}
+
+.machine-card h3{
+
+    margin:0;
+
+    padding:18px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:#1f2937;
+
+    line-height:1.4;
+}
+
+.machine-card:hover{
+
+    background:white;
+
+    border-color:#f39c12;
+
+    transform:translateY(-4px);
+
+    box-shadow: 
+        0 16px 35px rgba(15,23,42,.08),
+        0 0 0 1px rgba(243,156,18,.18);
+}
+
+.machine-card:hover h3{
+
+    color:#1f2937;
 }
 
 .product-group{
@@ -1779,7 +1886,7 @@ color:#1f2937;
         <a href="about.html#who">Who We Are</a>
         <a href="about.html#vision">Vision</a>
         <a href="about.html#mission">Mission</a>
-        <a href="about.html#leadership">Leadership</a>
+        <!--a href="about.html#leadership">Leadership</a-->
     </div>
     </div>
 
@@ -1859,7 +1966,6 @@ color:#1f2937;
 </div>
 </section>
 
- 
 
     <h3>Semiconductor Manufacturing Solutions</h3>
 
@@ -1869,14 +1975,6 @@ color:#1f2937;
         <div class="sidebar-card">
 
     <div class="sidebar-group">
-
-    <div class="cat-label">
-        ★  CAT PROPRIETARY
-    </div>
-
-    <h3>
-        CAT Proprietary Systems
-    </h3>
 
     <ul class="sidebar-menu">
 
@@ -1931,52 +2029,6 @@ color:#1f2937;
 
 </div>
 
-    <div class="sidebar-group">
-
-    <div class="cat-label">
-        ★ DISTRIBUTION
-    </div>
-
-    <h3>
-        Distribution & Partner Solutions
-    </h3>
-
-    <ul class="sidebar-menu">
-
-<li class="product-group"
-    data-target="wafer">
-    Wafer Inspection Systems
-</li>
-
-<li class="product-group"
-    data-target="handler">
-    Test Handlers
-</li>
-
-<li class="product-group"
-    data-target="diesorter">
-    Die Sorter
-</li>
-
-<li class="product-group"
-    data-target="dieattach">
-    Die Attach
-</li>
-
-<li class="product-group"
-    data-target="testers">
-    Testers
-</li>
-
-<li class="product-group"
-    data-target="socket">
-    Test Sockets & Pins
-</li>
-
-</ul>
-
-</div>
-
 </div>
     </div>
 
@@ -1984,180 +2036,398 @@ color:#1f2937;
 
     <div id="turret" class="machine-group active">
 
-        <div class="card">
-            <img src="images/who.jpg">
+        <a href="bowl-to-tape-for-iota-detector-emitter.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/pogo pin.png">
+
             <h3>Bowl to Tape for Iota Detector & Emitter</h3>
-        </div>
 
-        <div class="card">
-            High Speed Tray Taping System
-        </div>
+            </div>
 
-        <div class="card">
-            Super High-Speed Component Inspection
-        </div>
+        </a>
 
-        <div class="card">
-            Semi Tape & Reel Machine
-        </div>
+        <a href="high-speed-tray-taping-system.html" class="card-link">
 
-        <div class="card">
-            Auto Component Taping Machine
-        </div>
+            <div class="card machine-card">
 
+            <img src="images/">
+
+            <h3>High Speed Tray Taping System</h3>
+
+            </div>
+
+        </a>
+
+
+        <a href="super-high-speed-component-inspection.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>Super High-Speed Component Inspection</h3>
+
+            </div>
+
+        </a>
+
+        <a href="semi-tape-and-reel-machine.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>Semi Tape & Reel Machine</h3>
+
+            </div>
+
+        </a>
+
+        <a href="auto-component-taping-machine.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>Auto Component Taping Machine</h3>
+
+            </div>
+
+        </a>
     </div>
 
     <div id="laser" class="machine-group">
 
-        <div class="card">
-            Laser Marker Handler
-        </div>
+        <a href="laser-marker-handler.html" class="card-link">
 
-        <div class="card">
-            Fiber Laser Single Head
-        </div>
+            <div class="card machine-card">
 
-        <div class="card">
-            Fiber Laser Dual Heads
-        </div>
+            <img src="images/">
 
+            <h3>Laser Marker Handler</h3>
+
+            </div>
+
+        </a>
+
+        <a href="fiber-laser-single-head.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>Fiber Laser Single Head</h3>
+
+            </div>
+
+        </a>
+
+        <a href="fiber-laser-dual-heads.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>Fiber Laser Dual Heads</h3>
+
+            </div>
+
+        </a>
     </div>
 
     <div id="peel" class="machine-group">
 
-        <div class="card">
-            Carrier Tape Peel Force Analyzer
-        </div>
+        <a href="carrier-tape-peel-force-analyzer.html" class="card-link">
 
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>Carrier Tape Peel Force Analyzer</h3>
+
+            </div>
+
+        </a>
     </div>
 
     <div id="post" class="machine-group">
 
-        <div class="card">
-            Dual Reel Post-Seal Inspection
-        </div>
+        <a href="dual-reel-post-seal-inspection.html" class="card-link">
 
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>Dual Reel Post-Seal Inspection</h3>
+
+            </div>
+
+        </a>
     </div>
 
     <div id="custom" class="machine-group">
 
-        <div class="card">
-            Test Jig
-        </div>
+        <a href="" class="card-link">
 
-        <div class="card">
-            Auto Reel to Reel Integrated to X-Ray Inspection
-        </div>
+            <div class="card machine-card">
 
-        <div class="card">
-            JEDEC Tray Inspection & Cleaning System
-        </div>
+            <img src="images/">
 
-        <div class="card">
-            Automated Programming System
-        </div>
+            <h3>Test Jig</h3>
 
-        <div class="card">
-            X-Ray Component Counter
-        </div>
+            </div>
 
-        <div class="card">
-            X-Ray Inline Automatic Counting Machine
-        </div>
+        </a>
 
-        <div class="card">
-            X-Ray Inspection System
-        </div>
+        <a href="" class="card-link">
 
-        <div class="card">
-            Offline Precision Micro Focus X-ray Inspection
-        </div>
+            <div class="card machine-card">
 
+            <img src="images/">
+
+            <h3>Auto Reel to Reel Integrated to X-Ray Inspection</h3>
+
+            </div>
+
+        </a>
+
+        <a href="jedec-tray-cleaning-system.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>JEDEC Tray Inspection & Cleaning System</h3>
+
+            </div>
+
+        </a>
+
+        <a href="automated-programming-system.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>Automated Programming System</h3>
+
+            </div>
+
+        </a>
+
+        <a href="x-ray-counter.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>X-Ray Component Counter</h3>
+
+            </div>
+
+        </a>
+
+        <a href="x-ray-inline-automatic-counting-machine.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>X-Ray Inline Automatic Counting Machine</h3>
+
+            </div>
+
+        </a>
+
+        <a href="x-ray-inspection-systems.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>X-Ray Inspection System</h3>
+
+            </div>
+
+        </a>
+
+        <a href="offline-precision-micro-focus-x-ray-inspection.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>Offline Precision Micro Focus X-ray Inspection</h3>
+
+            </div>
+
+        </a>
     </div>
 
     <div id="wafer" class="machine-group">
 
-        <div class="card">
-            Wafer AOI Inspection
-        </div>
+        <a href="wafer-aoi-inspection.html" class="card-link">
 
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>Wafer AOI Inspection</h3>
+
+            </div>
+
+        </a>
     </div>
 
     <div id="handler" class="machine-group">
 
-        <div class="card">
-            Series PnP Handler (Tray to Tray)
-        </div>
+        <a href="series-pnp-handler-tray-to-tray.html" class="card-link">
 
-        <div class="card">
-            PnP Handler (Tray to Tray)
-        </div>
+            <div class="card machine-card">
 
+            <img src="images/">
+
+            <h3>Series PnP Handler (Tray to Tray)</h3>
+
+            </div>
+
+        </a>
+
+        <a href="pnp-handler-tray-to-tray.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>PnP Handler (Tray to Tray)</h3>
+
+            </div>
+
+        </a>
     </div>
 
     <div id="diesorter" class="machine-group">
 
-        <div class="card">
-            Wafer to Wafer Die Sorter
-        </div>
+        <a href="wafer-to-wafer-die-sorter.html" class="card-link">
 
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>Wafer to Wafer Die Sorter</h3>
+
+            </div>
+
+        </a>
     </div>
 
     <div id="dieattach" class="machine-group">
 
-        <div class="card">
-            Highly Accurate Thermo-sonic Wire Bonder
-        </div>
+        <a href="highly-accurate-thermo-sonic-wire-bonder.html" class="card-link">
 
-        <div class="card">
-            Fully Automatic Thermo-sonic Ball Bonder
-        </div>
+            <div class="card machine-card">
 
-        <div class="card">
-            Thermosonic Wire Ball Bonders - Gold, Silver & Copper Wires
-        </div>
+            <img src="images/">
 
+            <h3>Highly Accurate Thermo-sonic Wire Bonder</h3>
+
+            </div>
+
+        </a>
+
+        <a href="fully-automatic-thermo-sonic-ball-bonder.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>Fully Automatic Thermo-sonic Ball Bonder</h3>
+
+            </div>
+
+        </a>
+
+        <a href="thermosonic-wire-ball-bonders.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>Thermosonic Wire Ball Bonders - Gold, Silver & Copper Wires</h3>
+
+            </div>
+
+        </a>
     </div>
 
     <div id="testers" class="machine-group">
 
-        <div class="card">
-            CurveMaster X Max
-        </div>
+        <a href="curvemaster-x-max.html" class="card-link">
 
-        <div class="card">
-            CurveMaster L
-        </div>
+            <div class="card machine-card">
 
-        <div class="card">
-            CurveMaster C
-        </div>
+            <img src="images/">
 
+            <h3>CurveMaster X Max</h3>
+
+            </div>
+
+        </a>
+
+        <a href="curvemaster-l.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>CurveMaster L</h3>
+
+            </div>
+
+        </a>
+
+        <a href="curvemaster-c.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>CurveMaster C</h3>
+
+            </div>
+
+        </a>
     </div>
 
     <div id="socket" class="machine-group">
 
-        <div class="card">
-            Test Socket
-        </div>
+        <a href="test-socket.html" class="card-link">
 
-        <div class="card">
-            Pogo Pin
-        </div>
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3>Test Socket</h3>
+
+            </div>
+
+        </a>
+
+        <a href="pogo-pin.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/pogo pin.png">
+
+            <h3> Pogo Pin</h3>
+
+            </div>
+
+        </a>
 
     </div>
-
-</div>
-
-    <!-- 🟨 PARTNER -->
-    <section class="secondary-section">
-
-<div class="card-section">
-</div>
-
-</section>
-    </div>
-
 </section>
 
 <footer class="footer">
@@ -2443,7 +2713,7 @@ buttons.forEach(button => {
 
 });
 
-function updateMegaMenuPosition(){
+/*function updateMegaMenuPosition(){
 
     const nav = document.getElementById("navMenu");
 
@@ -2462,7 +2732,7 @@ window.addEventListener("load", updateMegaMenuPosition);
 
 window.addEventListener("scroll", updateMegaMenuPosition);
 
-window.addEventListener("resize", updateMegaMenuPosition);
+window.addEventListener("resize", updateMegaMenuPosition);*/
 </script>
 </body>
 </html>
