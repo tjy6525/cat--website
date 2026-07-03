@@ -570,7 +570,7 @@
             color:#2c3e50;
         }
 
-        /* 初始状态（隐藏） */
+        /* 初始状态（隐藏） 
         h2::before,
         h2::after {
             content: "";
@@ -580,10 +580,10 @@
             flex: 1;
             max-width: 120px;
 
-            transform: scaleX(0);   /* 🔥 一开始收起来 */
+            transform: scaleX(0);   / 🔥 一开始收起来 
         }
 
-        /* 左右方向 */
+         左右方向 
         h2::before {
             transform-origin: right;
         }
@@ -592,11 +592,11 @@
             background: linear-gradient(to left, transparent, #d0d7de);
         }
 
-        /* 🔥 动画触发 */
+         🔥 动画触发 
         h2.show-line::before,
         h2.show-line::after {
             animation: lineExpand 5.0s ease forwards;
-        }
+        }*/
 
         /* 🔥 动画定义 */
         @keyframes lineExpand {
@@ -1054,10 +1054,10 @@
             max-height: calc(100vh - 50px);  /* 🔥 填满屏幕 */
         }
 
-        h2::before,
+        /*h2::before,
         h2::after {
             display: none;
-        }
+        }*/
 
         .dropdown-content {
             position: relative;
@@ -1816,11 +1816,17 @@
 
         <div class="mega-submenu">
 
-        <a href="wafer-inspection-system.html">Wafer Inspection Systems</a>
-
-        <a href="laser-marking.html">Laser Marking Systems</a>
-
-        <a href="component-inspection-system.html">Component Inspection Systems</a>
+        <a href="solutions.html#Wafer Inspection Systems">Wafer Inspection Systems</a>
+        <a href="solutions.html#Laser Marking Systems">Laser Marking Systems</a>
+        <a href="solutions.html#Component Inspection Systems">Component Inspection Systems</a>
+        <a href="solutions.html#Tester & Test handler">Tester & Test handler</a>
+        <a href="solutions.html#Test Accessories">Test Accessories</a>
+        <a href="solutions.html#Device Programming Solutions">Device Programming Solutions</a>
+        <a href="solutions.html#Post-Seal Inspection and Counter Systems">Post-Seal Inspection and Counter Systems</a>
+        <a href="solutions.html#Packing/Tape & Reel Systems">Packing/Tape & Reel Systems</a>
+        <a href="solutions.html#X-Ray Inspection Systems">X-Ray Inspection Systems</a>
+        <a href="solutions.html#Special Process Equipment">Special Process Equipment</a>
+        <a href="solutions.html#Legacy Product Support">Legacy Product Support</a>
 
         </div>
 
@@ -1867,7 +1873,7 @@
         <a href="products.html#turret">Turret-Based Test, Inspection & Tape & Reel Systems</a>
         <a href="products.html#laser">Laser Marking Modules & Complete Systems</a>
         <a href="products.html#peel">Peel Force Tester (TP-15x)</a>
-        <a href="products.html#manualTaping">Manual Taping System (MT-35)</a>
+        <a href="products.html#manualtaping">Manual Taping System (MT-35)</a>
         <a href="products.html#tube">Tube-to-Tube Inspection System</a>
         <a href="products.html#tape">Tape-to-Tape Test & Inspection Systems</a>
         <a href="products.html#post">Post Seal Inspection System</a>
@@ -1875,10 +1881,10 @@
         <a href="products.html#custom">Custom Machine & Automation Solutions</a>
         <a href="products.html#wafer">Wafer Inspection Systems</a>
         <a href="products.html#test">Test Handlers</a>
-        <a href="products.html#dieSorter">Die Sorter</a>
-        <a href="products.html#dieAttach">Die Attach</a>
+        <a href="products.html#diesorter">Die Sorter</a>
+        <a href="products.html#dieattach">Die Attach</a>
         <a href="products.html#testers">Testers</a>
-        <a href="products.html#testSockets">Test Sockets & Pins</a>
+        <a href="products.html#testsockets">Test Sockets & Pins</a>
     </div>
     </div>
 
@@ -1996,50 +2002,58 @@
     <ul class="sidebar-menu">
 
 <li class="product-group active"
-    data-target="turret">
-    Turret-Based Test, Inspection &
-    Tape & Reel Systems
+    data-target="Wafer Inspection Systems">
+    Wafer Inspection Systems
 </li>
 
 <li class="product-group"
-    data-target="laser">
-    Laser Marking Modules &
-    Complete Systems
+    data-target="Laser Marking Systems">
+    Laser Marking Systems
 </li>
 
 <li class="product-group"
-    data-target="peel">
-    Peel Force Tester
+    data-target="Component Inspection Systems">
+    Component Inspection Systems
 </li>
 
 <li class="product-group"
-    data-target="manualTaping">
-    Manual Taping System
+    data-target="Tester & Test handler">
+    Tester & Test handler
 </li>
 
 <li class="product-group"
-    data-target="tube">
-    Tube-to-Tube Inspection System
+    data-target="Test Accessories">
+    Test Accessories
 </li>
 
 <li class="product-group"
-    data-target="tape">
-    Tape-to-Tape Test & Inspection Systems 
+    data-target="Device Programming Solutions">
+    Device Programming Solutions
 </li>
 
 <li class="product-group"
-    data-target="post">
-    Post Seal Inspection System
+    data-target="Post-Seal Inspection and Counter Systems">
+    Post-Seal Inspection and Counter Systems
 </li>
 
 <li class="product-group"
-    data-target="manualLaser">
-    Manual Laser Marking Stations
+    data-target="Packing/Tape & Reel Systems">
+    Packing/Tape & Reel Systems
 </li>
 
 <li class="product-group"
-    data-target="custom">
-    Custom Machine & Automation Solutions
+    data-target="X-Ray Inspection Systems">
+    X-Ray Inspection Systems
+</li>
+
+<li class="product-group"
+    data-target="Special Process Equipment">
+    Special Process Equipment
+</li>
+
+<li class="product-group"
+    data-target="Legacy Product Support">
+    Legacy Product Support
 </li>
 
 <!--/ul>
@@ -2048,37 +2062,12 @@
 
     <div class="sidebar-group">
 
-    <ul class="sidebar-menu"-->
+    <ul class="sidebar-menu">
 
 <li class="product-group"
-    data-target="wafer">
-    Wafer Inspection Systems
-</li>
-
-<li class="product-group"
-    data-target="handler">
-    Test Handlers
-</li>
-
-<li class="product-group"
-    data-target="diesorter">
-    Die Sorter
-</li>
-
-<li class="product-group"
-    data-target="dieattach">
-    Die Attach
-</li>
-
-<li class="product-group"
-    data-target="testers">
-    Testers
-</li>
-
-<li class="product-group"
-    data-target="socket">
-    Test Sockets & Pins
-</li>
+    data-target="">
+    
+</li-->
 
 </ul>
 
@@ -2089,281 +2078,7 @@
 
     <div class="machine-display">
 
-    <div id="turret" class="machine-group active">
-
-        <a href="bowl-to-tape-for-iota-detector-emitter.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Bowl to Tape for Iota Detector & Emitter.png">
-
-            <h3>Bowl to Tape for Iota Detector & Emitter</h3>
-
-            </div>
-
-        </a>
-
-        <a href="high-speed-tray-taping-system.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/High Speed Tray Taping System.png">
-
-            <h3>High Speed Tray Taping System</h3>
-
-            </div>
-
-        </a>
-
-
-        <a href="super-high-speed-component-inspection.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Super High-Speed Component Inspection.png">
-
-            <h3>Super High-Speed Component Inspection</h3>
-
-            </div>
-
-        </a>
-
-        <a href="semi-tape-and-reel-machine.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Semi Tape & Reel Machine.png">
-
-            <h3>Semi Tape & Reel Machine</h3>
-
-            </div>
-
-        </a>
-
-        <a href="auto-component-taping-machine.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Auto Component Taping Machine.png">
-
-            <h3>Auto Component Taping Machine</h3>
-
-            </div>
-
-        </a>
-    </div>
-
-    <div id="laser" class="machine-group">
-
-        <a href="laser-marker-handler.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Laser Marker Handler.png">
-
-            <h3>Laser Marker Handler</h3>
-
-            </div>
-
-        </a>
-
-        <a href="fiber-laser-single-head.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Fiber Laser Single Head.png">
-
-            <h3>Fiber Laser Single Head</h3>
-
-            </div>
-
-        </a>
-
-        <a href="fiber-laser-dual-heads.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Fiber Laser Dual Heads.png">
-
-            <h3>Fiber Laser Dual Heads</h3>
-
-            </div>
-
-        </a>
-    </div>
-
-    <div id="peel" class="machine-group">
-
-        <a href="carrier-tape-peel-force-analyzer.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Carrier Tape Peel Force Analyzer.png">
-
-            <h3>Carrier Tape Peel Force Analyzer</h3>
-
-            </div>
-
-        </a>
-    </div>
-
-    <div id="post" class="machine-group">
-
-        <a href="dual-reel-post-seal-inspection.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Dual Reel Post-Seal Inspection.png">
-
-            <h3>Dual Reel Post-Seal Inspection</h3>
-
-            </div>
-
-        </a>
-    </div>
-
-    <div id="custom" class="machine-group">
-
-        <a href="" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Test Jig.png">
-
-            <h3>Test Jig</h3>
-
-            </div>
-
-        </a>
-
-        <a href="" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Auto Reel to Reel Integrated to X-Ray Inspection.png">
-
-            <h3>Auto Reel to Reel Integrated to X-Ray Inspection</h3>
-
-            </div>
-
-        </a>
-
-        <a href="jedec-tray-cleaning-system.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/JEDEC Tray Inspection & Cleaning System.png">
-
-            <h3>JEDEC Tray Inspection & Cleaning System</h3>
-
-            </div>
-
-        </a>
-
-        <a href="automated-programming-system.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Automated Programming System.png">
-
-            <h3>Automated Programming System</h3>
-
-            </div>
-
-        </a>
-
-        <a href="x-ray-counter.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/X-Ray Component Counter.jpeg">
-
-            <h3>X-Ray Component Counter</h3>
-
-            </div>
-
-        </a>
-
-        <a href="x-ray-inline-automatic-counting-machine.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/X-Ray Inline Automatic Counting Machine.png">
-
-            <h3>X-Ray Inline Automatic Counting Machine</h3>
-
-            </div>
-
-        </a>
-
-        <a href="x-ray-inspection-systems.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/X-Ray Inspection System.png">
-
-            <h3>X-Ray Inspection System</h3>
-
-            </div>
-
-        </a>
-
-        <a href="offline-precision-micro-focus-x-ray-inspection.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Offline Precision Micro Focus X-Ray Inspection.png">
-
-            <h3>Offline Precision Micro Focus X-ray Inspection</h3>
-
-            </div>
-
-        </a>
-    </div>
-
-    <div id="wafer" class="machine-group">
-
-        <a href="wafer-aoi-inspection.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Wafer AOI Inspection.png">
-
-            <h3>Wafer AOI Inspection</h3>
-
-            </div>
-
-        </a>
-    </div>
-
-    <div id="handler" class="machine-group">
-
-        <a href="series-pnp-handler-tray-to-tray.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/Series PnP Handler Tray to Tray.png">
-
-            <h3>Series PnP Handler (Tray to Tray)</h3>
-
-            </div>
-
-        </a>
-
-        <a href="pnp-handler-tray-to-tray.html" class="card-link">
-
-            <div class="card machine-card">
-
-            <img src="images/PnP Handler Tray to Tray.png">
-
-            <h3>PnP Handler (Tray to Tray)</h3>
-
-            </div>
-
-        </a>
-    </div>
-
-    <div id="diesorter" class="machine-group">
+    <div id="Wafer Inspection Systems" class="machine-group active">
 
         <a href="wafer-to-wafer-die-sorter.html" class="card-link">
 
@@ -2376,9 +2091,18 @@
             </div>
 
         </a>
-    </div>
 
-    <div id="dieattach" class="machine-group">
+        <a href="wafer-aoi-inspection.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Wafer AOI Inspection.png">
+
+            <h3>Wafer AOI Inspection</h3>
+
+            </div>
+
+        </a>
 
         <a href="highly-accurate-thermo-sonic-wire-bonder.html" class="card-link">
 
@@ -2417,7 +2141,85 @@
         </a>
     </div>
 
-    <div id="testers" class="machine-group">
+    <div id="Laser Marking Systems" class="machine-group">
+
+        <a href="laser-marker-handler.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Laser Marker Handler.png">
+
+            <h3>Laser Marker Handler</h3>
+
+            </div>
+
+        </a>
+
+        <a href="fiber-laser-single-head.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Fiber Laser Single Head.png">
+
+            <h3>Fiber Laser Single Head</h3>
+
+            </div>
+
+        </a>
+
+        <a href="fiber-laser-dual-heads.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Fiber Laser Dual Heads.png">
+
+            <h3>Fiber Laser Dual Heads</h3>
+
+            </div>
+
+        </a>
+    </div>
+
+    <div id="Component Inspection Systems" class="machine-group">
+
+        <a href="bowl-to-tape-for-iota-detector-emitter.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Bowl to Tape for Iota Detector & Emitter.png">
+
+            <h3>Bowl to Tape for Iota Detector & Emitter</h3>
+
+            </div>
+
+        </a>
+
+        <a href="super-high-speed-component-inspection.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Super High-Speed Component Inspection.png">
+
+            <h3>Super High-Speed Component Inspection</h3>
+
+            </div>
+
+        </a>
+
+        <a href="high-speed-tray-taping-system.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/High Speed Tray Taping System.png">
+
+            <h3>High Speed Tray Taping System</h3>
+
+            </div>
+
+        </a>
+    </div>
+
+    <div id="Tester & Test handler" class="machine-group">
 
         <a href="curvemaster-x-max.html" class="card-link">
 
@@ -2454,9 +2256,45 @@
             </div>
 
         </a>
+
+        <a href="series-pnp-handler-tray-to-tray.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Series PnP Handler Tray to Tray.png">
+
+            <h3>Series PnP Handler (Tray to Tray)</h3>
+
+            </div>
+
+        </a>
+
+        <a href="pnp-handler-tray-to-tray.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/PnP Handler Tray to Tray.png">
+
+            <h3>PnP Handler (Tray to Tray)</h3>
+
+            </div>
+
+        </a>
+
+        <a href="test-jig.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Test Jig.png">
+
+            <h3>Test Jig</h3>
+
+            </div>
+
+        </a>
     </div>
 
-    <div id="socket" class="machine-group">
+    <div id="Test Accessories" class="machine-group">
 
         <a href="test-socket.html" class="card-link">
 
@@ -2481,7 +2319,169 @@
             </div>
 
         </a>
+    </div>
 
+    <div id="Device Programming Solutions" class="machine-group">
+
+        <a href="automated-programming-system.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Automated Programming System.png">
+
+            <h3>Automated Programming System</h3>
+
+            </div>
+
+        </a>
+    </div>
+
+    <div id="Post-Seal Inspection and Counter Systems" class="machine-group">
+
+        <a href="dual-reel-post-seal-inspection.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Dual Reel Post-Seal Inspection.png">
+
+            <h3>Dual Reel Post-Seal Inspection</h3>
+
+            </div>
+
+        </a>
+
+        <a href="x-ray-counter.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/X-Ray Component Counter.png">
+
+            <h3>X-Ray Component Counter</h3>
+
+            </div>
+
+        </a>
+
+        <a href="x-ray-inline-automatic-counting-machine.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/X-Ray Inline Automatic Counting Machine.png">
+
+            <h3>X-Ray Inline Automatic Counting Machine</h3>
+
+            </div>
+
+        </a>
+
+    </div>
+
+    <div id="Packing/Tape & Reel Systems" class="machine-group">
+
+        <a href="semi-tape-and-reel-machine.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Semi Tape & Reel Machine.png">
+
+            <h3>Semi Tape & Reel Machine</h3>
+
+            </div>
+
+        </a>
+
+        <a href="carrier-tape-peel-force-analyzer.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Carrier Tape Peel Force Analyzer.png">
+
+            <h3>Carrier Tape Peel Force Analyzer</h3>
+
+            </div>
+
+        </a>
+
+        <a href="auto-component-taping-machine.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Auto Component Taping Machine.png">
+
+            <h3>Auto Component Taping Machine</h3>
+
+            </div>
+
+        </a>
+    </div>
+
+    <div id="X-Ray Inspection Systems" class="machine-group">
+
+        <a href="x-ray-inspection-systems.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/X-Ray Inspection System.png">
+
+            <h3>X-Ray Inspection System</h3>
+
+            </div>
+
+        </a>
+
+        <a href="offline-precision-micro-focus-x-ray-inspection.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Offline Precision Micro Focus X-Ray Inspection.png">
+
+            <h3>Offline Precision Micro Focus X-ray Inspection</h3>
+
+            </div>
+
+        </a>
+    </div>
+
+    <div id="Special Process Equipment" class="machine-group">
+
+        <a href="jedec-tray-cleaning-system.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/JEDEC Tray Inspection & Cleaning System.png">
+
+            <h3>JEDEC Tray Inspection & Cleaning System</h3>
+
+            </div>
+
+        </a>
+
+        <a href="auto-reel-to-reel-integrated-to-x-ray-inspection.html" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/Auto Reel to Reel Integrated to X-Ray Inspection.png">
+
+            <h3>Auto Reel to Reel Integrated to X-Ray Inspection</h3>
+
+            </div>
+
+        </a>
+    </div>
+
+    <div id="Legacy Product Support" class="machine-group">
+
+        <a href="" class="card-link">
+
+            <div class="card machine-card">
+
+            <img src="images/">
+
+            <h3></h3>
+
+            </div>
+
+        </a>
     </div>
 </section>
 
@@ -2673,63 +2673,19 @@ document.querySelectorAll(".dropdown > a").forEach(function(menu){
     });
 });
 
-// 👉 点击子菜单后关闭 dropdown
 document.querySelectorAll(".dropdown-content a").forEach(function(link){
 
-    link.addEventListener("click", function(e){
+    link.addEventListener("click", function(){
 
-    const href = this.getAttribute("href");
+        document.querySelectorAll(".dropdown").forEach(function(d){
+            d.classList.remove("active");
+        });
 
-    const currentPage =
-        window.location.pathname.split("/").pop();
+        var nav = document.getElementById("navMenu");
+        var toggle = document.querySelector(".menu-toggle");
 
-    const targetPage =
-        href.split("#")[0];
-
-    // ✅ 只有当前页面才 smooth scroll
-    if(targetPage === currentPage){
-
-        e.preventDefault();
-
-        const targetId =
-            "#" + href.split("#")[1];
-
-        setTimeout(function(){
-
-            document.querySelectorAll(".dropdown").forEach(function(d){
-                d.classList.remove("active");
-            });
-
-            var nav =
-                document.getElementById("navMenu");
-
-            var toggle =
-                document.querySelector(".menu-toggle");
-
-            nav.classList.remove("active");
-            toggle.classList.remove("active");
-
-            const target =
-                document.querySelector(targetId);
-
-            if(target){
-
-                const offset = 160;
-
-                const targetPosition =
-                    target.getBoundingClientRect().top +
-                    window.pageYOffset -
-                    offset;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: "smooth"
-                });
-            }
-
-        }, 300);
-            
-                }
+        if(nav) nav.classList.remove("active");
+        if(toggle) toggle.classList.remove("active");
 
     });
 
@@ -2765,6 +2721,41 @@ buttons.forEach(button => {
         )
         .classList.add("active");
     });
+
+});
+
+function activateProduct(hash){
+
+    hash = hash.replace("#","");
+
+    if(!hash) return;
+
+    const button = document.querySelector(
+        '.product-group[data-target="' + hash + '"]'
+    );
+
+    const group = document.getElementById(hash);
+
+    if(!button || !group) return;
+
+    button.click();
+
+    group.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+window.addEventListener("load",function(){
+
+    activateProduct(location.hash);
+
+});
+
+window.addEventListener("hashchange",function(){
+
+    activateProduct(location.hash);
 
 });
 
