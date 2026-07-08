@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <title>Services - Control Automation Technology</title>
 
@@ -1190,6 +1191,102 @@
     margin:0;
 }
 
+.card-section{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:30px;
+
+    max-width:1500px;
+
+    margin:60px auto;
+
+}
+
+.card{
+
+    background:white;
+
+    padding:36px;
+
+    border-radius:18px;
+
+    border:1px solid #d8e0ea;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.05);
+
+    transition:.3s;
+}
+
+.card-icon{
+
+    width:56px;
+    height:56px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#fff4ec;
+
+    border-radius:14px;
+
+    margin-bottom:28px;
+}
+
+.card-icon i{
+
+    color:#eb7d2f;
+
+    font-size:22px;
+}
+
+.card-icon svg{
+    width:26px;
+    height:26px;
+    stroke:#f47c20;
+    stroke-width:2;
+}
+
+.card h3{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:#081f4d;
+
+    margin-bottom:18px;
+
+    padding:0;
+}
+
+.card p{
+
+    font-size:18px;
+
+    line-height:1.7;
+
+    color:#4a617d;
+
+    padding:0;
+
+    margin:0;
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 16px 35px rgba(0,0,0,.08);
+}
+
 .contact-cta{
 
     max-width:1500px;
@@ -1546,40 +1643,105 @@
 
     </div>
 
-    <!-- SERVICES（无 explanation 安全版🔥） -->
+    <!--SERVICES-->
     <div class="card-section">
 
-        <div class="card">
-            <i class="fas fa-tools"></i>
-            <h3>Installation & Commissioning</h3>
+    <div class="card">
+
+        <div class="card-icon">
+            <i data-lucide="wrench"></i>
         </div>
 
-        <div class="card">
-            <i class="fas fa-cogs"></i>
-            <h3>Preventive Maintenance</h3>
-        </div>
+        <h3>Installation & Commissioning</h3>
 
-        <div class="card">
-            <i class="fas fa-gauge-high"></i>
-            <h3>Equipment Calibration</h3>
-        </div>
-
-        <div class="card">
-            <i class="fas fa-chart-line"></i>
-            <h3>Process Optimization</h3>
-        </div>
-
-        <div class="card">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <h3>Technical Training</h3>
-        </div>
-
-        <div class="card">
-            <i class="fas fa-headset"></i>
-            <h3>After-Sales Support</h3>
-        </div>
+        <p>
+            Professional on-site installation and system
+            commissioning by CAT-certified engineers to
+            ensure full operational readiness.
+        </p>
 
     </div>
+
+    <div class="card">
+
+        <div class="card-icon">
+            <i data-lucide="shield"></i>
+        </div>
+
+        <h3>Preventive Maintenance</h3>
+
+        <p>
+            Scheduled maintenance programs designed to
+            maximize equipment uptime and long-term
+            reliability.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-icon">
+            <i data-lucide="settings"></i>
+        </div>
+
+        <h3>Equipment Calibration</h3>
+
+        <p>
+            Precision calibration services to maintain
+            measurement accuracy and consistency across
+            all process steps.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-icon">
+            <i data-lucide="trending-up"></i>
+        </div>
+
+        <h3>Process Optimization</h3>
+
+        <p>
+            Engineering consultation to improve yield,
+            throughput, and overall process efficiency
+            in your manufacturing line.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-icon">
+            <i data-lucide="book-open"></i>
+        </div>
+
+        <h3>Technical Training</h3>
+
+        <p>
+            Hands-on operator and engineering training
+            programs, delivered on-site or at our
+            facility.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-icon">
+            <i data-lucide="headphones"></i>
+        </div>
+
+        <h3>After-Sales Support</h3>
+
+        <p>
+            Dedicated support team providing spare parts,
+            remote diagnostics, and timely field service.
+        </p>
+
+    </div>
+
+</div>
 
 <section class="contact-cta">
 
@@ -1889,6 +2051,7 @@ window.addEventListener("load", updateMegaMenuPosition);
 window.addEventListener("scroll", updateMegaMenuPosition);
 
 window.addEventListener("resize", updateMegaMenuPosition);*/
+lucide.createIcons();
 </script>
 
 </body>
