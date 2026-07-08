@@ -1249,30 +1249,6 @@
 
         }
 
-        /* 🔥 图片放大背景 */
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 99999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-
-        .card img {
-            cursor: pointer;
-        }
-
         /* ===== 主区（CAT） ===== */
         .primary-section {
             display:grid;
@@ -1356,158 +1332,6 @@
             color: #555;
         }
 
-        .cookie-banner {
-            position: fixed;
-
-    bottom: 30px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background:
-    rgba(31,45,61,0.96);
-
-    backdrop-filter: blur(12px);
-
-    color: white;
-
-    padding: 28px 35px;
-
-    width: 90%;
-    max-width: 780px;
-
-    border-radius: 24px;
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,0.28);
-
-    z-index: 9999;
-
-    border:
-    1px solid rgba(255,255,255,0.08);
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    gap: 25px;
-
-    animation:
-    cookieFade 0.5s ease;
-}
-
-.cookie-banner p {
-    font-size: 16px;
-
-    line-height: 1.7;
-
-    color:
-    rgba(255,255,255,0.9);
-
-    margin: 0;
-
-    flex: 1;
-}
-
-.cookie-buttons {
-    display: flex;
-
-    gap: 14px;
-
-    flex-shrink: 0;
-}
-
-.cookie-buttons button {
-    padding: 14px 24px;
-
-    border: none;
-
-    border-radius: 14px;
-
-    cursor: pointer;
-
-    font-size: 15px;
-
-    font-weight: 600;
-
-    transition:
-    all 0.3s ease;
-}
-
-#accept-cookies {
-
-    background: #f39c12;
-
-    color: white;
-}
-
-#reject-cookies {
-    background:
-    rgba(255,255,255,0.12);
-
-    color: white;
-}
-
-.cookie-buttons button:hover {
-    transform: translateY(-3px);
-
-    opacity: 0.92;
-}
-
-.cookie-text a {
-
-    color: #f5b041;
-
-    text-decoration: none;
-
-    font-weight: 600;
-}
-
-.cookie-text a:hover {
-
-    text-decoration: underline;
-}
-
-#close-cookie {
-
-    font-size: 24px;
-
-    cursor: pointer;
-
-    color: rgba(255,255,255,0.75);
-
-    transition: 0.3s ease;
-}
-
-#close-cookie:hover {
-
-    color: white;
-
-    transform: scale(1.1);
-}
-
-@keyframes cookieFade {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-        translateX(-50%)
-        translateY(20px);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-        translateX(-50%)
-        translateY(0);
-    }
-}
 .contact-cta{
 
     max-width:1500px;
@@ -1769,39 +1593,6 @@
 </head>
 
 <body>
-<div id="cookie-banner" class="cookie-banner">
-
-    <div class="cookie-text">
-
-        <p>
-            We use cookies to improve your browsing experience,
-            personalize content, and analyze website traffic.
-
-            <a href="cookies.html">
-                Cookie Policy
-            </a>
-        </p>
-
-    </div>
-
-    <div class="cookie-buttons">
-
-        <button id="accept-cookies">
-            Accept
-        </button>
-
-        <button id="reject-cookies">
-            Reject
-        </button>
-
-        <span id="close-cookie">
-            ✕
-        </span>
-
-    </div>
-
-</div>
-
 <!--header class="header-bar">
 
     <div class="header-inner">
@@ -1947,14 +1738,14 @@
 
     <div class="dropdown mega-menu">
     <a href="about.html">
-        About <i class="fas fa-chevron-right nav-arrow"></i>
+        About <!--i class="fas fa-chevron-right nav-arrow"></i-->
     </a>
-    <div class="dropdown-content">
+    <!--div class="dropdown-content">
         <a href="about.html#who">Who We Are</a>
         <a href="about.html#vision">Vision</a>
         <a href="about.html#mission">Mission</a>
-        <!--a href="about.html#leadership">Leadership</a-->
-    </div>
+        <!-a href="about.html#leadership">Leadership</a->
+    </div-->
     </div>
 
     <a href="contact.html">Contact</a>
@@ -2692,10 +2483,6 @@ Submit an Inquiry
 
 </footer>
 
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img">
-</div>
-
 <script defer>
 function toggleMenu() {
     var nav = document.getElementById("navMenu");
@@ -2771,73 +2558,10 @@ document.querySelectorAll(".dropdown-content a").forEach(function(link){
 
 });
 
-document.addEventListener("DOMContentLoaded", function(){
-
-    // 🔥 点击图片放大
-    document.querySelectorAll(".card img").forEach(function(img){
-    img.onclick = function(){
-        document.getElementById("lightbox").style.display = "flex";
-        document.getElementById("lightbox-img").src = this.src;
-    }
-});
-});
-
-// 🔥 关闭
-function closeLightbox(){
-    document.getElementById("lightbox").style.display = "none";
-}
-
 window.addEventListener("load", function(){
     document.querySelectorAll("h2").forEach(function(title){
         title.classList.add("show-line");
     });
-});
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    const cookieBanner =
-        document.getElementById("cookie-banner");
-
-    // 已经选择过
-   // if(localStorage.getItem("cookieChoice")){
-
-    //    cookieBanner.style.display = "none";
-    //}
-
-    // Accept
-    document
-    .getElementById("accept-cookies")
-    .addEventListener("click", function(){
-
-        localStorage.setItem(
-            "cookieChoice",
-            "accepted"
-        );
-
-        cookieBanner.style.display = "none";
-    });
-
-    // Reject
-    document
-    .getElementById("reject-cookies")
-    .addEventListener("click", function(){
-
-        localStorage.setItem(
-            "cookieChoice",
-            "rejected"
-        );
-
-        cookieBanner.style.display = "none";
-    });
-
-});
-
-// Close button
-document
-.getElementById("close-cookie")
-.addEventListener("click", function(){
-
-    cookieBanner.style.display = "none";
 });
 
 const buttons =

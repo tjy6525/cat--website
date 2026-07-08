@@ -667,24 +667,6 @@
             color: orange;
         }
 
-        .card-section {
-            display: grid;
-
-            grid-template-columns:
-            repeat(auto-fit, minmax(320px, 1fr));
-
-            gap: 35px;
-        }
-
-        .card-section .card {
-            flex: 1;
-            max-width: 320px;
-        }
-
-        .card-section:first-of-type .card {
-            max-width: 360px;
-        }
-
         .card img {
             width: 100%;
             height: 260px;
@@ -848,11 +830,11 @@
             max-width: 320px;
         }
 
-        .card h3,
+        /*.card h3,
         .card p,
         .card a {
             padding: 0 20px;
-        }
+        }*/
 
         .card-title {
             font-size: 20px;
@@ -933,11 +915,6 @@
             padding: 12px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
             margin: 0;
-        }
-
-        .card-section {
-            flex-direction: column;
-            align-items: center;
         }
 
         .card {
@@ -1193,20 +1170,40 @@
 
 .card-section{
 
+    /*max-width:1560px;
+
+    width:calc(100% - 120px);
+
+    margin:60px auto 80px;
+
     display:grid;
 
-    grid-template-columns:
-        repeat(3,1fr);
+    grid-template-columns:repeat(3, 1fr);
 
     gap:30px;
 
-    max-width:1500px;
+    justify-content:center;*/
+    max-width:1600px;
 
     margin:60px auto;
+
+    padding:0 60px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    gap:30px;
+
+    justify-content:center;
 
 }
 
 .card{
+    /*
+    width:500px;
+
+    box-sizing:border-box;
 
     background:white;
 
@@ -1216,16 +1213,35 @@
 
     border:1px solid #d8e0ea;
 
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.05);
+    box-shadow:0 8px 20px rgba(0,0,0,.05);*/
+    width:100%;
 
-    transition:.3s;
+    min-height:270px;
+
+    box-sizing:border-box;
+
+    background:#fff;
+
+    padding:34px 38px;
+
+    border:1px solid #d9e3ef;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 8px 22px rgba(0,0,0,.05);
+
+    transition:.35s;
+
+    display:flex;
+
+    flex-direction:column;
 }
 
 .card-icon{
 
-    width:56px;
-    height:56px;
+    width:52px;
+    height:52px;
 
     display:flex;
 
@@ -1247,36 +1263,38 @@
 }
 
 .card-icon svg{
-    width:26px;
-    height:26px;
+    width:22px;
+    height:22px;
     stroke:#f47c20;
     stroke-width:2;
 }
 
 .card h3{
 
-    font-size:22px;
+    font-size:18px;
 
     font-weight:700;
 
     color:#081f4d;
 
-    margin-bottom:18px;
+    line-height:1.35;
+
+    margin:0 0 12px;
 
     padding:0;
 }
 
 .card p{
 
-    font-size:18px;
+    font-size:14px;
 
-    line-height:1.7;
+    line-height:1.9;
 
-    color:#4a617d;
-
-    padding:0;
+    color:#4d6381;
 
     margin:0;
+
+    padding:0;
 }
 
 .card:hover{
@@ -1615,14 +1633,14 @@
 
     <div class="dropdown mega-menu">
     <a href="about.html">
-        About <i class="fas fa-chevron-right nav-arrow"></i>
+        About <!--i class="fas fa-chevron-right nav-arrow"></i-->
     </a>
-    <div class="dropdown-content">
+    <!--div class="dropdown-content">
         <a href="about.html#who">Who We Are</a>
         <a href="about.html#vision">Vision</a>
         <a href="about.html#mission">Mission</a>
-        <!--a href="about.html#leadership">Leadership</a-->
-    </div>
+        <!-a href="about.html#leadership">Leadership</a->
+    </div-->
     </div>
 
     <a href="contact.html">Contact</a>
@@ -1746,12 +1764,12 @@
 <section class="contact-cta">
 
 <h2>
-Contact for More Information
+Get Service Support
 </h2>
 
 <p>
-Our engineering team is available to discuss
-specifications, lead times, and integration requirements.
+Contact our service team to arrange maintenance visits, 
+calibration schedules, or technical assistance.
 </p>
 
 <div class="contact-actions">
@@ -1766,7 +1784,7 @@ sales@cat-my.com
 <a href="contact.html"
 class="inquiry-btn">
 
-Submit an Inquiry
+Contact Service Team
 
 </a>
 

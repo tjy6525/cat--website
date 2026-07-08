@@ -693,12 +693,6 @@
             transform: scale(1.03);
         }
 
-        /* 🔥 Hover effect */
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-        }
-
         .about {
             background: white;
             text-align: center;
@@ -708,6 +702,46 @@
             max-width: 800px;
             margin: 20px auto;
             line-height: 1.6;
+        }
+
+        .about-grid{
+
+            display:grid;
+
+            grid-template-columns:1fr 1fr;
+
+            gap:70px;
+
+            margin-top:30px;
+        }
+
+        .vision-line{
+
+            border-left:4px solid #e67e22;
+
+            padding-left:25px;
+
+            margin-top:20px;
+
+            text-align:center;
+        }
+
+        .vision-line p{
+            margin:0 auto;
+        }
+
+        #mission ul{
+
+            width: fit-content;
+
+            margin: 20px auto 0;
+
+            text-align: left;
+        }
+
+        #mission ul li::marker{
+
+            color:#e67e22;
         }
 
         .list {
@@ -821,7 +855,7 @@
         }
 
         .card {
-            background: white;
+            /*background: white;
             padding: 25px;
             margin: 25px auto;
 
@@ -837,15 +871,30 @@
 
             border: 1px solid rgba(0,0,0,0.05);
 
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;*/
+            background:none;
+
+            box-shadow:none !important;
+
+            border:none;
+
+            padding:0;
+
+            margin:0;
+
+            transition:none;
         }
 
-        /* 🔥 About layout 修复 */
+        /* About layout */
         .who-layout {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+            display:block;
+
+            background:transparent;
+            box-shadow:none;
+            border:none;
+
+            padding:0;
+            margin-bottom:90px;
         }
 
         .who-img {
@@ -864,8 +913,15 @@
         }
 
         .who-text {
-            text-align: left;
-            padding-right: 10px;
+            /*text-align: left;
+            padding-right: 10px;*/
+            display:grid;
+
+            grid-template-columns:1fr 1fr;
+
+            gap:60px;
+
+            align-items:start;
         }
 
         /* CEO 卡片 */
@@ -901,10 +957,6 @@
         .card .btn {
             position: relative;
             z-index: 2;
-        }
-
-        .clickable-card:hover {
-            transform: translateY(-5px);
         }
 
         .card-link {
@@ -1424,14 +1476,14 @@
 
     <div class="dropdown mega-menu">
     <a href="about.html">
-        About <i class="fas fa-chevron-right nav-arrow"></i>
+        About <!--i class="fas fa-chevron-right nav-arrow"></i-->
     </a>
-    <div class="dropdown-content">
+    <!--div class="dropdown-content">
         <a href="about.html#who">Who We Are</a>
         <a href="about.html#vision">Vision</a>
         <a href="about.html#mission">Mission</a>
-        <!--a href="about.html#leadership">Leadership</a-->
-    </div>
+        <!-a href="about.html#leadership">Leadership</a->
+    </div-->
     </div>
 
     <a href="contact.html">Contact</a>
@@ -1445,34 +1497,37 @@
         <img src="images/catsb about us.png">
     </div-->
 
-    <div class="who-text">
-        <h2>Who We Are</h2>
+    <h2>Who We Are</h2>
 
+    <div class="who-text">
         <p>
-            Control Automation Technology Sdn Bhd specializes in delivering advanced technology solutions across semiconductor manufacturing and healthcare automation.
+            Control Automation Technology Sdn Bhd specializes in delivering advanced technology solutions across semiconductor manufacturing and healthcare automation. With over three decades of industry experience, we combine engineering expertise, strong partnerships, and regional support capabilities.
         </p>
 
         <p>
-            With over three decades of industry experience, we combine engineering expertise, strong partnerships, and regional support capabilities.
+            We support customers across Asia and the United States with high-performance solutions, engineering expertise, and long-term service partnerships. Our three business units — semiconductor solutions, healthcare automation, and industry training — form an integrated technology group serving global markets.
         </p>
     </div>
 </div>
 
 <!-- VISION -->
+<div class="about-grid">
 <div class="card" id="vision">
 
-    <h2><i class="fa-solid fa-eye"></i> Vision</h2>
+    <h2><!--i class="fa-solid fa-eye"></i--> Vision</h2>
 
+    <div class="vision-line">
     <p>
         To be a leading regional technology platform delivering advanced automation and digital solutions across industries.
     </p>
+    </div>
 
 </div>
 
 <!-- MISSION -->
 <div class="card" id="mission">
 
-    <h2><i class="fa-solid fa-bullseye"></i> Mission</h2>
+    <h2><!--i class="fa-solid fa-bullseye"></i--> Mission</h2>
 
     <ul>
         <li>Deliver high-performance and reliable solutions</li>
@@ -1480,6 +1535,7 @@
         <li>Expand into future-ready digital ecosystems</li>
     </ul>
 
+</div>
 </div>
 
 <!-- LEADERSHIP>
@@ -1748,22 +1804,6 @@ document.querySelectorAll(".dropdown-content a").forEach(function(link){
     });
 
 });
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    // 🔥 点击图片放大
-    document.querySelectorAll(".card img").forEach(function(img){
-    img.onclick = function(){
-        document.getElementById("lightbox").style.display = "flex";
-        document.getElementById("lightbox-img").src = this.src;
-    }
-});
-});
-
-// 🔥 关闭
-function closeLightbox(){
-    document.getElementById("lightbox").style.display = "none";
-}
 
 window.addEventListener("load", function(){
     document.querySelectorAll("h2").forEach(function(title){

@@ -554,7 +554,7 @@
             position: relative;
             white-space: nowrap;
         }
-
+         
         /* 📱 MOBILE：轻微 hover（舒服版） */
         @media (max-width: 768px) {
 
@@ -567,6 +567,22 @@
             transform: none !important;
             padding-left: 25px !important;
         }
+        }
+
+        section {
+            padding: 50px 20px;
+            transition: background 0.3s ease;
+        }
+
+        h2 {
+            text-align: center;
+            scroll-margin-top: 80px;
+
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
 
         /* 💻 只给电脑用 */
@@ -595,7 +611,7 @@
             font-weight:700;
         }
 
-        /* 初始状态（隐藏）
+        /* 初始状态（隐藏） 
         h2::before,
         h2::after {
             content: "";
@@ -635,7 +651,7 @@
 
         section[id] {
             scroll-margin-top: 140px;
-        } 
+        }
 
         .btn {
             display: inline-block;
@@ -778,7 +794,6 @@
         /* 💻 only desktop hover */
         @media (min-width: 769px) {
             nav a:hover{
-
                 color: #f5b041;
                 background: transparent;
             }
@@ -827,9 +842,13 @@
         }
 
         .container {
-            max-width: 1350px;
-            margin: 60px auto;
-            padding: 60px 40px;
+            width:96%;
+
+            max-width:1800px;
+
+            margin:0 auto;
+
+            padding:40px 20px;
         }
 
         /* 🔥 Section 分层 */
@@ -1176,30 +1195,6 @@
 
         }
 
-        /* 🔥 图片放大背景 */
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 99999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-
-        .card img {
-            cursor: pointer;
-        }
-
         /* ===== 主区（CAT） ===== */
         .primary-section {
             background: white;
@@ -1378,63 +1373,72 @@
 }
 
 .machine-interface{
-    display:flex;
-    flex-direction:column;
 
-    align-items:stretch;
-
-    gap:30px;
-
-    margin-bottom:50px;
-
-    /* 方案一
     display:flex;
 
     gap:50px;
 
-    align-items:center;
+    align-items:flex-start;
 
-    margin-bottom:50px;*/
+    margin-bottom:50px;
 }
 
 .machine-image{
-    width:100%;
-    max-width:980px;
+    /*width:420px;
+
+    height:360px;
+
+    overflow:hidden;
+
+    border-radius:16px;
 
     flex-shrink:0;
 
-    /* 方案一
-    width:280px;
-    flex-shrink:0;*/
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;*/
+
+    width:100%;
+
+    height:360px;
+
+    overflow:hidden;
+
+    border-radius:16px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 }
 
 .machine-image img{
-    width:100%;
-    max-width:980px;
 
-    height:500px;
+    /*width:300%;      / 放大 
 
-    object-fit:contain;
-    object-position:center;
-
-    border-radius:16px;
+    height:auto;
 
     display:block;
 
-    /* 方案一
+    margin-left:-20%;   / 左右各裁一點 */
+
     width:100%;
 
-    border-radius:16px;
+    height:100%;
 
-    display:block;*/
+    object-fit:contain;
+
+    display:block;
 }
 
 .machine-info{
-    width:100%;
-    max-width:980px;
 
-    /* 方案一
-    flex:1;*/
+    flex:1;
 }
 
 .machine-info p{
@@ -1509,10 +1513,6 @@
     border-radius:16px;
 
     box-shadow:0 5px 20px rgba(0,0,0,0.08);
-
-    position:sticky;
-
-    top:120px;
 }
 
 .machine-breadcrumb{
@@ -1609,6 +1609,74 @@
     font-weight:600;
 
     cursor:pointer;
+}
+
+.machine-gallery{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:15px;
+
+    /*margin:10px 0;*/
+}
+
+.machine-gallery img{
+
+    /*width:80%;
+
+    height:120px;
+
+    object-fit:cover;*/
+
+    width:100%;
+
+    height:90px;
+
+    object-fit:contain;
+
+    cursor:pointer;
+
+    border-radius:12px;
+
+    border:1px solid #d8dde6;
+
+    background:white;
+
+    transition:.3s;
+
+    opacity:.75;
+}
+
+.machine-gallery img:hover{
+
+    transform:scale(1.05);
+
+    border:2px solid #f39c12;
+}
+
+.machine-gallery img.active{
+
+    border:3px solid #f39c12;
+
+    opacity:1;
+
+    transform:scale(1.05);
+}
+
+.machine-image-column{
+
+    width:420px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
 }
     </style>
 </head>
@@ -1760,14 +1828,14 @@
 
     <div class="dropdown mega-menu">
     <a href="about.html">
-        About <i class="fas fa-chevron-right nav-arrow"></i>
+        About <!--i class="fas fa-chevron-right nav-arrow"></i-->
     </a>
-    <div class="dropdown-content">
+    <!--div class="dropdown-content">
         <a href="about.html#who">Who We Are</a>
         <a href="about.html#vision">Vision</a>
         <a href="about.html#mission">Mission</a>
-        <!--a href="about.html#leadership">Leadership</a-->
-    </div>
+        <!-a href="about.html#leadership">Leadership</a->
+    </div-->
     </div>
 
     <a href="contact.html">Contact</a>
@@ -1782,16 +1850,47 @@
 
         <!-- machine info -->
          <h1 class="machine-title">
-            Wafer to Wafer Die Sorter
-        </h1>
+    Wafer to Wafer Die Sorter
+</h1>
 
         <div class="machine-interface">
+        
+        <div class="machine-image-column">
 
         <div class="machine-image">
 
-        <img src="images/wafer die sorter.png"
-             alt="EDS15 wafer die sorter">
+        <img
+        id="mainImage"
+        src="images/Wafer to Wafer Die Sorter.png"
+        alt="EDS15 Wafer to Wafer Die Sorter"
+        >
 
+    </div>
+
+    <div class="machine-gallery">
+
+    <img
+        src="images/Wafer to Wafer Die Sorter.png"
+        class="active"
+        onclick="changeImage(this)"
+    >
+
+    <img
+        src="images/photo2.png"
+        onclick="changeImage(this)"
+    >
+
+    <img
+        src="images/photo3.png"
+        onclick="changeImage(this)"
+    >
+
+    <img
+        src="images/photo4.png"
+        onclick="changeImage(this)"
+    >
+
+    </div>
     </div>
 
     <div class="machine-info">
@@ -1813,9 +1912,7 @@
             </li>
 
             <li>
-                Better placement stability when unit at center of bond head.
-                Bond head purging and pocket vacuum hole are in line, 
-                less chance for unit tilted.
+                Better placement stability when unit at center of bond head. Bond head purging and pocket vacuum hole are in line, less chance for unit tilted.
             </li>
 
         </ul>
@@ -1823,6 +1920,31 @@
     </div>
 
 </div>
+
+<!--div class="machine-gallery">
+
+    <img
+        src="images/X-Ray Component Counter.png"
+        class="active"
+        onclick="changeImage(this)"
+    >
+
+    <img
+        src="images/photo2.png"
+        onclick="changeImage(this)"
+    >
+
+    <img
+        src="images/photo3.png"
+        onclick="changeImage(this)"
+    >
+
+    <img
+        src="images/photo4.png"
+        onclick="changeImage(this)"
+    >
+
+</div-->
 
         <!-- breadcrumb -->
         <div class="machine-breadcrumb">
@@ -1837,7 +1959,7 @@
     <span>></span>
 
     <span class="current">
-        Wafer to Wafer Die Sorter
+        Wafer to Wafer Die Sorter  
     </span>
 
     </div>
@@ -1865,9 +1987,9 @@ Submit Inquiry
 </div>
 
 </section>
+</div>
 
 <footer class="footer">
-
 
 <div class="footer-grid">
 
@@ -2141,23 +2263,23 @@ window.addEventListener("hashchange",function(){
 
 });
 
-/*document.addEventListener("DOMContentLoaded", function(){
+function changeImage(image){
 
-    // 🔥 点击图片放大
-    document.querySelectorAll(".card img").forEach(function(img){
-    img.onclick = function(){
-        document.getElementById("lightbox").style.display = "flex";
-        document.getElementById("lightbox-img").src = this.src;
-    }
-});
-});
+    document.getElementById("mainImage").src = image.src;
 
-// 🔥 关闭
-function closeLightbox(){
-    document.getElementById("lightbox").style.display = "none";
+    document
+        .querySelectorAll(".machine-gallery img")
+        .forEach(function(img){
+
+            img.classList.remove("active");
+
+        });
+
+    image.classList.add("active");
+
 }
 
-window.addEventListener("load", function(){
+/*window.addEventListener("load", function(){
     document.querySelectorAll("h2").forEach(function(title){
         title.classList.add("show-line");
     });

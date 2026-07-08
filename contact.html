@@ -1469,14 +1469,14 @@
 
     <div class="dropdown mega-menu">
     <a href="about.html">
-        About <i class="fas fa-chevron-right nav-arrow"></i>
+        About <!--i class="fas fa-chevron-right nav-arrow"></i-->
     </a>
-    <div class="dropdown-content">
+    <!--div class="dropdown-content">
         <a href="about.html#who">Who We Are</a>
         <a href="about.html#vision">Vision</a>
         <a href="about.html#mission">Mission</a>
-        <!--a href="about.html#leadership">Leadership</a-->
-    </div>
+        <!-a href="about.html#leadership">Leadership</a->
+    </div-->
     </div>
 
     <a href="contact.html">Contact</a>
@@ -1755,22 +1755,6 @@ document.querySelectorAll(".dropdown-content a").forEach(function(link){
     });
 
 });
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    // 🔥 点击图片放大
-    document.querySelectorAll(".card img").forEach(function(img){
-    img.onclick = function(){
-        document.getElementById("lightbox").style.display = "flex";
-        document.getElementById("lightbox-img").src = this.src;
-    }
-});
-});
-
-// 🔥 关闭
-function closeLightbox(){
-    document.getElementById("lightbox").style.display = "none";
-}
 
 window.addEventListener("load", function(){
     document.querySelectorAll("h2").forEach(function(title){
