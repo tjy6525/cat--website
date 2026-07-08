@@ -152,7 +152,7 @@
         }
 
         .mega-menu{
-            position:relative;
+            position:static;
         }
 
         /* dropdown menu */
@@ -281,7 +281,17 @@
 
 .mega-column{
 
-    width:220px;
+    width:280px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.mega-semiconductor{
+    width:570px;
 
     display:flex;
 
@@ -336,7 +346,9 @@
 
     align-items:center;
 
-    justify-content:center;
+    justify-content:flex-start;
+
+    padding-left:20px;
 
     width:100%;
 
@@ -368,7 +380,7 @@
 
 .mega-submenu{
 
-    display:flex;
+    /*display:flex;
 
     flex-direction:column;
 
@@ -380,7 +392,19 @@
 
     max-height:0;
 
-    overflow:hidden;
+    overflow:hidden;*/
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    max-height:0;
 }
 
 .mega-column:hover .mega-submenu{
@@ -389,7 +413,7 @@
 
     visibility:visible;
 
-    max-height:500px;
+    max-height:600px;
 }
 
 @keyframes slideDown{
@@ -562,15 +586,23 @@
         }
 
         .solution-grid h2{
-            justify-content:flex-start;
-            text-align:left;
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            gap:12px;
+
+            text-align:center;
+
         }
 
         .solution-grid li{
             color:#2c3e50;
         }
 
-        /* 初始状态（隐藏） 
+        /* 初始状态（隐藏）
         h2::before,
         h2::after {
             content: "";
@@ -610,44 +642,6 @@
 
         section[id] {
             scroll-margin-top: 140px;
-        }
-        
-        /*背景图 */
-        .hero {
-            background: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085") center/cover no-repeat;
-            background-color: transparent;
-            
-            color: white;
-            text-align: center;
-            position: relative;
-            padding: 70px 20px;
-            min-height: 60vh;
-            z-index: 1;
-        }
-
-        /* 黑色遮罩 */
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.3);
-            z-index: 0;
-        }
-        
-        /*文字*/
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .hero-content h2 {
-            font-size: 38px;
-            font-weight: 600;
         }
 
         .btn {
@@ -1752,6 +1746,32 @@
 .footer-grid p{
     text-align:left;
 }
+
+.visit-link{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    transition:0.2s ease;
+
+}
+
+.visit-link:hover{
+    text-decoration:underline;
+}
+
+.healthcare-card .visit-link{
+    color:#008f5a;
+}
+
+.training-card .visit-link{
+    color:#c45a00;
+}
     </style>
 </head>
 
@@ -1807,7 +1827,7 @@
     
     <div class="dropdown-content">
 
-    <div class="mega-column">
+    <div class="mega-column mega-semiconductor">
 
         <h4>
             Semiconductor
@@ -1816,17 +1836,17 @@
 
         <div class="mega-submenu">
 
-        <a href="solutions.html#Wafer Inspection Systems">Wafer Inspection Systems</a>
-        <a href="solutions.html#Laser Marking Systems">Laser Marking Systems</a>
-        <a href="solutions.html#Component Inspection Systems">Component Inspection Systems</a>
-        <a href="solutions.html#Tester & Test handler">Tester & Test handler</a>
-        <a href="solutions.html#Test Accessories">Test Accessories</a>
-        <a href="solutions.html#Device Programming Solutions">Device Programming Solutions</a>
-        <a href="solutions.html#Post-Seal Inspection and Counter Systems">Post-Seal Inspection and Counter Systems</a>
-        <a href="solutions.html#Packing/Tape & Reel Systems">Packing/Tape & Reel Systems</a>
-        <a href="solutions.html#X-Ray Inspection Systems">X-Ray Inspection Systems</a>
-        <a href="solutions.html#Special Process Equipment">Special Process Equipment</a>
-        <a href="solutions.html#Legacy Product Support">Legacy Product Support</a>
+        <a href="solutions.html#wafer-inspection-systems">Wafer Inspection Systems</a>
+        <a href="solutions.html#laser-marking-systems">Laser Marking Systems</a>
+        <a href="solutions.html#component-inspection-systems">Component Inspection Systems</a>
+        <a href="solutions.html#tester-test-handler">Tester & Test handler</a>
+        <a href="solutions.html#test-accessories">Test Accessories</a>
+        <a href="solutions.html#device-programming-solutions">Device Programming Solutions</a>
+        <a href="solutions.html#post-seal-inspection-and-counter-systems">Post-Seal Inspection and Counter Systems</a>
+        <a href="solutions.html#packing-Tape-reel-systems">Packing/Tape & Reel Systems</a>
+        <a href="solutions.html#x-ray-inspection-systems">X-Ray Inspection Systems</a>
+        <a href="solutions.html#special-process-equipment">Special Process Equipment</a>
+        <a href="solutions.html#legacy-product-support">Legacy Product Support</a>
 
         </div>
 
@@ -1955,8 +1975,10 @@
         <li>Home Care Enablement</li>
     </ul>
 
-    <a href="http://hatsb.com/" class="btn" target="_blank">
-        Visit HATSB
+    <a href="http://hatsb.com/"
+        class="visit-link"
+        target="_blank">
+        Visit HATSB ↗
     </a>
 </div>
 
@@ -1981,15 +2003,18 @@
         <li>Industry Collaboration</li>
     </ul>
 
-    <a href="https://semi.academy/#blog" class="btn" target="_blank">
-        Visit ASEMI
+    <a href="https://semi.academy/#blog"
+        class="visit-link"
+        target="_blank">
+        Visit ASEMI ↗
     </a>
 </div>
 </div>
 </section>
 
-
+<section class="container">
     <h3>Semiconductor Manufacturing Solutions</h3>
+</section>
 
 <section class="container">
 <div class="products-layout">
@@ -2002,57 +2027,57 @@
     <ul class="sidebar-menu">
 
 <li class="product-group active"
-    data-target="Wafer Inspection Systems">
+    data-target="wafer-inspection-systems">
     Wafer Inspection Systems
 </li>
 
 <li class="product-group"
-    data-target="Laser Marking Systems">
+    data-target="laser-marking-systems">
     Laser Marking Systems
 </li>
 
 <li class="product-group"
-    data-target="Component Inspection Systems">
+    data-target="component-inspection-systems">
     Component Inspection Systems
 </li>
 
 <li class="product-group"
-    data-target="Tester & Test handler">
+    data-target="tester-test-handler">
     Tester & Test handler
 </li>
 
 <li class="product-group"
-    data-target="Test Accessories">
+    data-target="test-accessories">
     Test Accessories
 </li>
 
 <li class="product-group"
-    data-target="Device Programming Solutions">
+    data-target="device-programming-solutions">
     Device Programming Solutions
 </li>
 
 <li class="product-group"
-    data-target="Post-Seal Inspection and Counter Systems">
+    data-target="post-seal-inspection-and-counter-systems">
     Post-Seal Inspection and Counter Systems
 </li>
 
 <li class="product-group"
-    data-target="Packing/Tape & Reel Systems">
+    data-target="packing-Tape-reel-systems">
     Packing/Tape & Reel Systems
 </li>
 
 <li class="product-group"
-    data-target="X-Ray Inspection Systems">
+    data-target="x-ray-inspection-systems">
     X-Ray Inspection Systems
 </li>
 
 <li class="product-group"
-    data-target="Special Process Equipment">
+    data-target="special-process-equipment">
     Special Process Equipment
 </li>
 
 <li class="product-group"
-    data-target="Legacy Product Support">
+    data-target="legacy-product-support">
     Legacy Product Support
 </li>
 
@@ -2078,7 +2103,7 @@
 
     <div class="machine-display">
 
-    <div id="Wafer Inspection Systems" class="machine-group active">
+    <div id="wafer-inspection-systems" class="machine-group active">
 
         <a href="wafer-to-wafer-die-sorter.html" class="card-link">
 
@@ -2141,7 +2166,7 @@
         </a>
     </div>
 
-    <div id="Laser Marking Systems" class="machine-group">
+    <div id="laser-marking-systems" class="machine-group">
 
         <a href="laser-marker-handler.html" class="card-link">
 
@@ -2180,7 +2205,7 @@
         </a>
     </div>
 
-    <div id="Component Inspection Systems" class="machine-group">
+    <div id="component-inspection-systems" class="machine-group">
 
         <a href="bowl-to-tape-for-iota-detector-emitter.html" class="card-link">
 
@@ -2219,7 +2244,7 @@
         </a>
     </div>
 
-    <div id="Tester & Test handler" class="machine-group">
+    <div id="tester-test-handler" class="machine-group">
 
         <a href="curvemaster-x-max.html" class="card-link">
 
@@ -2294,13 +2319,13 @@
         </a>
     </div>
 
-    <div id="Test Accessories" class="machine-group">
+    <div id="test-accessories" class="machine-group">
 
         <a href="test-socket.html" class="card-link">
 
             <div class="card machine-card">
 
-            <img src="images/Test Socket.png">
+            <img src="images/soket.png">
 
             <h3>Test Socket</h3>
 
@@ -2321,7 +2346,7 @@
         </a>
     </div>
 
-    <div id="Device Programming Solutions" class="machine-group">
+    <div id="device-programming-solutions" class="machine-group">
 
         <a href="automated-programming-system.html" class="card-link">
 
@@ -2336,7 +2361,7 @@
         </a>
     </div>
 
-    <div id="Post-Seal Inspection and Counter Systems" class="machine-group">
+    <div id="post-seal-inspection-and-counter-systems" class="machine-group">
 
         <a href="dual-reel-post-seal-inspection.html" class="card-link">
 
@@ -2376,7 +2401,7 @@
 
     </div>
 
-    <div id="Packing/Tape & Reel Systems" class="machine-group">
+    <div id="packing-Tape-reel-systems" class="machine-group">
 
         <a href="semi-tape-and-reel-machine.html" class="card-link">
 
@@ -2415,7 +2440,7 @@
         </a>
     </div>
 
-    <div id="X-Ray Inspection Systems" class="machine-group">
+    <div id="x-ray-inspection-systems" class="machine-group">
 
         <a href="x-ray-inspection-systems.html" class="card-link">
 
@@ -2442,7 +2467,7 @@
         </a>
     </div>
 
-    <div id="Special Process Equipment" class="machine-group">
+    <div id="special-process-equipment" class="machine-group">
 
         <a href="jedec-tray-cleaning-system.html" class="card-link">
 
@@ -2469,7 +2494,7 @@
         </a>
     </div>
 
-    <div id="Legacy Product Support" class="machine-group">
+    <div id="legacy-product-support" class="machine-group">
 
         <a href="" class="card-link">
 

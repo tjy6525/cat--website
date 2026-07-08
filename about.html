@@ -133,7 +133,7 @@
             vertical-align: middle;
         }
 
-        /* dropdown container */
+         /* dropdown container */
         .dropdown {
             /*position: relative;
             display: flex;
@@ -152,7 +152,7 @@
         }
 
         .mega-menu{
-            position:relative;
+            position:static;
         }
 
         /* dropdown menu */
@@ -281,7 +281,17 @@
 
 .mega-column{
 
-    width:220px;
+    width:280px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.mega-semiconductor{
+    width:570px;
 
     display:flex;
 
@@ -336,7 +346,9 @@
 
     align-items:center;
 
-    justify-content:center;
+    justify-content:flex-start;
+
+    padding-left:20px;
 
     width:100%;
 
@@ -368,7 +380,7 @@
 
 .mega-submenu{
 
-    display:flex;
+    /*display:flex;
 
     flex-direction:column;
 
@@ -380,7 +392,19 @@
 
     max-height:0;
 
-    overflow:hidden;
+    overflow:hidden;*/
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    max-height:0;
 }
 
 .mega-column:hover .mega-submenu{
@@ -389,7 +413,7 @@
 
     visibility:visible;
 
-    max-height:500px;
+    max-height:600px;
 }
 
 @keyframes slideDown{
@@ -1305,7 +1329,7 @@
     
     <div class="dropdown-content">
 
-    <div class="mega-column">
+    <div class="mega-column mega-semiconductor">
 
         <h4>
             Semiconductor
@@ -1314,11 +1338,17 @@
 
         <div class="mega-submenu">
 
-        <a href="wafer-inspection-system.html">Wafer Inspection Systems</a>
-
-        <a href="laser-marking.html">Laser Marking Systems</a>
-
-        <a href="component-inspection-system.html">Component Inspection Systems</a>
+        <a href="solutions.html#wafer-inspection-systems">Wafer Inspection Systems</a>
+        <a href="solutions.html#laser-marking-systems">Laser Marking Systems</a>
+        <a href="solutions.html#component-inspection-systems">Component Inspection Systems</a>
+        <a href="solutions.html#tester-test-handler">Tester & Test handler</a>
+        <a href="solutions.html#test-accessories">Test Accessories</a>
+        <a href="solutions.html#device-programming-solutions">Device Programming Solutions</a>
+        <a href="solutions.html#post-seal-inspection-and-counter-systems">Post-Seal Inspection and Counter Systems</a>
+        <a href="solutions.html#packing-Tape-reel-systems">Packing/Tape & Reel Systems</a>
+        <a href="solutions.html#x-ray-inspection-systems">X-Ray Inspection Systems</a>
+        <a href="solutions.html#special-process-equipment">Special Process Equipment</a>
+        <a href="solutions.html#legacy-product-support">Legacy Product Support</a>
 
         </div>
 
