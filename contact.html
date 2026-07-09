@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <title>Contact - Control Automation Technology</title>
 
@@ -1252,9 +1253,9 @@
 
     max-width:1600px;
 
-    margin:60px auto 90px;
+    margin:0 auto 90px;
 
-    padding:0 60px;
+    padding:60px 60px;
 
     display:grid;
 
@@ -1286,9 +1287,9 @@
 
     gap:28px;
 
-    position:sticky;
+    flex-shrink:0;
 
-    top:90px;
+    align-self:flex-start;
 }
 
 .contact-card{
@@ -1457,28 +1458,6 @@ textarea{
     margin-bottom:28px;
 }
 
-.info-icon{
-
-    width:52px;
-    height:52px;
-
-    border-radius:12px;
-
-    background:#fff4ec;
-
-    border:1px solid #ffe2cf;
-
-    color:#f47c20;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    flex-shrink:0;
-
-    font-size:20px;
-}
-
 .info-label{
 
     font-size:13px;
@@ -1517,6 +1496,35 @@ textarea{
     color:#f47b20;
 
     margin-left:4px;
+}
+
+.card-icon{
+
+    width:52px;
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#fff4ec;
+
+    border-radius:14px;
+}
+
+.card-icon i{
+
+    color:#eb7d2f;
+
+    font-size:22px;
+}
+
+.card-icon svg{
+    width:22px;
+    height:22px;
+    stroke:#f47c20;
+    stroke-width:2;
 }
 
         .footer{
@@ -1958,9 +1966,9 @@ Submit Engineering Inquiry
 
         <div class="info-item">
 
-        <div class="info-icon">
+        <div class="card-icon">
 
-        <i class="fas fa-location-dot"></i>
+        <i data-lucide="map-pin"></i>
 
         </div>
 
@@ -1990,9 +1998,9 @@ Submit Engineering Inquiry
 
         <div class="info-item">
 
-        <div class="info-icon">
+        <div class="card-icon">
 
-        <i class="fas fa-phone"></i>
+        <i data-lucide="phone"></i>
 
         </div>
 
@@ -2016,9 +2024,9 @@ Submit Engineering Inquiry
 
         <div class="info-item">
 
-        <div class="info-icon">
+        <div class="card-icon">
 
-        <i class="fas fa-envelope"></i>
+        <i data-lucide="mail"></i>
 
         </div>
 
@@ -2042,9 +2050,9 @@ Submit Engineering Inquiry
 
         <div class="info-item">
 
-        <div class="info-icon">
+        <div class="card-icon">
 
-        <i class="fas fa-globe"></i>
+        <i data-lucide="globe"></i>
 
         </div>
 
@@ -2068,9 +2076,9 @@ Submit Engineering Inquiry
 
         <div class="info-item">
 
-        <div class="info-icon">
+        <div class="card-icon">
 
-        <i class="far fa-clock"></i>
+        <i data-lucide="clock-3"></i>
 
         </div>
 
@@ -2402,6 +2410,7 @@ window.addEventListener("load", updateMegaMenuPosition);
 window.addEventListener("scroll", updateMegaMenuPosition);
 
 window.addEventListener("resize", updateMegaMenuPosition);*/
+lucide.createIcons();
 </script>
 
 </body>

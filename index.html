@@ -1921,41 +1921,7 @@ text-align:center;
         drop-shadow(0 0 10px #f5b041)
         drop-shadow(0 0 18px #f5b041);
 }
-
-.map-label{
-
-    position:absolute;
-
-    background:white;
-
-    color:#334155;
-
-    padding:6px 12px;
-
-    border-radius:8px;
-
-    font-size:13px;
-
-    font-weight:600;
-
-    white-space:nowrap;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transform:translate(18px,-50%);
-
-    transition:.25s;
-
-    box-shadow:0 8px 18px rgba(0,0,0,.18);
-}
-
-.map-label.show{
-
-    opacity:1;
-}
-    </style>
+</style>
 </head>
 
 <body>
@@ -2847,28 +2813,6 @@ window.addEventListener("scroll", updateMegaMenuPosition);
 
 window.addEventListener("resize", updateMegaMenuPosition);*/
 
-const label = document.createElement("div");
-
-label.className = "map-label";
-
-document.querySelector(".global-map").appendChild(label);
-
-
-const tooltipPosition = {
-
-    malaysia:{left:"74%",top:"55%"},
-    singapore:{left:"75%",top:"57%"},
-    thailand:{left:"72%",top:"50%"},
-    vietnam:{left:"77%",top:"48%"},
-    india:{left:"65%",top:"45%"},
-    indonesia:{left:"76%",top:"60%"},
-    philippines:{left:"81%",top:"50%"},
-    usa:{left:"23%",top:"38%"},
-    mexico:{left:"22%",top:"46%"},
-    canada:{left:"20%",top:"25%"}
-
-};
-
 
 const countries = [
 "malaysia",
@@ -2900,19 +2844,6 @@ countries.forEach(function(country){
         //方案3
         pin.style.filter = "brightness(2)";
 
-        //新增
-        label.textContent =
-            country.charAt(0).toUpperCase() +
-            country.slice(1);
-
-        label.style.left =
-            tooltipPosition[country].left;
-
-        label.style.top =
-            tooltipPosition[country].top;
-
-        label.classList.add("show");
-
     });
 
     btn.addEventListener("mouseleave", function(){
@@ -2922,41 +2853,7 @@ countries.forEach(function(country){
         //方案3
         pin.style.filter = "brightness(1)";
 
-        //新增
-        label.classList.remove("show");
-
     });
-
-    /*btn.addEventListener("mouseenter", function(){
-
-    pin.style.opacity="1";
-
-    pin.style.filter="brightness(2)";
-
-    tooltip.innerHTML =
-        country.charAt(0).toUpperCase() +
-        country.slice(1);
-
-    tooltip.style.left =
-        tooltipPosition[country].left;
-
-    tooltip.style.top =
-        tooltipPosition[country].top;
-
-    tooltip.classList.add("show");
-
-    });
-
-    btn.addEventListener("mouseleave", function(){
-
-    pin.style.opacity="0";
-
-    pin.style.filter="brightness(1)";
-
-    tooltip.classList.remove("show");
-
-});*/
-
 });
 </script>
 </body>
