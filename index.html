@@ -748,10 +748,10 @@ gap:30px;
 
         .card img {
             width: 100%;
-            height: 260px;
+            height: 220px;
             object-fit: cover;
             border-radius: 14px;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
             transition:
                 transform 0.5s ease;
                 filter:
@@ -890,25 +890,26 @@ gap:30px;
         .card {
             background: white;
 
-    padding: 30px;
+            padding: 22px;
 
-    border-radius: 18px;
+            border-radius: 18px;
 
-    box-shadow:
-    0 10px 25px rgba(0,0,0,0.06);
+            box-shadow:
+            0 10px 25px rgba(0,0,0,0.06);
 
-    overflow: hidden;
+            overflow: hidden;
 
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items:flex-start;
+            gap: 7px;
 
-    border: 1px solid rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.04);
 
-    transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-    height:100%;
+            transition:
+            transform .35s ease,
+            box-shadow .35s ease;
+            height:auto;
         }
 
         .clickable-card {
@@ -938,6 +939,18 @@ gap:30px;
             padding: 0 20px;
         }
 
+        .card h3{
+
+    margin:8px 0;
+}
+
+.card p{
+
+    margin:4px 0 10px;
+
+    line-height:1.5;
+}
+
         .card-title {
             font-size: 20px;
             font-weight: 600;
@@ -965,6 +978,20 @@ gap:30px;
             text-align: left;
             margin-bottom: 20px;
         }
+
+        .card-section .card{
+
+    align-items:center;
+
+    text-align:center;
+}
+
+.card-section .card h3,
+.card-section .card p,
+.card-section .card .card-link-btn{
+
+    text-align:center;
+}
 
         .grid {
             display: grid;
@@ -1026,10 +1053,6 @@ gap:30px;
         .card-section {
             flex-direction: column;
             align-items: center;
-        }
-
-        .card {
-            width: 90%;
         }
 
         section {
@@ -1514,7 +1537,7 @@ gap:30px;
 }
 
 .section-label{
-    display:flex;
+    /*display:flex;
     align-items:center;
     gap:12px;
 
@@ -1525,13 +1548,39 @@ gap:30px;
 
     letter-spacing:2px;
 
-    margin-bottom:20px;
+    margin-bottom:20px;*/
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    width:100%;
+
+    margin:0 auto 25px;
+
+    text-align:center;
+
+    color:#f39c12;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
 }
 
-.section-label::before{
+.section-label::before,
+.section-label::after{
+
     content:"";
 
-    width:40px;
+    width:60px;
+
     height:2px;
 
     background:#f39c12;
@@ -1734,12 +1783,6 @@ text-align:center;
     align-items:flex-start;
 }
 
-.card h3,
-.card p{
-    text-align:left;
-    padding:0;
-}
-
 .hero-brand{
 
     display:flex;
@@ -1877,6 +1920,40 @@ text-align:center;
         drop-shadow(0 0 4px #f5b041)
         drop-shadow(0 0 10px #f5b041)
         drop-shadow(0 0 18px #f5b041);
+}
+
+.map-label{
+
+    position:absolute;
+
+    background:white;
+
+    color:#334155;
+
+    padding:6px 12px;
+
+    border-radius:8px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transform:translate(18px,-50%);
+
+    transition:.25s;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+}
+
+.map-label.show{
+
+    opacity:1;
 }
     </style>
 </head>
@@ -2146,7 +2223,7 @@ Contact Us
 </section>
 
 <!-- BUSINESS PILLARS（已修正🔥） -->
- <section class="container section-light">
+<section class="container section-light">
 
 <div class="section-label">
 OUR BUSINESS UNITS
@@ -2309,6 +2386,7 @@ Supporting customers across Asia and North America.
     <img src="images/dot-mexico-empty.png" class="map-highlight mexico">
 
     <img src="images/dot-canada-empty.png" class="map-highlight canada">
+
 
 </div>
 
@@ -2769,6 +2847,29 @@ window.addEventListener("scroll", updateMegaMenuPosition);
 
 window.addEventListener("resize", updateMegaMenuPosition);*/
 
+const label = document.createElement("div");
+
+label.className = "map-label";
+
+document.querySelector(".global-map").appendChild(label);
+
+
+const tooltipPosition = {
+
+    malaysia:{left:"74%",top:"55%"},
+    singapore:{left:"75%",top:"57%"},
+    thailand:{left:"72%",top:"50%"},
+    vietnam:{left:"77%",top:"48%"},
+    india:{left:"65%",top:"45%"},
+    indonesia:{left:"76%",top:"60%"},
+    philippines:{left:"81%",top:"50%"},
+    usa:{left:"23%",top:"38%"},
+    mexico:{left:"22%",top:"46%"},
+    canada:{left:"20%",top:"25%"}
+
+};
+
+
 const countries = [
 "malaysia",
 "singapore",
@@ -2799,6 +2900,19 @@ countries.forEach(function(country){
         //方案3
         pin.style.filter = "brightness(2)";
 
+        //新增
+        label.textContent =
+            country.charAt(0).toUpperCase() +
+            country.slice(1);
+
+        label.style.left =
+            tooltipPosition[country].left;
+
+        label.style.top =
+            tooltipPosition[country].top;
+
+        label.classList.add("show");
+
     });
 
     btn.addEventListener("mouseleave", function(){
@@ -2808,7 +2922,40 @@ countries.forEach(function(country){
         //方案3
         pin.style.filter = "brightness(1)";
 
+        //新增
+        label.classList.remove("show");
+
     });
+
+    /*btn.addEventListener("mouseenter", function(){
+
+    pin.style.opacity="1";
+
+    pin.style.filter="brightness(2)";
+
+    tooltip.innerHTML =
+        country.charAt(0).toUpperCase() +
+        country.slice(1);
+
+    tooltip.style.left =
+        tooltipPosition[country].left;
+
+    tooltip.style.top =
+        tooltipPosition[country].top;
+
+    tooltip.classList.add("show");
+
+    });
+
+    btn.addEventListener("mouseleave", function(){
+
+    pin.style.opacity="0";
+
+    pin.style.filter="brightness(1)";
+
+    tooltip.classList.remove("show");
+
+});*/
 
 });
 </script>
