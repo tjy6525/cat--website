@@ -785,7 +785,7 @@
 
             box-sizing:border-box;
 
-            padding:60px;
+            padding:90px 80px;
 
             text-align:center;
 
@@ -824,11 +824,16 @@
             z-index:0;
         }
 
+        .positioning h2{
+
+            color:white;
+        }
+
         .positioning h3{
 
-            font-size:30px;
+            font-size:34px;
 
-            color:#081f4d;
+            color:white;
 
             font-weight:700;
 
@@ -840,11 +845,11 @@
 
             margin:0 auto;
 
-            font-size:18px;
+            font-size:20px;
 
             line-height:1.9;
 
-            color:#5b6676;
+            color:rgba(255,255,255,.88);
         }
 
         .positioning-tags{
@@ -860,21 +865,38 @@
             flex-wrap:wrap;
         }
 
+        .positioning h2,
+        .positioning h3,
+        .positioning p,
+        .positioning-tags{
+
+            position:relative;
+
+            z-index:1;
+        }
+
         .positioning-tags span{
 
             padding:12px 26px;
 
             border-radius:999px;
 
-            background:#fff;
+            background:rgba(255,255,255,.12);
 
-            border:1px solid #f39c12;
+            border:1px solid rgba(243,156,18,.75);
 
-            color:#081f4d;
+            color:white;
+
+            backdrop-filter:blur(8px);
+
+            -webkit-backdrop-filter:blur(8px);
 
             font-weight:600;
 
-            box-shadow:0 6px 16px rgba(0,0,0,.05);
+            box-shadow:
+                0 0 0 1px rgba(243,156,18,.45),
+                0 0 12px rgba(243,156,18,.25),
+                0 6px 16px rgba(0,0,0,.08);
 
             transition:.3s;
         }
@@ -1759,7 +1781,6 @@
     </p>
 
     <div class="positioning-tags">
-
         <span>Precision</span>
 
         <span>Reliability</span>

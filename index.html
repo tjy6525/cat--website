@@ -215,7 +215,7 @@
 
             border-radius:0;
 
-            background:rgba(225,230,235,0.42);
+            background: var(--mega-bg);
 
             backdrop-filter:blur(20px);
             -webkit-backdrop-filter:blur(20px);
@@ -234,6 +234,7 @@
                 repeat(3,max-content);
 
             justify-content:center;
+            align-items:flex-start;
         }
 
 /* Products / Projects / About */
@@ -289,6 +290,10 @@
     flex-direction:column;
 
     gap:15px;
+
+    justify-content:flex-start;
+
+    position:relative;
 }
 
 .mega-column h4{
@@ -375,9 +380,13 @@
     border-color:#f5b041;
 }
 
+:root{
+    --mega-bg: rgba(225,230,235,0.42);
+}
+
 .mega-submenu{
 
-    display:grid;
+    /*display:grid;
 
     grid-template-columns:1fr;
 
@@ -387,9 +396,29 @@
 
     visibility:hidden;
 
-    max-height:0;
+    height:0;
 
-    letter-spacing:0.2px;
+    overflow:hidden;
+
+    letter-spacing:0.2px;*/
+    position:absolute;
+
+    top:100%;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:300px;
+
+    background: var(--mega-bg);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    padding:15px;
+
+    opacity:0;
+    visibility:hidden;
 }
 
 .mega-column:hover .mega-submenu{
@@ -398,7 +427,9 @@
 
     visibility:visible;
 
-    max-height:600px;
+    /*height:auto;
+
+    overflow:visible;*/
 }
 
 @keyframes slideDown{
