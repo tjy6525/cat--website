@@ -231,44 +231,13 @@
             row-gap:8px;
 
             grid-template-columns:
-                repeat(3,max-content);
+                repeat(3,280px);
 
             justify-content:center;
             align-items:flex-start;
+
+            /*方案2*/
         }
-
-/* Products / Projects / About */
-
-.mega-menu > .dropdown-content > a{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    width:100%;
-
-    min-height:60px;
-
-    padding:16px 20px;
-
-    box-sizing:border-box;
-
-    border-radius:8px;
-
-    border:1px solid rgba(100,116,139,0.15);
-
-    background:transparent;
-
-    color:#475569;
-
-    border:1px solid rgba(100,116,139,0.15);
-
-    text-decoration:none;
-
-    transition:all .25s ease;
-}
 
 .mega-menu > .dropdown-content > a:hover{
 
@@ -384,41 +353,207 @@
     --mega-bg: rgba(225,230,235,0.42);
 }
 
+/*products dropdown*/
+.products-menu .dropdown-content{
+    position:absolute;
+
+            top:52px;
+            margin-top:0;
+            left:50%;
+            transform: translateX(-50%);
+
+            padding:40px 60px;
+
+            box-sizing:border-box;
+
+            border-radius:0;
+
+            background: var(--mega-bg);
+
+            backdrop-filter:blur(20px);
+            -webkit-backdrop-filter:blur(20px);
+            color:#1f2937;
+
+            box-shadow:none;
+
+            display:grid;
+
+            padding:14px 20px;
+
+            column-gap:40px;
+            row-gap:8px;
+
+            grid-template-columns:
+                repeat(3,280px);
+
+            justify-content:center;
+            align-items:flex-start;
+}
+
+.products-menu .dropdown-content>a{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    padding-left:20px;
+
+    font-size:12px;
+
+    font-weight:500;
+
+    width:100%;
+
+   /* height: 28px;*/
+
+    box-sizing:border-box;
+
+    border-radius:8px;
+
+    line-height:1.2;
+
+    border:1px solid rgba(100,116,139,0.15);
+
+    background:rgba(255,255,255,0.05);
+
+    color:#475569;
+
+    text-decoration:none;
+
+    transition:all .25s ease;
+
+    height:60px;
+
+     white-space:normal;
+
+    overflow-wrap:break-word;
+}
+
+.products-menu .dropdown-content>a:hover{
+
+    background:transparent;
+
+    color:#f5b041;
+
+    border-color:#f5b041;
+}
+
+/*projects dropdown*/
+.projects-menu .dropdown-content{
+
+    position:absolute;
+
+            top:52px;
+            margin-top:0;
+            left:50%;
+            transform: translateX(-50%);
+
+            padding:40px 60px;
+
+            box-sizing:border-box;
+
+            border-radius:0;
+
+            background: var(--mega-bg);
+
+            backdrop-filter:blur(20px);
+            -webkit-backdrop-filter:blur(20px);
+            color:#1f2937;
+
+            box-shadow:none;
+
+            display:grid;
+
+            padding:14px 20px;
+
+            column-gap:40px;
+            row-gap:8px;
+
+            grid-template-columns:
+                repeat(3,280px);
+
+            justify-content:center;
+            align-items:flex-start;
+}
+
+.projects-menu .dropdown-content>a{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    /*padding:0 10px;       * 左右縮小 */
+
+    font-size:12px;
+
+    font-weight:500;
+
+    width:100%;
+
+   /* height: 28px;*/
+
+    box-sizing:border-box;
+
+    border-radius:8px;
+
+    line-height:1.2;
+
+    border:1px solid rgba(100,116,139,0.15);
+
+    background:rgba(255,255,255,0.05);
+
+    color:#475569;
+
+    text-decoration:none;
+
+    transition:all .25s ease;
+
+
+    padding-left:20px;
+
+    height:60px;
+}
+
+.projects-menu .dropdown-content>a:hover{
+
+    background:transparent;
+
+    color:#f5b041;
+
+    border-color:#f5b041;
+}
+
 .mega-submenu{
 
-    /*display:grid;
+    /*display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    max-height:0;
+
+    overflow:hidden;*/
+
+    display:grid;
 
     grid-template-columns:1fr;
 
-    gap:6px;
+    gap:10px;
 
     opacity:0;
 
     visibility:hidden;
 
-    height:0;
-
-    overflow:hidden;
-
-    letter-spacing:0.2px;*/
-    position:absolute;
-
-    top:100%;
-    left:50%;
-    transform:translateX(-50%);
-
-    width:300px;
-
-    background: var(--mega-bg);
-
-    backdrop-filter:blur(20px);
-
-    -webkit-backdrop-filter:blur(20px);
-
-    padding:15px;
-
-    opacity:0;
-    visibility:hidden;
+    max-height:0;
 }
 
 .mega-column:hover .mega-submenu{
@@ -427,9 +562,7 @@
 
     visibility:visible;
 
-    /*height:auto;
-
-    overflow:visible;*/
+    max-height:600px;
 }
 
 @keyframes slideDown{
@@ -631,7 +764,8 @@
     min-height:700px;
 
     display:flex;
-    align-items:center;
+    /*align-items:center;*/
+    align-items:stretch;
     justify-content:space-between;
 
     padding:0 0 0 7%;
@@ -641,9 +775,18 @@
     gap: 0;
 }
 
-        .hero-left {
-            flex:1;
-            max-width:650px;
+        .hero-left{
+            /*flex:1;
+            max-width:650px;*/
+
+
+            flex:0 0 45%;
+            max-width:45%;
+
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:flex-start;
         }
 
         .hero-left h2 {
@@ -667,16 +810,20 @@
         .hero-buttons {
             display: flex;
             gap: 15px;
+            margin-bottom:20px;
         }
 
         .hero-right{
-            flex:1;
+            /*flex:1;*/
             display:flex;
+            flex:0 0 55%;
+            align-items:stretch;
+            justify-content:flex-end;
         }
 
 .hero-right video{
     width:100%;
-    height:700px;
+    height:100%;
 
     object-fit:cover;
 
@@ -1695,6 +1842,8 @@ gap:30px;
 
     color:#0f172a;
 
+    margin-top:-2px;
+
     margin-bottom:30px;
 }
 
@@ -1800,30 +1949,63 @@ text-align:center;
 }
 
 .hero-brand{
+    /*display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:35px;
+    margin-left:-35px;  整個往左一點 */
 
     display:flex;
+    flex-direction:column;
+
     align-items:center;
 
-    gap:20px;
+    margin-top:25px;          /* 往下 */
 
-    margin-bottom:35px;
+    margin-bottom:10px;
+
+    width:auto;          /* ← 不要 100% */
 }
 
 .hero-brand img{
-
-    height:90px;
+    /*height:120px;
     width:auto;
+    flex-shrink:0;
+    margin-left:-25px;*/
+
+    height:120px;
+    width:auto;
+    display:block;
+    margin:0 auto 18px auto;
+    transform:translateX(200px);
 }
 
 .hero-brand-text{
 
-    font-size:42px;
+    /*font-size:35px;
 
-    font-weight:800;
+    font-weight:700;
 
     line-height:1.1;
 
     color:#f39c12;
+
+    white-space:nowrap;
+
+    margin-top:0;*/
+
+    width:100%;
+    font-size:35px;
+    font-weight:700;
+
+    color:#f39c12;
+
+    white-space:nowrap;
+
+    text-align:left;
+
+    margin-top:-12px;
+    margin-bottom:18px;
 }
 
 .global-country-list{
@@ -2078,7 +2260,7 @@ text-align:center;
 </div>
     </div>
 
-    <div class="dropdown mega-menu">
+    <div class="dropdown products-menu">
         <a href="products.html">
             Products <i class="fas fa-chevron-right nav-arrow"></i>
         </a>
@@ -2104,7 +2286,7 @@ text-align:center;
 
     <a href="services.html">Services</a>
 
-    <div class="dropdown mega-menu">
+    <div class="dropdown projects-menu">
     <a href="projects.html">
         Projects / Industries <i class="fas fa-chevron-right nav-arrow"></i>
     </a>
@@ -2138,11 +2320,15 @@ text-align:center;
 
     <img src="images/CATSB-Logo.png" alt="CAT Logo">
 
-    <div class="hero-brand-text">
+    <!--div class="hero-brand-text">
         Control Automation Technology
-    </div>
+    </div-->
 
 </div>
+
+<div class="hero-brand-text">
+        Control Automation Technology
+    </div>
 
 <h2 class="hero-title">
 Precision Engineering for
