@@ -1947,6 +1947,7 @@ text-align:center;
 
 nav a {
     display: block;
+    height:auto !important;
     padding: 12px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     margin: 0;
@@ -2001,18 +2002,23 @@ nav a {
         nav {
             display: flex;
             flex-direction: column;
+            height:auto !important;
             max-height: 0;
-            overflow:visible;
+            overflow:hidden;
             transition: max-height 0.4s ease;
 
             position: sticky;
             top: 50px;   /* 👈 紧贴 burger */
             z-index:99999;
             padding: 0;
+            gap:0 !important;
+            align-items:stretch !important;
+            justify-content:flex-start !important;
         }
 
         nav.active {
-            max-height:none;
+            max-height:100vh;
+            overflow-y:auto;
         }
 
         /* 🔥 MOBILE CARD FIX（放在 media query 最下面） */
@@ -2081,31 +2087,26 @@ nav a {
             margin-left: 0; /* 🔥 居中 */
         }
 
+.dropdown{
+    display:block;
+    width:100%;
+    height:auto !important;
+}
+
 .dropdown-content {
     position:static !important;
-
     display:none;
-
     width:100%;
-
     max-height:none;
-
     overflow:visible;
-
     background:#2c3e50;
-
     box-shadow:none;
-
     border-radius:0;
-
     padding:0;
-
     opacity:1;
-
     visibility:visible;
-
     transform:none;
-        }
+}
 
 .dropdown.active .dropdown-content {
     opacity: 1;
@@ -2152,10 +2153,14 @@ nav a {
 }
 
 .mega-submenu{
-    display:block;
+    display:none;
     opacity:1;
     visibility:visible;
     max-height:none;
+}
+
+.dropdown.active .mega-submenu{
+    display:block;
 }
 
 .mega-menu{
