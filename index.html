@@ -704,20 +704,6 @@
             white-space: nowrap;
         }
 
-        /* 📱 MOBILE：轻微 hover（舒服版） */
-        @media (max-width: 768px) {
-
-        .dropdown-content a {
-            transition: background 0.2s ease !important;
-        }
-
-        .dropdown-content a:hover {
-            background: rgba(255,255,255,0.08) !important; /* ⭐ 轻微亮 */
-            transform: none !important;
-            padding-left: 25px !important;
-        }
-        }
-
         section {
             padding: 50px 20px;
             transition: background 0.3s ease;
@@ -1197,205 +1183,7 @@ gap:30px;
 .dropdown:hover .nav-arrow{
     transform: rotate(90deg);
 }
-        }
-        
-        /* 📱 手机 */
-        @media (max-width: 768px) {
-
-        nav {
-            padding: 0;
-        }
-
-        nav a {
-            display: block;
-            padding: 12px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin: 0;
-        }
-
-        .card-section {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        section {
-            padding: 40px 15px;
-        }
-
-        h2 {
-            font-size: 20px;
-        }
-
-        .btn {
-            width: 90%;
-            max-width: 300px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 28px;
-        }
-
-        .menu-toggle {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #34495e;
-            padding: 10px;
-            cursor: pointer;
-
-            position: sticky;   /* 🔥 关键 */
-            top: 0;             /* ✅ 到顶部就停 */
-            z-index: 2000;      /* 🔥 防止被盖住 */
-        }
-
-        .menu-toggle span {
-            height: 3px;
-            width: 25px;
-            background: white;
-            margin: 4px 0;
-            transition: 0.4s;
-        }
-
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        nav {
-            display: flex;
-            flex-direction: column;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-
-            position: sticky;
-            top: 50px;   /* 👈 紧贴 burger */
-            z-index: 1500;
-        }
-
-        nav.active {
-            max-height: calc(100vh - 50px);  /* 🔥 填满屏幕 */
-        }
-
-        /*h2::before,
-        h2::after {
-            display: none;
-        }*/
-
-        .dropdown-content {
-            position: relative;
-            z-index: 9999;
-            max-height: 200px;
-            overflow-y: auto;
-            box-shadow: none;
-            border-radius: 0;
-            display: none;
-            width: 100%;
-            background: #2c3e50;
-
-            opacity: 1;
-            visibility: visible;
-            transform: none;
-        }
-
-        .dropdown.active .dropdown-content {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            visibility: visible;
-        }
-
-        .dropdown.active {
-            background: #2c3e50;
-        }
-
-        .dropdown-content a {
-            color: white;
-            padding-left: 25px;
-        }
-        
-        /* 🔥 MOBILE CARD FIX（放在 media query 最下面） */
-        .card-section {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-        }
-
-        .card {
-            width: 90% !important;
-            margin: 20px auto !important;
-            padding: 20px !important;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        /* 图片统一 */
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        /* overlay 文字 */
-        .overlay h3 {
-            font-size: 16px;
-            text-align: center;
-            padding: 10px;
-        }
-
-        /* 描述文字 */
-        .card p {
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .card li{
-            font-size:14px;
-        }
-
-        /* 🔥 MOBILE HEADER 修复 */
-        .header-inner {
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            font-size: 22px;
-        }
-
-        .header-text h1 {
-            margin: 0;
-            font-size: 30px;
-        }
-
-        .header-text p {
-            margin-top: 5px;
-            font-size: 16px;
-        }
-
-        .logo {
-            height: 50px;   /* 🔥 手机版稍微小一点 */
-            margin-left: 0; /* 🔥 居中 */
-        }
-
-        .footer-grid{
-
-    grid-template-columns:1fr;
-
-    gap:30px;
-}
-        }
+    }
 
         /* ===== 主区（CAT） ===== */
         .primary-section {
@@ -2111,11 +1899,273 @@ text-align:center;
         drop-shadow(0 0 18px #f5b041);
 }
 
+/* 📱 Tablet */
+@media (min-width:769px) and (max-width:1024px){
+
+    .hero{
+
+    flex-direction:row !important;
+
+}
+
+.hero-left{
+
+    flex:1;
+
+}
+
+.hero-right{
+
+    flex:1;
+
+}
+
+.hero-right video{
+
+    height:600px;
+
+}
+
+        .credibility{
+
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:40px;
+    }
+
+    .card {
+             width: 45%;
+        }
+        }
+
 @media (max-width: 768px) {
+
+nav a {
+    display: block;
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin: 0;
+        }
+
+        .card-section {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        section {
+            padding: 40px 15px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        .btn {
+            width: 90%;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #34495e;
+            padding: 10px;
+            cursor: pointer;
+
+            position: sticky;   /* 🔥 关键 */
+            top: 0;             /* ✅ 到顶部就停 */
+            z-index: 2000;      /* 🔥 防止被盖住 */
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            width: 25px;
+            background: white;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            max-height: 0;
+            overflow:visible;
+            transition: max-height 0.4s ease;
+
+            position: sticky;
+            top: 50px;   /* 👈 紧贴 burger */
+            z-index:99999;
+            padding: 0;
+        }
+
+        nav.active {
+            max-height:none;
+        }
+
+        /* 🔥 MOBILE CARD FIX（放在 media query 最下面） */
+        .card-section {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+
+        .card {
+            width: 90% !important;
+            margin: 20px auto !important;
+            padding: 20px !important;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* 图片统一 */
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        /* overlay 文字 */
+        .overlay h3 {
+            font-size: 16px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* 描述文字 */
+        .card p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .card li{
+            font-size:14px;
+        }
+
+        /* 🔥 MOBILE HEADER 修复 */
+        .header-inner {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            font-size: 22px;
+        }
+
+        .header-text h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .header-text p {
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        .logo {
+            height: 50px;   /* 🔥 手机版稍微小一点 */
+            margin-left: 0; /* 🔥 居中 */
+        }
+
+.dropdown-content {
+    position:static !important;
+
+    display:none;
+
+    width:100%;
+
+    max-height:none;
+
+    overflow:visible;
+
+    background:#2c3e50;
+
+    box-shadow:none;
+
+    border-radius:0;
+
+    padding:0;
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:none;
+        }
+
+.dropdown.active .dropdown-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    visibility: visible;
+}
+
+.dropdown.active {
+    background: #2c3e50;
+}
+
+.dropdown-content a {
+    transition: background 0.2s ease !important;
+    color: white;
+    padding-left: 25px;
+}
+
+.dropdown-content a:hover {
+    background: rgba(255,255,255,0.08) !important; /* 轻微亮 */
+    transform: none !important;
+    padding-left: 25px !important;
+}
+
+.mega-menu .dropdown-content,
+.products-menu .dropdown-content,
+.projects-menu .dropdown-content{
+    display:none;
+    grid-template-columns:1fr !important;
+    width:100%;
+    left:0;
+    transform:none;
+    position:static;
+    padding:0;
+}
+
+.dropdown.active > .dropdown-content{
+    display:block !important;
+}
+
+.mega-column{
+    width:100%;
+    margin:0;
+    gap:0;
+}
+
+.mega-submenu{
+    display:block;
+    opacity:1;
+    visibility:visible;
+    max-height:none;
+}
+
+.mega-menu{
+    position:relative;
+}
 
 .hero{
     flex-direction:column !important;
-    padding:30px 20px 0 !important;
+    padding:30px 0 0 !important;
+    min-height:auto !important;
 }
 
 .hero-left{
@@ -2128,11 +2178,18 @@ text-align:center;
 .hero-right{
     flex:100% !important;
     width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow:hidden;
 }
 
 .hero-right video{
-    width:100% !important;
+    width:100vw;
     height:300px !important;
+    display:block;
+    margin-left:calc(50% - 50vw);
+    border-radius:0;
+    object-fit:cover;
 }
 
 .hero-brand{
@@ -2245,52 +2302,47 @@ text-align:center;
     text-align:center !important;
 }
 
-}
+.cookie-banner{
 
-/* 📱 Tablet */
-@media (min-width:769px) and (max-width:1024px){
+    width:92%;
 
-    .hero{
+    left:50%;
 
-    flex-direction:row !important;
+    bottom:15px;
 
-}
+    transform:translateX(-50%);
 
-.hero-left{
+    padding:18px;
 
-    flex:1;
+    flex-direction:column;
 
-}
+    align-items:center;
 
-.hero-right{
+    text-align:center;
 
-    flex:1;
+    gap:15px;
 
-}
-
-.hero-right video{
-
-    height:600px;
+    border-radius:18px;
 
 }
 
-        .credibility{
+.cookie-banner p{
 
-        grid-template-columns:repeat(2,1fr);
-    }
+    font-size:15px;
 
-    .footer-grid{
+}
 
-        grid-template-columns:repeat(2,1fr);
+.cookie-buttons{
 
-        gap:40px;
-    }
+    width:100%;
 
-    .card {
-             width: 45%;
-        }
+    justify-content:center;
 
-        }
+    flex-wrap:wrap;
+
+}
+
+}
 </style>
 </head>
 
